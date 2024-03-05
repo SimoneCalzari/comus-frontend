@@ -1,4 +1,5 @@
 <script>
+
 import AppJumbotron from '../components/AppJumbotron.vue';
 export default{
     name: 'Home',
@@ -8,9 +9,9 @@ export default{
 
 }
 
+
 </script>
+
 <template>
- Sono la homepage
  <AppJumbotron />
-    
 </template>
