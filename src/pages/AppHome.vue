@@ -1,9 +1,17 @@
 <script>
+
+import AppJumbotron from '../components/AppJumbotron.vue';
 export default{
     name: 'Home',
+    components: {
+    AppJumbotron
+    }
+
 }
+
+
 </script>
 
 <template>
-    <h2 class="text-center">Sono la homepage</h2>
+ <AppJumbotron />
 </template>
