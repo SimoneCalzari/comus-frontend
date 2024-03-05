@@ -1,100 +1,99 @@
 <script>
-export default {
-  name: "Jumbotron",
-  mounted() {
-    
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
 
-const track = document.getElementById("image-tracker");
-console.log(track);
+  // Import Swiper styles
+  import 'swiper/css';
 
-const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+  import 'swiper/css/effect-coverflow';
+  import 'swiper/css/pagination';
 
-const handleOnUp = () => {
-  track.dataset.mouseDownAt = "0";  
-  track.dataset.prevPercentage = track.dataset.percentage;
-}
-
-const handleOnMove = e => {
-  if(track.dataset.mouseDownAt === "0") return;
   
-  const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
-  
-  const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-  
-  track.dataset.percentage = nextPercentage;
-  
-  track.animate({
-    transform: `translate(${nextPercentage}%, -50%)`
-  }, { duration: 1200, fill: "forwards" });
-  
-  for(const image of track.getElementsByClassName("image")) {
-    image.animate({
-      objectPosition: `${100 + nextPercentage}% center`
-    }, { duration: 1200, fill: "forwards" });
-  }
-}
 
-/* -- Had to add extra lines for touch events -- */
+  // import required modules
+  import { EffectCoverflow, Pagination } from 'swiper/modules';
 
-window.onmousedown = e => handleOnDown(e);
+  export default {
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    setup() {
+      return {
+        modules: [EffectCoverflow, Pagination],
+      };
+    },
+  };
 
-window.ontouchstart = e => handleOnDown(e.touches[0]);
+// export default {
+//   name: "Jumbotron",
+// };
 
-window.onmouseup = e => handleOnUp(e);
-
-window.ontouchend = e => handleOnUp(e.touches[0]);
-
-window.onmousemove = e => handleOnMove(e);
-
-window.ontouchmove = e => handleOnMove(e.touches[0]);
-
-  },
-};
 </script>
 <template>
-  <h2 class="container">Puoi scegliere tra queste categorie di ristorante:</h2>
-  <div
-    class="d-flex container"
-    id="image-tracker"
-    data-mouse-down-at="0"
-    data-prev-percentage="0"
+  <h2 class="container mt-5">Puoi scegliere tra queste categorie di ristorante:</h2>
+  <swiper
+    :effect="'coverflow'"
+    :grabCursor="true"
+    :centeredSlides="true"
+    :slidesPerView="'auto'"
+    :coverflowEffect="{
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }"
+    :pagination="true"
+    :modules="modules"
+    class="mySwiper container"
   >
-    <div class="category image" ></div>
-    <div class="category image" ></div>
-    <div class="category image" ></div>
-    <div class="category image" ></div>
-    
- 
-    <!-- <img src="img/image0_0.jpg" alt="" class="image" draggable="false">
-        <img src="img/image1_0.jpg" alt="" class="image" draggable="false">
-        <img src="img\image0_0 (1).jpg" alt="" class="image" draggable="false">
-        <img src="img\image0_0 (2).jpg" alt="" class="image" draggable="false">
-        <img src="img\image0_0 (3).jpg" alt="" class="image" draggable="false">
-        <img src="img\image0_0 (4).jpg" alt="" class="image" draggable="false">
-        <img src="img\image1_0 (2).jpg" alt="" class="image" draggable="false">
-        <img src="img\image1_0 (1).jpg" alt="" class="image" draggable="false"> -->
-  </div>
-  <!-- <script src="../jumbotron.js"></script> -->
+    <swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/fast-food.jpg" draggable="false" /></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/italian.jpg" draggable="false" /></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/sushi.jpg"  draggable="false"/></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/mexican.jpg"  draggable="false"/></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/pizza.jpg"  draggable="false"/></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/veggie.jpg" draggable="false" /></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/chinese.jpg" draggable="false" /></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/icecream.jpg"  draggable="false"/></a></swiper-slide
+    ><swiper-slide
+      ><a href="#"><img src="../../public/img/categories_img/coffee.jpg" draggable="false"
+    /></a></swiper-slide>
+  </swiper>
 </template>
 <style scoped lang="scss">
-/* slider di immagini */
-#image-tracker {
-  gap: 4vmin;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(0, -50%);
-  user-select: none;
-  .category {
-    width: 45vmin;
-    height: 56vmin;
-    border: 5px dashed purple ;
-    object-fit: cover;
-    object-position: center;
-  }
+@import '../assets/scss/partials/variables.scss';
+h2{
+  color: $custom-secondary;
 }
 
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.swiper-slide:hover{
+  border: 5px solid $custom-primary;
+  border-radius: 5px;
+}
 </style>

@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <!-- <AppJumbotron /> -->
+  <AppJumbotron />
   <AppRistoratore />
   <AppDownload />
   <AppFaq />
