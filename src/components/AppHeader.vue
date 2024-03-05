@@ -21,7 +21,11 @@ export default {
       <li>
         <a href="">Sei un ristoratore?</a>
       </li>
-      <li class="btn btn-danger rounded m-2">Carrello</li>
+      <li class="cart">
+        <router-link :to="{ name: 'cart' }">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </router-link>
+      </li>
     </ul>
   </header>
 </template>
