@@ -3,7 +3,6 @@ export default{}
 
 </script>
 <template>
- 
-ciao
+ Sono la homepage
     
 </template>
