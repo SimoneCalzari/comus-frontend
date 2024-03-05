@@ -21,7 +21,11 @@ export default {
       <li>
         <a href="">Sei un ristoratore?</a>
       </li>
-      <li class="btn btn-danger rounded m-2">Carrello</li>
+      <li class="cart">
+        <router-link :to="{ name: 'cart' }">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </router-link>
+      </li>
     </ul>
   </header>
 </template>
@@ -31,7 +35,7 @@ export default {
 
 header {
   background-color: #432456;
-  padding: 10px 20px;
+  padding: 10px 30px;
 
   .cont-logo {
     width: 150px;
@@ -46,7 +50,30 @@ header {
   ul {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
+
+    a {
+      text-decoration: none;
+      color: #ffff;
+
+      &:hover {
+        color: #faebd7;
+        text-decoration: underline;
+        transition: bottom 0.3s ease-in-out;
+      }
+    }
+
+    .cart a {
+      background-color: #faebd7;
+      padding: 10px 30px;
+      color: #432456;
+      border-radius: 10px;
+      font-size: 20px;
+
+      &:hover {
+        background-color: #ffff;
+      }
+    }
   }
 }
 </style>

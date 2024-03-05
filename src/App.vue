@@ -5,19 +5,17 @@ import AppHome from './pages/AppHome.vue';
 
 
 export default {
-    name: 'App',
-    components: {
+  name: 'App',
+  components: {
     AppHeader,
     AppFooter,
-    AppHome
-  }
+    AppHome,
+  },
 };
 </script>
 
 <template>
-    <AppHeader />
-    <AppHome />
-    <AppFooter />
-
-   
+  <AppHeader />
+  <router-view></router-view>
+  <AppFooter />
 </template>
