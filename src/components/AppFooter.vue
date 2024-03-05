@@ -53,6 +53,7 @@ export default {
     <!--/footer-top-->
     <!--footer-bottom-->
     <div id="footer-bottom" class="container-fluid row d-flex justify-content-center align-items-center">
+      <!--download-->
       <div class="col-md-6 col-sm-12">
         <ul class="d-flex flex-row align-items-center justify-content-center gap-4 m-0">
           <li>
@@ -66,9 +67,12 @@ export default {
           </li>
         </ul>
       </div>
+      <!--/download-->
+      <!--copyright-->
       <div class="col-md-6 col-sm-12 py-md-0 py-sm-4 text-start">
         <h5 class="text-md-start text-sm-center">Copyright © 2024 Comus Italia. All Rights Reserved.</h5>
       </div>
+      <!--/copyright-->
     </div>
     <!--/footer-bottom-->
   </footer>
@@ -76,6 +80,7 @@ export default {
 
 
 <style scoped lang="scss">
+//importazione file variables
 @import '../assets/scss/partials/variables.scss';
 
 footer {
@@ -84,6 +89,7 @@ footer {
 
   #footer-top {
     padding: $size_8 0;
+    
     li {
     padding: $size_8 0;
 
@@ -100,15 +106,15 @@ footer {
   
   #footer-bottom {
     padding: $size_8 0;
-    .costum-download {
-    width: 6.25rem;
-  }
 
-  h5 {
-    color: $custom-text;
-    font-size: $size_8;
-  }
+      .costum-download {
+      width: 6.25rem;
+    }
 
+    h5 {
+      color: $custom-text;
+      font-size: $size_8;
+    }
   }
 }
 </style>
