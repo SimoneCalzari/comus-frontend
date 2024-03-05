@@ -1,8 +1,9 @@
 <script>
-export default{}
-
+export default{
+    name: 'Home',
+}
 </script>
+
 <template>
- Sono la homepage
-    
+    <h2 class="text-center">Sono la homepage</h2>
 </template>

@@ -1,7 +1,13 @@
-@use './partials/reset' as *;
-@use './partials/mixins' as *;
-@use './partials/utilities' as *;
-@use './partials/variables' as *;
+
+/************* 
+GENERAL
+**************/
+
+@use "./partials/reset.scss" as *;
+@use "./partials/variables.scss" as *;
+@use "./partials/utilities.scss" as *;
+@use "./partials/common.scss" as *;
+
 
 // Import all of Bootstrap's CSS
 @import 'bootstrap/scss/bootstrap';

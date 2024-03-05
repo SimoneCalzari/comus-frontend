@@ -1,0 +1,12 @@
+/************* 
+UTILITIES
+**************/
+@use "../partials/variables.scss" as *;
+
+.custom-color-text {
+    color: $custom_text;
+};
+
+.custom-color-white {
+    color: $custom_white;
+}
