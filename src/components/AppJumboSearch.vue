@@ -1,36 +1,50 @@
 <script>
+import store from '../store';
+import axios from 'axios';
+
 export default {
-  name: "AppSearch",
+  name: 'AppSearch',
   data() {
-    return {};
+    return {
+      store,
+      currentType: [],
+    };
+  },
+  methods: {
+    getTypes() {
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.types)
+        .then((response) => {
+          this.store.types = response.data.results;
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+
+  created() {
+    this.getTypes();
   },
 };
 </script>
 <template>
   <div class="container mt-5 text-left">
-    <input
-      class="p-2"
-      list="types"
-      name="type"
-      id="type"
-      placeholder="Scegli una categoria..."
-    />
-    <datalist id="types">
-      <option value="fast-food"></option>
-      <option value="italian"></option>
-      <option value="sushi"></option>
-      <option value="mexican"></option>
-      <option value="pizza"></option>
-      <option value="veggie"></option>
-      <option value="chinese"></option>
-      <option value="icecream"></option>
-      <option value="coffee"></option>
-      <option value="hamburger"></option>
-    </datalist>
+    <select
+      class="form-select"
+      v-model="currentType"
+      aria-label="Default select example"
+    >
+      <option selected>Open this select menu</option>
+      <option v-for="type in store.types" :value="type.id">
+        {{ type.name_type }}
+      </option>
+    </select>
   </div>
 </template>
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 input {
   width: 25%;
   height: 40px;
