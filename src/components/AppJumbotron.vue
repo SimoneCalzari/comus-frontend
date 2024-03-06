@@ -26,7 +26,7 @@ export default {
     <h2 class="container mt-5 mb-3">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
-    <AppSearch />
+    <!-- <AppSearch /> -->
     <swiper :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
       <swiper-slide
         ><a href="#"
@@ -100,10 +100,12 @@ h2 {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 200px;
+  width: calc(100% / 12 - 80px);
   height: 310px;
+  margin: 10px;
   img{
-    width: 200px;
+    
+    width: calc(100% / 10 - 50px);
     height: 300px;
   }
 }
