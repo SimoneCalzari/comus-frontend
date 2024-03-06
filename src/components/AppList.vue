@@ -46,6 +46,7 @@ export default {
 @import "../assets/scss/partials/variables.scss";
 h1 {
   color: $custom-secondary;
+  font-family: "Bevan", serif;
 }
 .restaurant-card {
   -webkit-box-shadow: -1px 1px 60px 1px $custom-secondary;

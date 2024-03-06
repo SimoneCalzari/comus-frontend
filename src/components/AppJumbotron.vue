@@ -96,6 +96,7 @@ export default {
 @import '../assets/scss/partials/variables.scss';
 h2 {
   color: $custom-secondary;
+  font-family: "Bevan", serif;
 }
 
 .swiper {

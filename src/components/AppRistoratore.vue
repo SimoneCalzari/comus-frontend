@@ -15,7 +15,7 @@ export default {
           <div class="row text-center">
             <div class="cont-text col-12 col-sm-9 col-lg-12 mt-5 p-0">
               <h2>Vuoi unirti al team di Comus?</h2>
-              <p class="fw-medium">
+              <p>
                 Registrati e inizia a vendere sul nostro portale
               </p>
             </div>
@@ -29,6 +29,7 @@ export default {
           </div>
         </div>
         <div class="cont-dx col-12 col-lg-6">
+
           <div class="cont-img">
             <img src="/img/work-with-us.png" alt="" />
           </div>
@@ -46,6 +47,10 @@ a {
 }
 
 .ristoratore {
+  h2 {
+    font-family: "Bevan", serif;
+  }
+  
   .cont-sx {
     height: 100%;
   }

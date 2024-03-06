@@ -83,10 +83,12 @@ export default {
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
       <p class="m-0 mt-3 text-center fs-6 text-body-secondary">
         Copyright © 2024 Comus Italia. All Rights Reserved.
       </p>
+
     </div>
   </footer>
 </template>
@@ -131,8 +133,10 @@ footer {
   .cont-img {
     width: 100px;
 
+
     img {
       width: 100%;
+
     }
   }
 }
