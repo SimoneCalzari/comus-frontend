@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import AppHome from './pages/AppHome.vue';
-import AppCart from './pages/AppCart.vue';
+import AppShopping from './pages/AppShopping.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/carrello',
       name: 'cart',
-      component: AppCart,
+      component: AppShopping,
     },
   ],
 });
