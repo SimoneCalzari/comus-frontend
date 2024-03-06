@@ -5,13 +5,11 @@ export default {
 </script>
 
 <template>
-
   <!--section slogan-->
   <section id="slogan" class="d-flex align-items-center">
     <div class="w-25">
-      <h2 class="display-3">Gusto<br> in viaggio, qualità<br> in ogni boccone,</h2>
+      <h2 class="display-3">Gusto<br> in viaggio, qualità<br> in ogni boccone.</h2>
       <img src="../../public/img/logo/logo-orange-purple.svg" class="img-fluid" alt="logo-orange-purple.svg">
-
     </div>
   </section>
   <!--section slogan-->
@@ -30,7 +28,7 @@ export default {
   background-position: left;
           
   h2 {
-    font-family: "Josefin Slab", serif;
+    font-family: "Bevan", serif;
     top: 5rem;
     padding: $size-48 $size-16 0;
     color: $custom-primary;
