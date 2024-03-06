@@ -98,9 +98,11 @@ export default {
             />
           </li>
           <li>
-
-            <img class="costum-download rounded-2" src="../../public/img/play-store.svg" alt="play-store.svg">
-
+            <img
+              class="costum-download rounded-2"
+              src="/img/play-store.svg"
+              alt="play-store.svg"
+            />
           </li>
         </ul>
       </div>
@@ -127,13 +129,10 @@ footer {
   font-family: "Syne", sans-serif;
 
   #footer-top {
-
     padding: $size-8 0;
-    
+
     li {
-    padding: $size-8 0;
-
-
+      padding: $size-8 0;
 
       a {
         color: $custom-white;
