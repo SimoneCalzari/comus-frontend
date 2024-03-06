@@ -1,19 +1,19 @@
 <script>
 export default {
-  name: 'AppFooter',
+  name: "AppFooter",
   data() {
     return {
       menus_1: [
-        'Lista Ristoranti',
-        'Area Ristoratore',
-        'Lavora con Noi',
-        'Aiuto',
+        "Lista Ristoranti",
+        "Area Ristoratore",
+        "Lavora con Noi",
+        "Aiuto",
       ],
       menus_2: [
-        'Informativa sulla Privacy',
-        'Informativa relativa ai cookie',
-        'Termini & Condizioni',
-        'Informazioni sul packaging',
+        "Informativa sulla Privacy",
+        "Informativa relativa ai cookie",
+        "Termini & Condizioni",
+        "Informazioni sul packaging",
       ],
     };
   },
@@ -48,10 +48,7 @@ export default {
               class="col-6 col-sm-12 d-flex justify-content-center align-items-center"
             >
               <div class="cont-img">
-                <img
-                  src="/public/img/logo/logo-sm-purple.svg"
-                  alt="logo-footer"
-                />
+                <img src="/img/logo/logo-sm-purple.svg" alt="logo-footer" />
               </div>
             </div>
             <!-- socials -->
@@ -88,13 +85,12 @@ export default {
       <p class="m-0 mt-3 text-center fs-6 text-body-secondary">
         Copyright © 2024 Comus Italia. All Rights Reserved.
       </p>
-
     </div>
   </footer>
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 ul {
   padding: 0;
 }
@@ -133,10 +129,8 @@ footer {
   .cont-img {
     width: 100px;
 
-
     img {
       width: 100%;
-
     }
   }
 }
