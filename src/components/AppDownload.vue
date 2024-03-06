@@ -14,10 +14,10 @@ export default {
         <h3>Scarica l'app</h3>
         <p>Potrai ordinare ovunque sarai e quando vorrai</p>
         <a href="#">
-          <img src="../../public/img/app-store.png" alt="app-store" />
+          <!-- <img src="../../public/img/app-store.png" alt="app-store" /> -->
         </a>
         <a href="#">
-          <img src="../../public/img/google-play.png" alt="play-store" />
+          <!-- <img src="../../public/img/google-play.png" alt="play-store" /> -->
         </a>
       </div>
       <div class="cont-dx">immagine</div>

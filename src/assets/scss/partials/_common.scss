@@ -1,0 +1,12 @@
+@import './variables';
+
+.custom-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: $custom-secondary;
+  color: $custom_white;
+
+  &:hover {
+    background-color: #795e88;
+  }
+}

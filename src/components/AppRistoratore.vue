@@ -9,13 +9,33 @@ export default {
 
 <template>
   <section class="ristoratore py-5" id="ristoratore">
-    <div class="container d-flex justify-content-between">
-      <div class="cont-sx">
-        <h3>Vuoi unirti al team di Comus?</h3>
-        <p>Registrati e inizia a vendere sul nostro portale</p>
-        <a href="http://127.0.0.1:8000/">area ristoratori</a>
+    <div class="container-sm">
+      <div class="row">
+        <div class="cont-sx col-12 col-lg-6">
+          <div class="container">
+            <div class="row text-center">
+              <div class="cont-text col-9 col-lg-12 mt-5 p-0">
+                <h2>Vuoi unirti al team di Comus?</h2>
+                <p class="fw-medium">
+                  Registrati e inizia a vendere sul nostro portale
+                </p>
+              </div>
+              <div
+                class="col-3 col-lg-12 d-flex align-items-center justify-content-center p-0"
+              >
+                <a class="custom-btn mt-5" href="http://127.0.0.1:8000/"
+                  >Registrati</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cont-dx col-12 col-lg-6">
+          <div class="cont-img">
+            <img src="/public/img/work-with-us.png" alt="" />
+          </div>
+        </div>
       </div>
-      <div class="cont-dx">immagine</div>
     </div>
   </section>
 </template>
@@ -23,7 +43,28 @@ export default {
 <style scoped lang="scss">
 @import '../assets/scss/partials/variables.scss';
 
+a {
+  text-decoration: none;
+}
+
 .ristoratore {
-  height: 50vh;
+  .cont-sx {
+    height: 100%;
+  }
+
+  .cont-dx {
+    .cont-img {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 100%;
+        width: 90%;
+      }
+    }
+  }
 }
 </style>
