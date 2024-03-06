@@ -1,8 +1,24 @@
 <script>
+import store from "../store";
+import axios from "axios";
 export default {
   name: "AppList",
   data() {
-    return {};
+    return {
+      store,
+    };
+  },
+  methods: {
+    getRestaurants() {
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+        .then((response) => {
+          this.store.restaurants = response.data.results;
+        });
+    },
+  },
+  created() {
+    this.getRestaurants();
   },
 };
 </script>
@@ -10,18 +26,17 @@ export default {
   <section class="my-2">
     <h1 class="container">I ristoranti:</h1>
     <div class="container d-flex gap-5">
-      <div class="restaurant-card my-5">
-        <a href="#">
-          <img
-            src="../../public/img/categories_img/sushi.jpg"
-            alt="immagine ristorante"
-          />
-          <div class="banner p-2">Solo con Comus!</div>
-          <div class="caption p-3">
-            <h3>Nome ristorante</h3>
-            <p>Distanza da te (Random)</p>
-          </div></a
-        >
+      <div class="restaurant-card my-5" v-for="restaurant in store.restaurants">
+        <img src="/img/categories_img/sushi.jpg" alt="immagine ristorante" />
+        <div class="banner p-2">Solo con Comus!</div>
+        <div class="caption p-3">
+          <h3>{{ restaurant.name_restaurant }}</h3>
+          <p>
+            <span v-for="category in restaurant.types" class="me-2 fs-5">
+              {{ category.name_type }}
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -58,8 +73,8 @@ h1 {
   -o-box-shadow: -1px 1px 60px 1px $custom-primary;
   box-shadow: -1px 1px 60px 1px $custom-primary;
 }
-a{
-    text-decoration: none;
-    color: $custom-secondary;
+a {
+  text-decoration: none;
+  color: $custom-secondary;
 }
 </style>

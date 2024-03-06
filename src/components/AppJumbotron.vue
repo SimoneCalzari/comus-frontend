@@ -2,11 +2,17 @@
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 import AppSearch from "../components/AppJumboSearch.vue";
+import store from "../store";
 
 // Import Swiper styles
 import "swiper/css";
 
 export default {
+  data() {
+    return {
+      store,
+    };
+  },
   components: {
     Swiper,
     SwiperSlide,
@@ -22,18 +28,20 @@ export default {
 // };
 </script>
 <template>
-  <section class="mb-5 pb-5">
-    <h2 class="container mt-5 mb-3">
+  <section class="mb-3">
+    <h2 class="container my-4">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
-    <!-- <AppSearch /> -->
+    <AppSearch />
     <swiper :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
-      <swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/italiano.jpg"
-            draggable="false" /></a></swiper-slide
-      ><swiper-slide
+      <swiper-slide v-for="element in store.types">
+        <img
+          :src="`${store.api.baseUrl}/storage/${element.image}`"
+          draggable="false"
+        />
+        <h3 class="text-center py-2">{{ element.name_type }}</h3>
+      </swiper-slide>
+      <!-- <swiper-slide
         ><a href="#"
           ><img
             src="../../public/img/categories_img/sushi.jpg"
@@ -80,7 +88,7 @@ export default {
           ><img
             src="../../public/img/categories_img/fast-food.jpg"
             draggable="false" /></a
-      ></swiper-slide>
+      ></swiper-slide> -->
     </swiper>
   </section>
 </template>
@@ -94,17 +102,16 @@ h2 {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
-  
 }
 
 .swiper-slide {
+  cursor: pointer;
   background-position: center;
   background-size: cover;
   width: calc(100% / 12 - 80px);
   height: 310px;
   margin: 10px;
-  img{
-    
+  img {
     width: calc(100% / 10 - 50px);
     height: 300px;
   }
