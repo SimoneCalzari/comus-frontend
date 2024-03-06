@@ -19,7 +19,7 @@ export default {
         <a href="">Lista ristoranti</a>
       </li>
       <li>
-        <a href="">Sei un ristoratore?</a>
+        <a href="#ristoratore">Sei un ristoratore?</a>
       </li>
       <li class="cart">
         <router-link :to="{ name: 'cart' }">
