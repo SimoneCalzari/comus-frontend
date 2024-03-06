@@ -1,9 +1,9 @@
 <script>
 //importazione file components
 
-import AppJumbotron from "../components/AppJumbotron.vue";
-import AppList from "../components/AppList.vue";
-import AppSectionSlogan from "../components/AppSectionSlogan.vue";
+import AppJumbotron from '../components/AppJumbotron.vue';
+import AppList from '../components/AppList.vue';
+import AppSectionSlogan from '../components/AppSectionSlogan.vue';
 
 import AppRistoratore from '../components/AppRistoratore.vue';
 import AppFaq from '../components/AppFaq.vue';
@@ -23,16 +23,10 @@ export default {
 </script>
 
 <template>
-
-
-
-<AppJumbotron /> 
-<AppList />
-<AppSectionSlogan />
-<AppRistoratore />
-<AppDownload />
-<AppFaq />
-
-
-
+  <AppJumbotron />
+  <!-- <AppList /> -->
+  <AppSectionSlogan />
+  <AppRistoratore />
+  <AppDownload />
+  <AppFaq />
 </template>
