@@ -2,93 +2,119 @@
 export default {
   name: 'Footer',
   data() {
-    return {};
+    return {
+      menus_1:['Lista Ristoranti', 'Area Ristoratore', 'Lavora con Noi', 'Aiuto'],
+      menus_2:['Informativa sulla Privacy', 'Informativa relativa ai cookie', 'Termini & Condizioni', 'Informazioni sul packaging'],
+    };
   },
 };
 </script>
 
 <template>
-  <footer class="p-4">
-    <div class="row">
-      <ul class="col-md-3 col-sm-12">
-        <li>
-          <a href="#" class="custom-text">Lista Ristoranti</a>
-        </li>
-        <li>
-          <a href="#">Aera Ristoratore</a>
-        </li>
-        <li>
-          <a href="#">Lavora con noi</a>
-        </li>
-        <li>
-          <a href="#">Aiuto</a>
+  <footer>
+    <!--footer-top-->
+    <div id="footer-top" class="container-fluid row">
+      <!--menu 1-->
+      <ul class="col-md-3 col-sm-12 py-md-0 py-sm-4">
+        <li v-for="menu_1 in menus_1" class="text-md-start text-sm-center">
+          <a href="#" class="custom-text">{{ menu_1 }}</a>
         </li>
       </ul>
-      <ul class="col col-md-3 col-sm-12">
-        <li>
-          <a href="#">Informativa sulla Privacy</a>
-        </li>
-        <li>
-          <a href="#">Informativa relativa ai cookie</a>
-        </li>
-        <li>
-          <a href="#">Temini & Condizioni</a>
-        </li>
-        <li>
-          <a href="#">Informazioni sul packaging</a>
+      <!--/menu 1-->
+      <!--menu 2-->
+      <ul class="col col-md-3 col-sm-12 py-md-0 py-sm-4">
+        <li v-for="menu_2 in menus_2" class="text-md-start text-sm-center">
+          <a href="#" class="custom-text">{{ menu_2 }}</a>
         </li>
       </ul>
-      <ul class="col col-md-3 col-sm-12">
-        <li>
-          <a href="#">x</a>
+      <!--/menu 2-->
+      <!--socials-->
+      <ul class="d-flex gap-4 col-md-3 col-sm-12 justify-content-center py-md-0 py-sm-4">
+        <li class="">
+          <a href="#" class="custom-text"><i class="fa-brands fa-square-x-twitter"></i></a>
         </li>
         <li>
-          <a href="#">YouTube</a>
+          <a href="#" class="custom-text"><i class="fa-brands fa-youtube"></i></a>
         </li>
         <li>
-          <a href="#">instagram</a>
+          <a href="#" class="custom-text"><i class="fa-brands fa-square-instagram"></i></a>
         </li>
         <li>
-          <a href="#">LinkeIn</a>
-        </li>
-        <li>
-          <a href="#">Facebook</a>
+          <a href="#" class="custom-text"><i class="fa-brands fa-square-facebook"></i></a>
         </li>
       </ul>
-      <div class="col col-md-3 col-sm-12">
-        <img class="w-25" src="../../public/img/logo.png" alt="Comus_logo.jpg">
+      <!--/socials-->
+      <!--logo-->
+      <div class="col-md-3 col-sm-12 py-md-0 py-sm-4 d-flex justify-content-center">
+        <img class="img-fluid" src="../../public/img/logo.png" alt="Comus_logo.jpg">
       </div>
+      <!--/logo-->
     </div>
-    <div class="col text-center py-4">Copyright © 2024 Comus Italia. All Rights Reserved.</div>
-    <!-- <ul class="d-flex flex-row gap-4">
-      <li class="">
-        <img src="../../public/img/app-store.png" alt="">
-      </li>
-      <li>
-        <img src="../../public/img/app-gallery.png" alt="">
-      </li>
-      <li>
-        <img src="../../public/img/google-play.png" alt="">
-      </li>
-      <span>Copyright © 2024 Comus Italia. All Rights Reserved.</span>
-    </ul> -->
+    <!--/footer-top-->
+    <!--footer-bottom-->
+    <div id="footer-bottom" class="container-fluid row d-flex justify-content-center align-items-center">
+      <!--download-->
+      <div class="col-md-6 col-sm-12">
+        <ul class="d-flex flex-row align-items-center justify-content-center gap-4 m-0">
+          <li>
+            <img class="costum-download rounded-2" src="../../public/img/app-store.png" alt="app-store.png">
+          </li>
+          <li>
+            <img class="costum-download rounded-2 " src="../../public/img/app-gallery.png" alt="app-gallery.png">
+          </li>
+          <li>
+            <img class="costum-download rounded-2" src="../../public/img/google-play.png" alt="google-play.png">
+          </li>
+        </ul>
+      </div>
+      <!--/download-->
+      <!--copyright-->
+      <div class="col-md-6 col-sm-12 py-md-0 py-sm-4 text-start">
+        <h5 class="text-md-start text-sm-center">Copyright © 2024 Comus Italia. All Rights Reserved.</h5>
+      </div>
+      <!--/copyright-->
+    </div>
+    <!--/footer-bottom-->
   </footer>
 </template>
 
 
 <style scoped lang="scss">
+//importazione file variables
 @import '../assets/scss/partials/variables.scss';
 
 footer {
+  padding: $size_16;
+  background-color: $custom-light-p; // solo per vedere ora il logo poi $custom-primary;
 
-  background-color: $custom-primary;
-  a {
-    color: $custom-white;
-    text-decoration: none;
+  #footer-top {
+    padding: $size_8 0;
+    
+    li {
+    padding: $size_8 0;
+
+      a {
+      color: $custom-white;
+      text-decoration: none;
+
+        i {
+          font-size: $size_32;
+        }
+      }
+    }
   }
-  span {
-    color: $custom-text;
+  
+  #footer-bottom {
+    padding: $size_8 0;
+
+      .costum-download {
+      width: 6.25rem;
+    }
+
+    h5 {
+      color: $custom-text;
+      font-size: $size_8;
+    }
   }
 }
-  
 </style>

@@ -1,15 +1,11 @@
-
-
 /************* 
 GENERAL
 **************/
-
+//file partials
 @use "./partials/reset.scss" as *;
 @use "./partials/variables.scss" as *;
 @use "./partials/utilities.scss" as *;
 @use "./partials/common.scss" as *;
-
-
 
 // Import all of Bootstrap's CSS
 @import 'bootstrap/scss/bootstrap';

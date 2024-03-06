@@ -1,13 +1,18 @@
 <script>
-import AppJumbotron from '../components/AppJumbotron.vue';
+
+//importazione file components
+import AppJumbotron from "../components/AppJumbotron.vue";
+import AppSectionSlogan from "../components/AppSectionSlogan.vue";
 import AppRistoratore from '../components/AppRistoratore.vue';
 import AppFaq from '../components/AppFaq.vue';
 import AppDownload from '../components/AppDownload.vue';
+
 
 export default {
   name: 'Home',
   components: {
     AppJumbotron,
+    AppSectionSlogan,
     AppRistoratore,
     AppFaq,
     AppDownload,
@@ -16,8 +21,11 @@ export default {
 </script>
 
 <template>
-  <AppJumbotron />
-  <AppRistoratore />
-  <AppDownload />
-  <AppFaq />
+
+<AppJumbotron /> 
+<AppSectionSlogan />
+<AppRistoratore />
+<AppDownload />
+<AppFaq />
+
 </template>
