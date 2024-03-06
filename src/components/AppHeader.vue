@@ -11,7 +11,7 @@ export default {
   <header class="d-flex justify-content-between">
     <div class="cont-logo">
       <router-link :to="{ name: 'home' }">
-        <img src="../../public/img/comus.svg" alt="logo"
+        <img src="../../public/img/logo/logo-orange-white.svg" alt="logo"
       /></router-link>
     </div>
     <ul class="btns mb-0">
@@ -39,7 +39,6 @@ header {
 
   .cont-logo {
     width: 150px;
-    border: 1px solid red;
 
     img {
       width: 100%;
