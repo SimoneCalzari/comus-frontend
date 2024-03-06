@@ -1,27 +1,21 @@
 <script>
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
+  import AppSearch from "../components/AppJumboSearch.vue";
+  
 
   // Import Swiper styles
   import 'swiper/css';
 
-  import 'swiper/css/effect-coverflow';
-  import 'swiper/css/pagination';
-
   
-
-  // import required modules
-  import { EffectCoverflow, Pagination } from 'swiper/modules';
-
   export default {
     components: {
       Swiper,
       SwiperSlide,
+      AppSearch
     },
     setup() {
-      return {
-        modules: [EffectCoverflow, Pagination],
-      };
+      return {};
     },
   };
 
@@ -31,23 +25,9 @@
 
 </script>
 <template>
-  <h2 class="container mt-5">Puoi scegliere tra queste categorie di ristorante:</h2>
-  <swiper
-    :effect="'coverflow'"
-    :grabCursor="true"
-    :centeredSlides="true"
-    :slidesPerView="'auto'"
-    :coverflowEffect="{
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    }"
-    :pagination="true"
-    :modules="modules"
-    class="mySwiper container"
-  >
+  <h2 class="container mt-5 mb-3">Puoi scegliere tra queste categorie di ristorante:</h2>
+  <AppSearch />
+  <swiper :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
     <swiper-slide
       ><a href="#"><img src="../../public/img/categories_img/fast-food.jpg" draggable="false" /></a></swiper-slide
     ><swiper-slide
@@ -84,8 +64,8 @@ h2{
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 270px;
 }
 
 .swiper-slide img {
