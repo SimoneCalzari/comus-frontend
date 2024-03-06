@@ -1,0 +1,29 @@
+/************* 
+TYPOGRAPHY
+**************/
+
+//font google Bevan static
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+//font google Arvo static
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+
+
+//font google Syne
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
+
+.font-secondary {
+    font-family: "Syne", sans-serif;
+} 
+
+.font-primary {
+    font-family: "Bevan", serif;
+    font-weight: 400;
+    font-style: normal;
+} 
+
+.font-primary1 {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+} 
