@@ -20,7 +20,7 @@ export default {
 
 <template>
   <AppJumbotron />
-  <!-- <AppSectionSlogan /> -->
+  <AppSectionSlogan />
   <AppRistoratore />
   <AppDownload />
   <AppFaq />

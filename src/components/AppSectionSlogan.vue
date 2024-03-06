@@ -5,32 +5,37 @@
 </script>
 
 <template>
-    <section class="py-5" id="slogan">
-    <div class="container d-flex justify-content-between">
-      <div class="cont-sx">
-        <h3>Non resisto più</h3>
-      </div>
+  <!--section slogan-->
+  <section id="slogan" class="d-flex align-items-center">
+    <div class="w-25">
+      <h2 class="display-3">Gusto<br> in viaggio, qualità<br> in ogni boccone,</h2>
+      <img src="../../public/img/logo/logo-orange-purple.svg" class="img-fluid" alt="logo-orange-purple.svg">
     </div>
   </section>
+  <!--section slogan-->
 </template>
 
 <style scoped lang="scss">
 //importazione file variables
 @import '../assets/scss/partials/variables.scss';
-#slogan {
-    background-image: url(../../public/img/hamburger.jpg);
-    background-size: contain;
-    width: 100vw;
-    height: 50vh;
-    color: $custom-primary;
-          
-        h2 {
-            top: 5rem;
-            padding: 0 $size_16;
-            color: $custom-primary; 
-            font-size: 40px;
-        }
-    }    
-</style>
+@import '../assets/scss/partials/typography.scss';
 
-//to do layouts
+#slogan {
+  background-image: url(../../public/img/hamburger.jpg);
+  background-size: 150%;
+  background-position: left;
+          
+  h2 {
+    font-family: "Josefin Slab", serif;
+    top: 5rem;
+    padding: $size-48 $size-16 0;
+    color: $custom-primary;
+    font-weight: 900;
+  }
+
+  img {
+    width: 12.5rem;
+    padding: $size-16 $size-16 $size-48;
+  }
+}    
+</style>
