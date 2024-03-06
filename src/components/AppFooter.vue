@@ -74,10 +74,7 @@ export default {
     </div>
     <!--/footer-top-->
     <!--footer-bottom-->
-    <div
-      id="footer-bottom"
-      class="container-fluid row d-flex justify-content-center align-items-center"
-    >
+    <div id="footer-bottom" class="container-fluid row d-flex justify-content-center align-items-center">
       <!--download-->
       <div class="col-md-6 col-sm-12">
         <ul
@@ -88,13 +85,6 @@ export default {
               class="costum-download rounded-2"
               src="/img/app-store.png"
               alt="app-store.png"
-            />
-          </li>
-          <li>
-            <img
-              class="costum-download rounded-2"
-              src="../../public/img/app-gallery.png"
-              alt="app-gallery.png"
             />
           </li>
           <li>
@@ -154,7 +144,7 @@ footer {
 
     h5 {
       color: $custom-text;
-      font-size: $size-8;
+      font-size: $size-16;
     }
   }
 }

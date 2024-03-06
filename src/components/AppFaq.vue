@@ -15,7 +15,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-primary"
+              class="accordion-button collapsed custom-font-secondary"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne"
@@ -41,7 +41,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-primary"
+              class="accordion-button collapsed custom-font-secondary"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseTwo"
@@ -63,7 +63,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-primary"
+              class="accordion-button collapsed custom-font-secondary"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseThree"
@@ -93,8 +93,11 @@ export default {
 #custom-faq {
   padding: $size-48 0;
 
-  .custom-font-primary {
+  h2 {
     font-family: "Bevan", serif;
+  }
+  .custom-font-secondary {
+    font-family: "Syne", sans-serif;
     font-weight: 400;
     font-style: normal;
   } 
