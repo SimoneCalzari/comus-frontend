@@ -1,11 +1,11 @@
 <script>
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
-import AppSearch from "../components/AppJumboSearch.vue";
-import store from "../store";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import AppSearch from '../components/AppJumboSearch.vue';
+import store from '../store';
 
 // Import Swiper styles
-import "swiper/css";
+import 'swiper/css';
 
 export default {
   data() {
@@ -93,7 +93,7 @@ export default {
   </section>
 </template>
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 h2 {
   color: $custom-secondary;
 }
@@ -111,6 +111,7 @@ h2 {
   width: calc(100% / 12 - 80px);
   height: 310px;
   margin: 10px;
+
   img {
     width: calc(100% / 10 - 50px);
     height: 300px;

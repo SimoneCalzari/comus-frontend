@@ -1,15 +1,14 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
-import AppFooter from './components/AppFooter.vue';
 import AppHome from './pages/AppHome.vue';
-
+import AppFooter from './components/AppFooter.vue';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    AppFooter,
     AppHome,
+    AppFooter,
   },
 };
 </script>
@@ -27,3 +26,4 @@ export default {
 </template>
 
 <style></style>
+./components/AppFooter.vue
