@@ -25,3 +25,5 @@ export default {
   <AppFooter />
   <!--footer-->
 </template>
+
+<style></style>

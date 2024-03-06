@@ -63,7 +63,7 @@ export default {
             <img class="costum-download rounded-2 " src="../../public/img/app-gallery.png" alt="app-gallery.png">
           </li>
           <li>
-            <img class="costum-download rounded-2" src="../../public/img/google-play.png" alt="google-play.png">
+            <img class="costum-download rounded-2" src="../../public/img/play-store.svg" alt="play-store.svg">
           </li>
         </ul>
       </div>
@@ -84,28 +84,30 @@ export default {
 @import '../assets/scss/partials/variables.scss';
 
 footer {
-  padding: $size_16;
+  padding: $size-16;
   background-color: $custom-light-p; // solo per vedere ora il logo poi $custom-primary;
+  font-family: "Syne", sans-serif;
 
   #footer-top {
-    padding: $size_8 0;
+    padding: $size-8 0;
     
     li {
-    padding: $size_8 0;
+    padding: $size-8 0;
+
 
       a {
       color: $custom-white;
       text-decoration: none;
 
         i {
-          font-size: $size_32;
+          font-size: $size-32;
         }
       }
     }
   }
   
   #footer-bottom {
-    padding: $size_8 0;
+    padding: $size-8 0;
 
       .costum-download {
       width: 6.25rem;
@@ -113,7 +115,7 @@ footer {
 
     h5 {
       color: $custom-text;
-      font-size: $size_8;
+      font-size: $size-8;
     }
   }
 }

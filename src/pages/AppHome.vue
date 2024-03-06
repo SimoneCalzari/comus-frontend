@@ -25,12 +25,14 @@ export default {
 <template>
 
 
+
 <AppJumbotron /> 
 <AppList />
 <AppSectionSlogan />
 <AppRistoratore />
 <AppDownload />
 <AppFaq />
+
 
 
 </template>
