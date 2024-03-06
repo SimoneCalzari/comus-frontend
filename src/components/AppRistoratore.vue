@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'AppRistoratore',
+  name: "AppRistoratore",
   data() {
     return {};
   },
@@ -30,7 +30,7 @@ export default {
         </div>
         <div class="cont-dx col-12 col-lg-6">
           <div class="cont-img">
-            <img src="/public/img/work-with-us.png" alt="" />
+            <img src="/img/work-with-us.png" alt="" />
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 a {
   text-decoration: none;

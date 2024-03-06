@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'Header',
+  name: "Header",
   data() {
     return {};
   },
@@ -11,7 +11,7 @@ export default {
   <header class="d-flex justify-content-between">
     <div class="cont-logo">
       <router-link :to="{ name: 'home' }">
-        <img src="../../public/img/logo/logo-orange-white.svg" alt="logo"
+        <img src="/img/logo/logo-orange-white.svg" alt="logo"
       /></router-link>
     </div>
     <ul class="btns mb-0">
@@ -31,7 +31,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@use '../assets/scss/general.scss' as *;
+@use "../assets/scss/general.scss" as *;
 
 header {
   background-color: #432456;

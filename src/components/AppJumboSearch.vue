@@ -1,9 +1,9 @@
 <script>
-import store from '../store';
-import axios from 'axios';
+import store from "../store";
+import axios from "axios";
 
 export default {
-  name: 'AppSearch',
+  name: "AppSearch",
   data() {
     return {
       store,
@@ -16,7 +16,7 @@ export default {
         .get(this.store.api.baseUrl + this.store.api.apiUrls.types)
         .then((response) => {
           this.store.types = response.data.results;
-          console.log(response);
+          // console.log(response);
         })
         .catch((error) => {
           console.log(error);
@@ -30,21 +30,21 @@ export default {
 };
 </script>
 <template>
-  <div class="container mt-5 text-left">
+  <div class="container mt-1 text-left">
     <select
       class="form-select"
       v-model="currentType"
       aria-label="Default select example"
     >
       <option selected>Open this select menu</option>
-      <option v-for="type in store.types" :value="type.id">
-        {{ type.name_type }}
+      <option v-for="category in store.types" :value="category.id">
+        {{ category.name_type }}
       </option>
     </select>
   </div>
 </template>
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 input {
   width: 25%;
   height: 40px;

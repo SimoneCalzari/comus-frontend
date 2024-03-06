@@ -1,15 +1,17 @@
 <script>
-    export default {
-        name: 'SectionSlogna'
-    }
+export default {
+  name: "SectionSlogna",
+};
 </script>
 
 <template>
+
   <!--section slogan-->
   <section id="slogan" class="d-flex align-items-center">
     <div class="w-25">
       <h2 class="display-3">Gusto<br> in viaggio, qualità<br> in ogni boccone,</h2>
       <img src="../../public/img/logo/logo-orange-purple.svg" class="img-fluid" alt="logo-orange-purple.svg">
+
     </div>
   </section>
   <!--section slogan-->
@@ -17,6 +19,8 @@
 
 <style scoped lang="scss">
 //importazione file variables
+
+
 @import '../assets/scss/partials/variables.scss';
 @import '../assets/scss/partials/typography.scss';
 
@@ -39,3 +43,4 @@
   }
 }    
 </style>
+

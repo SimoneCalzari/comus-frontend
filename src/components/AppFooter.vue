@@ -1,10 +1,20 @@
 <script>
 export default {
-  name: 'Footer',
+  name: "Footer",
   data() {
     return {
-      menus_1:['Lista Ristoranti', 'Area Ristoratore', 'Lavora con Noi', 'Aiuto'],
-      menus_2:['Informativa sulla Privacy', 'Informativa relativa ai cookie', 'Termini & Condizioni', 'Informazioni sul packaging'],
+      menus_1: [
+        "Lista Ristoranti",
+        "Area Ristoratore",
+        "Lavora con Noi",
+        "Aiuto",
+      ],
+      menus_2: [
+        "Informativa sulla Privacy",
+        "Informativa relativa ai cookie",
+        "Termini & Condizioni",
+        "Informazioni sul packaging",
+      ],
     };
   },
 };
@@ -29,48 +39,77 @@ export default {
       </ul>
       <!--/menu 2-->
       <!--socials-->
-      <ul class="d-flex gap-4 col-md-3 col-sm-12 justify-content-center py-md-0 py-sm-4">
+      <ul
+        class="d-flex gap-4 col-md-3 col-sm-12 justify-content-center py-md-0 py-sm-4"
+      >
         <li class="">
-          <a href="#" class="custom-text"><i class="fa-brands fa-square-x-twitter"></i></a>
+          <a href="#" class="custom-text"
+            ><i class="fa-brands fa-square-x-twitter"></i
+          ></a>
         </li>
         <li>
-          <a href="#" class="custom-text"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="custom-text"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
         </li>
         <li>
-          <a href="#" class="custom-text"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="#" class="custom-text"
+            ><i class="fa-brands fa-square-instagram"></i
+          ></a>
         </li>
         <li>
-          <a href="#" class="custom-text"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="#" class="custom-text"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
         </li>
       </ul>
       <!--/socials-->
       <!--logo-->
-      <div class="col-md-3 col-sm-12 py-md-0 py-sm-4 d-flex justify-content-center">
-        <img class="img-fluid" src="../../public/img/logo.png" alt="Comus_logo.jpg">
+      <div
+        class="col-md-3 col-sm-12 py-md-0 py-sm-4 d-flex justify-content-center"
+      >
+        <img class="img-fluid" src="/img/logo.png" alt="Comus_logo.jpg" />
       </div>
       <!--/logo-->
     </div>
     <!--/footer-top-->
     <!--footer-bottom-->
-    <div id="footer-bottom" class="container-fluid row d-flex justify-content-center align-items-center">
+    <div
+      id="footer-bottom"
+      class="container-fluid row d-flex justify-content-center align-items-center"
+    >
       <!--download-->
       <div class="col-md-6 col-sm-12">
-        <ul class="d-flex flex-row align-items-center justify-content-center gap-4 m-0">
+        <ul
+          class="d-flex flex-row align-items-center justify-content-center gap-4 m-0"
+        >
           <li>
-            <img class="costum-download rounded-2" src="../../public/img/app-store.png" alt="app-store.png">
+            <img
+              class="costum-download rounded-2"
+              src="/img/app-store.png"
+              alt="app-store.png"
+            />
           </li>
           <li>
-            <img class="costum-download rounded-2 " src="../../public/img/app-gallery.png" alt="app-gallery.png">
+            <img
+              class="costum-download rounded-2"
+              src="../../public/img/app-gallery.png"
+              alt="app-gallery.png"
+            />
           </li>
           <li>
+
             <img class="costum-download rounded-2" src="../../public/img/play-store.svg" alt="play-store.svg">
+
           </li>
         </ul>
       </div>
       <!--/download-->
       <!--copyright-->
       <div class="col-md-6 col-sm-12 py-md-0 py-sm-4 text-start">
-        <h5 class="text-md-start text-sm-center">Copyright © 2024 Comus Italia. All Rights Reserved.</h5>
+        <h5 class="text-md-start text-sm-center">
+          Copyright © 2024 Comus Italia. All Rights Reserved.
+        </h5>
       </div>
       <!--/copyright-->
     </div>
@@ -78,10 +117,9 @@ export default {
   </footer>
 </template>
 
-
 <style scoped lang="scss">
 //importazione file variables
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 footer {
   padding: $size-16;
@@ -89,15 +127,17 @@ footer {
   font-family: "Syne", sans-serif;
 
   #footer-top {
+
     padding: $size-8 0;
     
     li {
     padding: $size-8 0;
 
 
+
       a {
-      color: $custom-white;
-      text-decoration: none;
+        color: $custom-white;
+        text-decoration: none;
 
         i {
           font-size: $size-32;
@@ -105,11 +145,11 @@ footer {
       }
     }
   }
-  
+
   #footer-bottom {
     padding: $size-8 0;
 
-      .costum-download {
+    .costum-download {
       width: 6.25rem;
     }
 
