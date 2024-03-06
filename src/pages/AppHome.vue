@@ -25,6 +25,7 @@ export default {
 <template>
 
 <AppJumbotron /> 
+<AppList />
 <AppSectionSlogan />
 <AppRistoratore />
 <AppDownload />
