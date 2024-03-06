@@ -12,21 +12,19 @@ export default {
     <div class="container-sm">
       <div class="row">
         <div class="cont-sx col-12 col-lg-6">
-          <div class="container">
-            <div class="row text-center">
-              <div class="cont-text col-9 col-lg-12 mt-5 p-0">
-                <h2>Vuoi unirti al team di Comus?</h2>
-                <p class="fw-medium">
-                  Registrati e inizia a vendere sul nostro portale
-                </p>
-              </div>
-              <div
-                class="col-3 col-lg-12 d-flex align-items-center justify-content-center p-0"
+          <div class="row text-center">
+            <div class="cont-text col-12 col-sm-9 col-lg-12 mt-5 p-0">
+              <h2>Vuoi unirti al team di Comus?</h2>
+              <p class="fw-medium">
+                Registrati e inizia a vendere sul nostro portale
+              </p>
+            </div>
+            <div
+              class="col-12 col-sm-3 col-lg-12 d-flex align-items-center justify-content-center"
+            >
+              <a class="custom-btn mt-5" href="http://127.0.0.1:8000/"
+                >Registrati</a
               >
-                <a class="custom-btn mt-5" href="http://127.0.0.1:8000/"
-                  >Registrati</a
-                >
-              </div>
             </div>
           </div>
         </div>
