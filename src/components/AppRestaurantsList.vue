@@ -10,24 +10,18 @@ export default {
     };
   },
   methods: {
-    getRestaurants() {
-      axios
-        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
-        .then((response) => {
-          this.store.restaurants = response.data.results;
-        });
-    },
+   
   },
 
   created() {
-    this.getRestaurants();
+    
   },
 };
 </script>
 <template>
-  <section class="my-2" id="ristoranti">
-    <h1 class="container">I ristoranti:</h1>
-    <div class="container d-flex flex-wrap gap-5">
+  <section class="my-2 container" id="ristoranti">
+    <h2>I ristoranti:</h2>
+    <div v-if="store.restaurants.length" class="container d-flex flex-wrap gap-5">
       <div class="restaurant-card my-5" v-for="restaurant in store.restaurants">
         <router-link
           :to="{
@@ -51,12 +45,13 @@ export default {
         </router-link>
       </div>
     </div>
+     <h3 v-else>Nessun Risultato </h3>
   </section>
 </template>
 
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
-h1 {
+h2 {
   color: $custom-secondary;
   font-family: "Bevan", serif;
 }
@@ -70,7 +65,7 @@ h1 {
   height: 25%;
   position: relative;
   img {
-    width: 100%;
+    width: 100%; 
   }
   .banner {
     position: absolute;
