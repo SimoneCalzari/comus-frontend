@@ -50,29 +50,38 @@ export default {
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
                 <img src="/img/logo/logo-sm-snow.svg" class="cont-image" alt="logo-footer" />
             </div>
+            <!-- /logo -->
             <!-- socials -->
             <div class="col-md-6 col-sm-12 pt-4">
               <ul class="col d-flex p-0 d-flex justify-content-center gap-3">
+                <!-- twitter -->
                 <li>
                   <a href="#" target="_blank">
                     <i class="fa-brands fa-x-twitter"></i>
                   </a>
                 </li>
+                <!-- /twitter -->
+                <!-- youtube -->
                 <li>
                   <a href="#" target="_blank">
                     <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
+                <!-- /youtube -->
+                <!-- instagram -->
                 <li>
                   <a href="#" target="_blank">
                     <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
+                <!-- /instagram -->
+                <!-- facebook -->
                 <li>
                   <a href="#" target="_blank">
                     <i class="fa-brands fa-square-facebook"></i>
                   </a>
                 </li>
+                <!-- facebook -->
               </ul>
             </div>
           </div>
