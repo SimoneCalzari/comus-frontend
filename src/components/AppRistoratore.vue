@@ -33,8 +33,9 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+//importazione file variables
 
+@import "../assets/scss/partials/variables.scss";
 a {
   text-decoration: none;
 }
@@ -53,6 +54,7 @@ a {
   }
 
   .costum-cont-img {
+    margin-top: $size_8;
     width: 100%;
   }
 }

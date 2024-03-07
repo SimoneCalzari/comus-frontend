@@ -6,18 +6,12 @@ export default {
 
 <template>
   <!--section slogan-->
-  <section id="slogan" class="d-flex align-items-center">
-    <div class="w-25">
-      <h2 class="display-3">
-        Gusto<br />
-        in viaggio, qualità<br />
-        in ogni boccone.
+  <section id="slogan">
+    <div class="col-3">
+      <h2 class="display-4">
+        Gusto in viaggio, qualità in ogni boccone.
       </h2>
-      <img
-        src="/img/logo/logo-orange-purple.svg"
-        class="img-fluid"
-        alt="logo-orange-purple.svg"
-      />
+      <img src="/img/logo/big-orange-white.svg" class="costum-img img-fluid" alt="logo-orange-purple.svg"/>
     </div>
   </section>
   <!--section slogan-->
@@ -25,24 +19,22 @@ export default {
 
 <style scoped lang="scss">
 //importazione file variables
-
 @import "../assets/scss/partials/variables.scss";
 @import "../assets/scss/partials/typography.scss";
 
 #slogan {
-  background-image: url(/img/hamburger.jpg);
-  background-size: 150%;
+  background-image: url('/img/hamburger.jpg');
+  background-size: 200%;
   background-position: left;
 
   h2 {
     font-family: "Bevan", serif;
-    top: 5rem;
     padding: $size-48 $size-16 0;
     color: $custom-primary;
     font-weight: 900;
   }
 
-  img {
+  .costum-img {
     width: 12.5rem;
     padding: $size-16 $size-16 $size-48;
   }
