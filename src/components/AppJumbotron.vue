@@ -1,58 +1,102 @@
 <script>
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import AppSearch from "../components/AppJumboSearch.vue";
-  
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import AppSearch from '../components/AppJumboSearch.vue';
+import store from '../store';
 
-  // Import Swiper styles
-  import 'swiper/css';
+// Import Swiper styles
+import 'swiper/css';
 
-  
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-      AppSearch
-    },
-    setup() {
-      return {};
-    },
-  };
+export default {
+  data() {
+    return {
+      store,
+    };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
+    AppSearch,
+  },
+  setup() {
+    return {};
+  },
+};
 
 // export default {
 //   name: "Jumbotron",
 // };
-
 </script>
 <template>
-  <h2 class="container mt-5 mb-3">Puoi scegliere tra queste categorie di ristorante:</h2>
-  <AppSearch />
-  <swiper :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
-    <swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/fast-food.jpg" draggable="false" /></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/italian.jpg" draggable="false" /></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/sushi.jpg"  draggable="false"/></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/mexican.jpg"  draggable="false"/></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/pizza.jpg"  draggable="false"/></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/veggie.jpg" draggable="false" /></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/chinese.jpg" draggable="false" /></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/icecream.jpg"  draggable="false"/></a></swiper-slide
-    ><swiper-slide
-      ><a href="#"><img src="../../public/img/categories_img/coffee.jpg" draggable="false"
-    /></a></swiper-slide>
-  </swiper>
+  <section class="mb-3">
+    <h2 class="container my-4">
+      Puoi scegliere tra queste categorie di ristorante:
+    </h2>
+    <AppSearch />
+    <swiper :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
+      <swiper-slide v-for="element in store.types">
+        <img
+          :src="`${store.api.baseUrl}/storage/${element.image}`"
+          draggable="false"
+        />
+        <h3 class="text-center py-2">{{ element.name_type }}</h3>
+      </swiper-slide>
+      <!-- <swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/sushi.jpg"
+            draggable="false" /></a></swiper-slide
+      ><swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/messicano.jpg"
+            draggable="false" /></a></swiper-slide
+      ><swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/pizza.jpg"
+            draggable="false" /></a></swiper-slide
+      ><swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/pesce.jpg"
+            draggable="false" /></a></swiper-slide
+      ><swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/cinese.jpg"
+            draggable="false" /></a></swiper-slide
+      ><swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/gluten-free.jpg"
+            draggable="false" /></a></swiper-slide
+      ><swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/kebab.jpg"
+            draggable="false" /></a
+      ></swiper-slide>
+      <swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/steakhouse.jpg"
+            draggable="false" /></a
+      ></swiper-slide>
+      <swiper-slide
+        ><a href="#"
+          ><img
+            src="../../public/img/categories_img/fast-food.jpg"
+            draggable="false" /></a
+      ></swiper-slide> -->
+    </swiper>
+  </section>
 </template>
 <style scoped lang="scss">
 @import '../assets/scss/partials/variables.scss';
-h2{
+h2 {
   color: $custom-secondary;
+  font-family: "Bevan", serif;
 }
 
 .swiper {
@@ -62,17 +106,24 @@ h2{
 }
 
 .swiper-slide {
+  cursor: pointer;
   background-position: center;
   background-size: cover;
-  width: 200px;
-  height: 270px;
+  width: calc(100% / 12 - 80px);
+  height: 310px;
+  margin: 10px;
+
+  img {
+    width: calc(100% / 10 - 50px);
+    height: 300px;
+  }
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
 }
-.swiper-slide:hover{
+.swiper-slide:hover {
   border: 5px solid $custom-primary;
   border-radius: 5px;
 }

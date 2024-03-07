@@ -1,10 +1,20 @@
 <script>
 export default {
-  name: 'Footer',
+  name: "AppFooter",
   data() {
     return {
-      menus_1:['Lista Ristoranti', 'Area Ristoratore', 'Lavora con Noi', 'Aiuto'],
-      menus_2:['Informativa sulla Privacy', 'Informativa relativa ai cookie', 'Termini & Condizioni', 'Informazioni sul packaging'],
+      menus_1: [
+        "Lista Ristoranti",
+        "Area Ristoratore",
+        "Lavora con Noi",
+        "Aiuto",
+      ],
+      menus_2: [
+        "Informativa sulla Privacy",
+        "Informativa relativa ai cookie",
+        "Termini & Condizioni",
+        "Informazioni sul packaging",
+      ],
     };
   },
 };
@@ -12,108 +22,115 @@ export default {
 
 <template>
   <footer>
-    <!--footer-top-->
-    <div id="footer-top" class="container-fluid row">
-      <!--menu 1-->
-      <ul class="col-md-3 col-sm-12 py-md-0 py-sm-4">
-        <li v-for="menu_1 in menus_1" class="text-md-start text-sm-center">
-          <a href="#" class="custom-text">{{ menu_1 }}</a>
-        </li>
-      </ul>
-      <!--/menu 1-->
-      <!--menu 2-->
-      <ul class="col col-md-3 col-sm-12 py-md-0 py-sm-4">
-        <li v-for="menu_2 in menus_2" class="text-md-start text-sm-center">
-          <a href="#" class="custom-text">{{ menu_2 }}</a>
-        </li>
-      </ul>
-      <!--/menu 2-->
-      <!--socials-->
-      <ul class="d-flex gap-4 col-md-3 col-sm-12 justify-content-center py-md-0 py-sm-4">
-        <li class="">
-          <a href="#" class="custom-text"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </li>
-        <li>
-          <a href="#" class="custom-text"><i class="fa-brands fa-youtube"></i></a>
-        </li>
-        <li>
-          <a href="#" class="custom-text"><i class="fa-brands fa-square-instagram"></i></a>
-        </li>
-        <li>
-          <a href="#" class="custom-text"><i class="fa-brands fa-square-facebook"></i></a>
-        </li>
-      </ul>
-      <!--/socials-->
-      <!--logo-->
-      <div class="col-md-3 col-sm-12 py-md-0 py-sm-4 d-flex justify-content-center">
-        <img class="img-fluid" src="../../public/img/logo.png" alt="Comus_logo.jpg">
+    <div class="footer-top pt-3">
+      <div class="row">
+        <!-- sinistra -->
+        <div class="box-sx col-6 col-sm-4">
+          <ul>
+            <li v-for="menu_1 in menus_1">
+              <a href="#">{{ menu_1 }}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- centro -->
+        <div class="box-ct col-6 col-sm-4">
+          <ul>
+            <li v-for="menu_2 in menus_2">
+              <a href="#">{{ menu_2 }}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- destra -->
+        <div class="box-dx col-12 col-sm-4">
+          <div class="row">
+            <!-- logo -->
+            <div
+              class="col-6 col-sm-12 d-flex justify-content-center align-items-center"
+            >
+              <div class="cont-img">
+                <img src="/img/logo/logo-sm-purple.svg" alt="logo-footer" />
+              </div>
+            </div>
+            <!-- socials -->
+            <div class="col-6 col-sm-12">
+              <ul class="d-flex justify-content-around m-0 mt-3">
+                <li>
+                  <a href="#">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-brands fa-square-facebook"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <!--/logo-->
     </div>
-    <!--/footer-top-->
-    <!--footer-bottom-->
-    <div id="footer-bottom" class="container-fluid row d-flex justify-content-center align-items-center">
-      <!--download-->
-      <div class="col-md-6 col-sm-12">
-        <ul class="d-flex flex-row align-items-center justify-content-center gap-4 m-0">
-          <li>
-            <img class="costum-download rounded-2" src="../../public/img/app-store.png" alt="app-store.png">
-          </li>
-          <li>
-            <img class="costum-download rounded-2 " src="../../public/img/app-gallery.png" alt="app-gallery.png">
-          </li>
-          <li>
-            <img class="costum-download rounded-2" src="../../public/img/google-play.png" alt="google-play.png">
-          </li>
-        </ul>
-      </div>
-      <!--/download-->
-      <!--copyright-->
-      <div class="col-md-6 col-sm-12 py-md-0 py-sm-4 text-start">
-        <h5 class="text-md-start text-sm-center">Copyright © 2024 Comus Italia. All Rights Reserved.</h5>
-      </div>
-      <!--/copyright-->
+
+    <div class="footer-bottom">
+      <p class="m-0 mt-3 text-center fs-6 text-body-secondary">
+        Copyright © 2024 Comus Italia. All Rights Reserved.
+      </p>
     </div>
-    <!--/footer-bottom-->
   </footer>
 </template>
 
-
 <style scoped lang="scss">
-//importazione file variables
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
+ul {
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+li {
+  padding: $size-8 0;
+}
 
 footer {
-  padding: $size_16;
-  background-color: $custom-light-p; // solo per vedere ora il logo poi $custom-primary;
+  padding: 10px 30px;
+  background-color: $custom-light-p;
 
-  #footer-top {
-    padding: $size_8 0;
-    
-    li {
-    padding: $size_8 0;
+  .box-sx a,
+  .box-ct a {
+    color: $custom-white;
 
-      a {
+    &:hover {
+      color: $custom-secondary;
+    }
+  }
+
+  .box-dx {
+    i {
+      font-size: $size-32;
       color: $custom-white;
-      text-decoration: none;
 
-        i {
-          font-size: $size_32;
-        }
+      &:hover {
+        color: $custom-secondary;
       }
     }
   }
-  
-  #footer-bottom {
-    padding: $size_8 0;
 
-      .costum-download {
-      width: 6.25rem;
-    }
+  .cont-img {
+    width: 100px;
 
-    h5 {
-      color: $custom-text;
-      font-size: $size_8;
+    img {
+      width: 100%;
     }
   }
 }
