@@ -2,7 +2,7 @@
 import store from "../store";
 import axios from "axios";
 export default {
-  name: "AppList",
+  name: "AppListRestaurants",
   data() {
     return {
       store,
@@ -17,6 +17,7 @@ export default {
         });
     },
   },
+
   created() {
     this.getRestaurants();
   },
@@ -25,7 +26,7 @@ export default {
 <template>
   <section class="my-2">
     <h1 class="container">I ristoranti:</h1>
-    <div class="container d-flex gap-5">
+    <div class="container d-flex flex-wrap gap-5">
       <div class="restaurant-card my-5" v-for="restaurant in store.restaurants">
         <img src="/img/categories_img/sushi.jpg" alt="immagine ristorante" />
         <div class="banner p-2">Solo con Comus!</div>

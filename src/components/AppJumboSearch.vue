@@ -22,6 +22,17 @@ export default {
           console.log(error);
         });
     },
+    searchRestaurant() {
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants + '/search/' + this.currentType)
+        .then((response) => {
+          this.store.restaurants = response.data.results;
+          // console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   },
 
   created() {
@@ -35,6 +46,7 @@ export default {
       class="form-select"
       v-model="currentType"
       aria-label="Default select example"
+      @change="searchRestaurant"
     >
       <option selected>Open this select menu</option>
       <option v-for="category in store.types" :value="category.id">
