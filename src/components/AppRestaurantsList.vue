@@ -1,4 +1,5 @@
 <script>
+import { RouterLink } from "vue-router";
 import store from "../store";
 import axios from "axios";
 export default {
@@ -28,6 +29,11 @@ export default {
     <h1 class="container">I ristoranti:</h1>
     <div class="container d-flex flex-wrap gap-5">
       <div class="restaurant-card my-5" v-for="restaurant in store.restaurants">
+        <router-link
+        :to="{
+          name: 'restaurant',
+          params: { slug: restaurant.slug },
+        }">
         <img src="/img/categories_img/sushi.jpg" alt="immagine ristorante" />
         <div class="banner p-2">Solo con Comus!</div>
         <div class="caption p-3">
@@ -38,6 +44,7 @@ export default {
             </span>
           </p>
         </div>
+        </router-link>
       </div>
     </div>
   </section>
