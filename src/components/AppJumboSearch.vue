@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       store,
-      currentType: [],
+      currentType: "",
     };
   },
   methods: {
