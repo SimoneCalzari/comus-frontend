@@ -30,20 +30,24 @@ export default {
     <div class="container d-flex flex-wrap gap-5">
       <div class="restaurant-card my-5" v-for="restaurant in store.restaurants">
         <router-link
-        :to="{
-          name: 'restaurant',
-          params: { slug: restaurant.slug },
-        }">
-        <img src="/img/categories_img/sushi.jpg" alt="immagine ristorante" />
-        <div class="banner p-2">Solo con Comus!</div>
-        <div class="caption p-3">
-          <h3>{{ restaurant.name_restaurant }}</h3>
-          <p>
-            <span v-for="category in restaurant.types" class="me-2 fs-5">
-              {{ category.name_type }}
-            </span>
-          </p>
-        </div>
+          :to="{
+            name: 'restaurant',
+            params: { slug: restaurant.slug },
+          }"
+        >
+          <img
+            :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
+            alt="immagine ristorante"
+          />
+          <div class="banner p-2">Solo con Comus!</div>
+          <div class="caption p-3">
+            <h3>{{ restaurant.name_restaurant }}</h3>
+            <p>
+              <span v-for="category in restaurant.types" class="me-2 fs-5">
+                {{ category.name_type }}
+              </span>
+            </p>
+          </div>
         </router-link>
       </div>
     </div>
