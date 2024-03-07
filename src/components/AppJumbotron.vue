@@ -88,6 +88,7 @@ export default {
       :watchSlidesProgress="true"
       :loop="true"
       :slidesPerView="slidesNumberPerView"
+      draggable="false"
     >
       <swiper-slide
         @click="searchRestaurant(0)"
@@ -95,7 +96,6 @@ export default {
       >
         <img
           src="/public/img/logo/big-orange-white.svg"
-          draggable="false"
           :class="store"
           id="prima-slide"
         />
@@ -106,10 +106,7 @@ export default {
         :class="store.currentType === element.id ? 'active' : ''"
         @click="searchRestaurant(element.id)"
       >
-        <img
-          :src="`${store.api.baseUrl}/storage/${element.image}`"
-          draggable="false"
-        />
+        <img :src="`${store.api.baseUrl}/storage/${element.image}`" />
         <h3 class="text-center py-3 m-0">{{ element.name_type }}</h3>
       </swiper-slide>
     </swiper>
