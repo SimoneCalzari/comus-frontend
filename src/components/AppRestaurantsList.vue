@@ -25,7 +25,7 @@ export default {
 };
 </script>
 <template>
-  <section class="my-2">
+  <section class="my-2" id="ristoranti">
     <h1 class="container">I ristoranti:</h1>
     <div class="container d-flex flex-wrap gap-5">
       <div class="restaurant-card my-5" v-for="restaurant in store.restaurants">

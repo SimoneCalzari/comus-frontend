@@ -16,7 +16,7 @@ export default {
     </div>
     <ul class="btns mb-0">
       <li>
-        <a href="">Lista ristoranti</a>
+        <a href="#ristoranti">Lista ristoranti</a>
       </li>
       <li>
         <a href="#ristoratore">Sei un ristoratore?</a>
