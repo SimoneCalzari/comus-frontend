@@ -1,12 +1,12 @@
 <script>
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import AppSearch from '../components/AppJumboSearch.vue';
-import store from '../store';
+import { Swiper, SwiperSlide } from "swiper/vue";
+import AppSearch from "../components/AppJumboSearch.vue";
+import store from "../store";
 import axios from "axios";
 
 // Import Swiper styles
-import 'swiper/css';
+import "swiper/css";
 
 export default {
   data() {
@@ -22,8 +22,9 @@ export default {
   setup() {
     return {};
   },
-  methods:{
+  methods: {
     searchRestaurant(id) {
+      store.currentType = id;
       axios
         .get(
           this.store.api.baseUrl +
@@ -33,7 +34,6 @@ export default {
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
-          console.log(this.store.restaurants);
           if (!response.data.success) {
             this.getRestaurants();
           }
@@ -42,22 +42,39 @@ export default {
           console.log(error);
         });
     },
-  }
+  },
 };
-
-// export default {
-//   name: "Jumbotron",
-// };
 </script>
 <template>
   <section class="mb-3">
-    <h2 class="container my-4 text-center ">
+    <h2 class="container my-4 text-center">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
     <AppSearch />
-    <swiper  :loop="true" :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
-      <swiper-slide v-for="element in store.types">
-        <img @click="searchRestaurant(element.id)"
+    <swiper
+      :loop="true"
+      :watchSlidesProgress="true"
+      :slidesPerView="5"
+      class="mySwiper"
+    >
+      <swiper-slide
+        @click="searchRestaurant(0)"
+        id="prima-slide"
+        :class="store.currentType === 0 ? 'active' : ''"
+      >
+        <img
+          src="/public/img/logo/big-orange-white.svg"
+          draggable="false"
+          :class="store"
+        />
+        <h3 class="text-center py-2">Tutte</h3>
+      </swiper-slide>
+      <swiper-slide
+        v-for="element in store.types"
+        :class="store.currentType === element.id ? 'active' : ''"
+      >
+        <img
+          @click="searchRestaurant(element.id)"
           :src="`${store.api.baseUrl}/storage/${element.image}`"
           draggable="false"
         />
@@ -67,7 +84,7 @@ export default {
   </section>
 </template>
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 h2 {
   color: $custom-secondary;
   font-family: "Bevan", serif;
@@ -89,7 +106,7 @@ h2 {
 
   img {
     width: calc(100% / 10 - 50px);
-    height: 300px;
+    height: 310px;
   }
 }
 
@@ -97,8 +114,17 @@ h2 {
   display: block;
   width: 100%;
 }
-.swiper-slide:hover {
-  border: 5px solid $custom-primary;
-  border-radius: 5px;
+// .swiper-slide:hover {
+//   border: 5px solid $custom-primary;
+//   border-radius: 5px;
+// }
+#prima-slide {
+  background-color: #432456;
+}
+.active {
+  -webkit-box-shadow: -1px 1px 60px 1px $custom-primary;
+  -moz-box-shadow: -1px 1px 60px 1px $custom-primary;
+  -o-box-shadow: -1px 1px 60px 1px $custom-primary;
+  box-shadow: -1px 1px 60px 1px $custom-primary;
 }
 </style>

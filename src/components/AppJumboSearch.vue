@@ -7,7 +7,6 @@ export default {
   data() {
     return {
       store,
-      currentType: "",
     };
   },
   methods: {
@@ -23,16 +22,17 @@ export default {
         });
     },
     searchRestaurant() {
+      console.log("cazzo");
       axios
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
             "/search/" +
-            this.currentType
+            this.store.currentType
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
-          console.log(this.store.restaurants);
+          // console.log(this.store.restaurants);
           if (!response.data.success) {
             this.getRestaurants();
           }
@@ -53,7 +53,6 @@ export default {
   created() {
     this.getTypes();
     this.getRestaurants();
-
   },
 };
 </script>
@@ -61,11 +60,11 @@ export default {
   <div class="container mt-1 w-50">
     <select
       class="form-select"
-      v-model="currentType"
+      v-model="store.currentType"
       @change="searchRestaurant"
       aria-label="Default select example"
     >
-      <option selected value="">Tutte le categorie</option>
+      <option selected value="0">Tutte le categorie</option>
       <option v-for="category in store.types" :value="category.id">
         {{ category.name_type }}
       </option>
