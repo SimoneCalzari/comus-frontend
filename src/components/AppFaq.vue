@@ -15,7 +15,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-secondary"
+              class="accordion-button collapsed custom-font-secondary ps-0"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne"
@@ -41,7 +41,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-secondary"
+              class="accordion-button collapsed custom-font-secondary ps-0"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseTwo"
@@ -63,7 +63,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-secondary"
+              class="accordion-button collapsed custom-font-secondary ps-0"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseThree"
