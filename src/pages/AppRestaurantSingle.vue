@@ -36,6 +36,15 @@ export default {
 };
 </script>
 
+
+
+
+
+
+
+
+
+
 <template>
   <div class="container my-5">
     <div class="info-restaurant d-flex">
@@ -46,19 +55,19 @@ export default {
         />
       </div>
 
-      <div class="caption">
+      <div class="caption d-flex flex-column justify-content-between">
         <h1>{{ restaurant.restaurant.name_restaurant }}</h1>
-        <h5>{{ restaurant.restaurant.address }}</h5>
-        <h5>{{ restaurant.restaurant.phone_number }}</h5>
+        <div>
+          <h5>{{ restaurant.restaurant.address }}</h5>
+          <h5>{{ restaurant.restaurant.phone_number }}</h5>
+        </div>
       </div>
     </div>
 
     <div class="menu">
-      <ul class="d-flex flex-wrap gap-5">
-        <li class="col-3" v-for="dish in restaurant.dishes"> <AppDish :dish="dish" /> </li>
+      <ul class="d-flex flex-wrap row p-0">
+        <li class="col-4 my-2" v-for="dish in restaurant.dishes"> <AppDish :dish="dish" /> </li>
       </ul>
-        
-      
     </div>
   </div>
 </template>
@@ -67,9 +76,12 @@ export default {
 @import "../assets/scss/partials/variables.scss";
 .left-img{
   width: 40%;
-}
-img {
-  width: 100%;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+  }
 }
 .info-restaurant {
   border-radius: 10px 50px 10px 10px;
