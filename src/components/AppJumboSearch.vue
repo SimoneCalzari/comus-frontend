@@ -24,15 +24,30 @@ export default {
     },
     searchRestaurant() {
       axios
-        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants + '/search/' + this.currentType)
+        .get(
+          this.store.api.baseUrl +
+            this.store.api.apiUrls.restaurants +
+            "/search/" +
+            this.currentType
+        )
         .then((response) => {
           this.store.restaurants = response.data.results;
-          // console.log(response);
+          console.log(this.store.restaurants);
+          if (!response.data.success) {
+            this.getRestaurants();
+          }
         })
         .catch((error) => {
           console.log(error);
         });
-    }
+    },
+    getRestaurants() {
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+        .then((response) => {
+          this.store.restaurants = response.data.results;
+        });
+    },
   },
 
   created() {
@@ -45,10 +60,10 @@ export default {
     <select
       class="form-select"
       v-model="currentType"
-      aria-label="Default select example"
       @change="searchRestaurant"
+      aria-label="Default select example"
     >
-      <option selected>Open this select menu</option>
+      <option selected value="">Tutte le categorie</option>
       <option v-for="category in store.types" :value="category.id">
         {{ category.name_type }}
       </option>
