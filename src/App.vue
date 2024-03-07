@@ -18,12 +18,13 @@ export default {
   <AppHeader />
   <!--/header-->
   <!--router-view-->
-  <router-view></router-view>
+  <router-view class="costum-body"></router-view>
   <!--/router-view-->
   <!--footer-->
   <AppFooter />
   <!--footer-->
 </template>
 
-<style></style>
-./components/AppFooter.vue
+<style lang="scss" scoped>
+
+</style>
