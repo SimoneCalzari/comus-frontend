@@ -52,11 +52,13 @@ export default {
 
   created() {
     this.getTypes();
+    this.getRestaurants();
+
   },
 };
 </script>
 <template>
-  <div class="container mt-1 text-left">
+  <div class="container mt-1 w-50">
     <select
       class="form-select"
       v-model="currentType"

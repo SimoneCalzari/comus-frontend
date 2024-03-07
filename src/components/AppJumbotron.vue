@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import AppSearch from '../components/AppJumboSearch.vue';
 import store from '../store';
+import axios from "axios";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -21,6 +22,27 @@ export default {
   setup() {
     return {};
   },
+  methods:{
+    searchRestaurant(id) {
+      axios
+        .get(
+          this.store.api.baseUrl +
+            this.store.api.apiUrls.restaurants +
+            "/search/" +
+            id
+        )
+        .then((response) => {
+          this.store.restaurants = response.data.results;
+          console.log(this.store.restaurants);
+          if (!response.data.success) {
+            this.getRestaurants();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  }
 };
 
 // export default {
@@ -29,13 +51,13 @@ export default {
 </script>
 <template>
   <section class="mb-3">
-    <h2 class="container my-4">
+    <h2 class="container my-4 text-center ">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
     <AppSearch />
     <swiper  :loop="true" :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
       <swiper-slide v-for="element in store.types">
-        <img
+        <img @click="searchRestaurant(element.id)"
           :src="`${store.api.baseUrl}/storage/${element.image}`"
           draggable="false"
         />
