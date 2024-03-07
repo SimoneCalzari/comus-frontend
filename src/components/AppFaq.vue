@@ -8,6 +8,7 @@ export default {
 </script>
 
 <template>
+  <!-- section faq -->
   <section id="custom-faq">
     <div class="container">
       <h2>FAQ</h2>
@@ -84,6 +85,7 @@ export default {
       </div>
     </div>
   </section>
+  <!-- /section faq -->
 </template>
 
 <style scoped lang="scss">
