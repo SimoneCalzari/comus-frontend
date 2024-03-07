@@ -104,7 +104,7 @@ li {
 
 footer {
   padding: 10px 30px;
-  background-color: $custom-light-p;
+  background-color: $custom-primary;
 
   .box-sx a,
   .box-ct a {
