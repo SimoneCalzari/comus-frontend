@@ -33,7 +33,7 @@ export default {
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
     <AppSearch />
-    <swiper :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
+    <swiper  :loop="true" :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
       <swiper-slide v-for="element in store.types">
         <img
           :src="`${store.api.baseUrl}/storage/${element.image}`"
@@ -41,54 +41,6 @@ export default {
         />
         <h3 class="text-center py-2">{{ element.name_type }}</h3>
       </swiper-slide>
-      <!-- <swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/sushi.jpg"
-            draggable="false" /></a></swiper-slide
-      ><swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/messicano.jpg"
-            draggable="false" /></a></swiper-slide
-      ><swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/pizza.jpg"
-            draggable="false" /></a></swiper-slide
-      ><swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/pesce.jpg"
-            draggable="false" /></a></swiper-slide
-      ><swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/cinese.jpg"
-            draggable="false" /></a></swiper-slide
-      ><swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/gluten-free.jpg"
-            draggable="false" /></a></swiper-slide
-      ><swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/kebab.jpg"
-            draggable="false" /></a
-      ></swiper-slide>
-      <swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/steakhouse.jpg"
-            draggable="false" /></a
-      ></swiper-slide>
-      <swiper-slide
-        ><a href="#"
-          ><img
-            src="../../public/img/categories_img/fast-food.jpg"
-            draggable="false" /></a
-      ></swiper-slide> -->
     </swiper>
   </section>
 </template>
