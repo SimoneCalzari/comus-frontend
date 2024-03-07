@@ -49,8 +49,8 @@ a {
   .costum-btn-primary {
     background-color: red;
     color: white;
-    padding: $size_8;
     border-radius: $size_8;
+    padding: $size_8 $size_16;
   }
 
   .costum-cont-img {
