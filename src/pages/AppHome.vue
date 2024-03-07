@@ -2,7 +2,7 @@
 //importazione file components
 
 import AppJumbotron from "../components/AppJumbotron.vue";
-import AppList from "../components/AppList.vue";
+import AppRestaurantList from "../components/AppRestaurantsList.vue";
 import AppSectionSlogan from "../components/AppSectionSlogan.vue";
 
 import AppRistoratore from "../components/AppRistoratore.vue";
@@ -13,7 +13,7 @@ export default {
   name: "Home",
   components: {
     AppJumbotron,
-    AppList,
+    AppRestaurantList,
     AppSectionSlogan,
     AppRistoratore,
     AppFaq,
@@ -24,7 +24,7 @@ export default {
 
 <template>
   <AppJumbotron />
-  <AppList />
+  <AppRestaurantList />
   <AppSectionSlogan />
   <AppRistoratore />
   <AppDownload />
