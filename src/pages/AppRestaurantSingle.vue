@@ -2,15 +2,15 @@
 import axios from "axios";
 import store from "../store";
 import AppCart from "../components/AppCart.vue";
-import AppDish from "../components/AppDish.vue"
+import AppDish from "../components/AppDish.vue";
 
 export default {
   name: "AppRestaurantSingle",
-  components: {AppDish , AppCart},
+  components: { AppDish, AppCart },
   data() {
     return {
       store,
-      restaurant: {},
+      restaurant: "",
     };
   },
   methods: {
@@ -27,47 +27,42 @@ export default {
         })
         .then((response) => {
           this.restaurant = response.data.results;
-          console.log(response.data.results);
         });
     },
   },
   created() {
     this.getSingleRestaurant();
   },
+  mounted() {
+    this.store.cart = JSON.parse(localStorage.getItem("dishes")) || [];
+  },
 };
 </script>
-
-
-
-
-
-
-
-
-
 
 <template>
   <div class="container my-5">
     <div class="info-restaurant d-flex">
-      <div class="left-img m-2">
+      <div class="left-img m-2" v-if="restaurant">
         <img
           :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
-          alt=""
+          alt="piatto"
         />
       </div>
 
       <div class="caption d-flex flex-column justify-content-between">
-        <h1>{{ restaurant.restaurant.name_restaurant }}</h1>
+        <h1 v-if="restaurant">{{ restaurant.restaurant.name_restaurant }}</h1>
         <div>
-          <h5>{{ restaurant.restaurant.address }}</h5>
-          <h5>{{ restaurant.restaurant.phone_number }}</h5>
+          <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
+          <h5 v-if="restaurant">{{ restaurant.restaurant.phone_number }}</h5>
         </div>
       </div>
     </div>
 
     <div class="menu">
       <ul class="d-flex flex-wrap row p-0">
-        <li class="col-4 my-2" v-for="dish in restaurant.dishes"> <AppDish :dish="dish" /> </li>
+        <li class="col-4 my-2" v-for="dish in restaurant.dishes">
+          <AppDish :dish_new="dish" />
+        </li>
       </ul>
     </div>
   </div>
@@ -76,7 +71,7 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
-.left-img{
+.left-img {
   width: 40%;
 
   img {
@@ -98,5 +93,4 @@ export default {
   margin-top: $size_8;
   background-color: $custom_light_p;
 }
-
 </style>
