@@ -8,6 +8,7 @@ export default {
 </script>
 
 <template>
+  <!-- section faq -->
   <section id="custom-faq">
     <div class="container">
       <h2>FAQ</h2>
@@ -15,7 +16,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-secondary"
+              class="accordion-button collapsed custom-font-secondary ps-0"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne"
@@ -41,7 +42,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-secondary"
+              class="accordion-button collapsed custom-font-secondary ps-0"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseTwo"
@@ -63,7 +64,7 @@ export default {
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button collapsed custom-font-secondary"
+              class="accordion-button collapsed custom-font-secondary ps-0"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseThree"
@@ -84,6 +85,7 @@ export default {
       </div>
     </div>
   </section>
+  <!-- /section faq -->
 </template>
 
 <style scoped lang="scss">

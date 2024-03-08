@@ -23,10 +23,12 @@ export default {
 </script>
 
 <template>
-  <AppJumbotron />
-  <AppRestaurantList />
-  <AppSectionSlogan />
-  <AppRistoratore />
-  <AppDownload />
-  <AppFaq />
+  <main>
+    <AppJumbotron />
+    <AppRestaurantList />
+    <AppSectionSlogan />
+    <AppRistoratore />
+    <AppDownload />
+    <AppFaq />
+  </main>
 </template>

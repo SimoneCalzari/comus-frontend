@@ -8,24 +8,35 @@ export default {
 </script>
 
 <template>
-
+  <!-- section download -->
   <section id="download">
     <div class="container">
-      <div class="row d-flex flex-md-row flex-sm-column">
-        <div class="col col-md-6 col-sm-12">
-          <h2>Scarica l'app</h2>
-          <p class="custom-font-primary">Potrai ordinare ovunque sarai e quando vorrai</p>
-          <a href="#" target="_blank">
-            <img src="/img/app-store.png" alt="app-store" class="costum-app"/>
-          </a>
-          <a href="#" target="_blank">
-            <img src="/img/play-store.svg" alt="play-store" class="costum-app"/>
-          </a>
+
+      <div class="row flex-column flex-md-row ">
+        <!-- scarica testo e apps -->
+        <div class="col-md-6 col-sm-12 text-ms-start text-center">
+          <h2 class="display-5">Scarica l'app</h2>
+          <p class="custom-font-primary">Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia voglia!</p>
+          
+          <div class="costum-list-app d-flex gap-2 justify-content-center">
+            <a href="#" target="_blank">
+              <img src="/img/app-store.png" alt="app-store" class="costum-app"/>
+            </a>
+            <a href="#" target="_blank">
+              <img src="/img/play-store.svg" alt="play-store" class="costum-app"/>
+            </a>
+          </div>
         </div>
-        <div class="col-md-6 col-sm-12">immagine</div>
+        <!-- /scarica testo e apps -->
+        <!-- illustrazione scarica -->
+        <div class="col-md-6 col-sm-12">
+          <img src="/img/hamburger.jpg" class="false-img ">
+        </div>
+        <!-- illustrazione scarica -->
       </div>
     </div>
   </section>
+  <!-- section /download -->
 
 </template>
 
@@ -39,17 +50,26 @@ export default {
   h2 {
     font-family: "Bevan", serif;
   }
-    .custom-font-primary {
-      font-weight: 400;
-      font-style: normal;
-    }
+  .custom-font-primary {
+    font-weight: 400;
+    font-style: normal;
+  }
 
-    .costum-app {
-      width: 120px;
-      
-      img {
-        object-fit: center;
+  .costum-app {
+    width: 120px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+    img {
+      object-fit: cover;
     }
+  }
+  .false-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: $size_16;
   }
 }
 </style>

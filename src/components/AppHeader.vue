@@ -8,59 +8,86 @@ export default {
 </script>
 
 <template>
-  <header class="d-flex justify-content-between">
-    <div class="cont-logo">
-      <router-link :to="{ name: 'home' }">
-        <img src="/img/logo/logo-orange-white.svg" alt="logo"
-      /></router-link>
-    </div>
-    <ul class="btns mb-0">
-      <li>
-        <a href="#ristoranti">Lista ristoranti</a>
-      </li>
-      <li>
-        <a href="#ristoratore">Sei un ristoratore?</a>
-      </li>
-      <li class="cart">
-        <router-link :to="{ name: 'cart' }">
-          <i class="fa-solid fa-cart-shopping"></i>
+  <header>
+    <!-- navbar -->
+    <nav class="navbar d-flex align-item-center">
+      <div class="custom-logo">
+        <router-link :to="{ name: 'home' }">
+          <img src="/img/logo/big-white-orange.svg" alt="logo"/>
         </router-link>
-      </li>
-    </ul>
+      </div>
+      
+      <div class="costum-links">
+        <ul class="d-flex m-0 gap-4">
+          <li class="d-flex align-items-center">
+            <a class="nav-link" href="#">Lista ristoranti</a>
+          </li>
+          <li class="d-flex align-items-center">
+            <a class="nav-link" href="#">Sei un ristoratore?</a>
+          </li>
+          <li class="d-flex align-items-center">
+            <router-link :to="{ name: 'cart' }">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <!-- navbar -->
+    </nav>
   </header>
 </template>
 
 <style scoped lang="scss">
-@use "../assets/scss/general.scss" as *;
+
+@import "../assets/scss/partials/variables.scss";
 
 header {
-  background-color: #432456;
-  padding: 10px 30px;
+  background-color: $custom-secondary;
+  padding: $size_24 $size_16;
 
-  .cont-logo {
+  .custom-logo {
     width: 150px;
 
     img {
       width: 100%;
-      object-fit: contain;
     }
   }
 
-  ul {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+  .costum-links {
 
-    a {
+    ul {
+
+      a {
       text-decoration: none;
-      color: #ffff;
+      color: $custom-white;
 
       &:hover {
-        color: #faebd7;
-        text-decoration: underline;
+        color: $custom-primary;
+        transition: bottom 0.3s ease-in-out;
+      }
+
+      i {
+        padding: $size_8 $size_16;
+        background-color: $custom-light_p;
+        color: $custom-primary;
+        border-radius: $size_8;
+
+        &:hover {
+        color: $custom-secondary;
         transition: bottom 0.3s ease-in-out;
       }
     }
+  }
+
+    
+
+
+
+
+    }
+
+
+
 
     .cart a {
       background-color: #faebd7;

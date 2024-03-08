@@ -8,66 +8,54 @@ export default {
 </script>
 
 <template>
-  <section class="ristoratore py-5" id="ristoratore">
-    <div class="container-sm">
-      <div class="row">
-        <div class="cont-sx col-12 col-lg-6">
-          <div class="row text-center">
-            <div class="cont-text col-12 col-sm-9 col-lg-12 mt-5 p-0">
-              <h2>Vuoi unirti al team di Comus?</h2>
-              <p>
-                Registrati e inizia a vendere sul nostro portale
-              </p>
-            </div>
-            <div
-              class="col-12 col-sm-3 col-lg-12 d-flex align-items-center justify-content-center"
-            >
-              <a class="custom-btn mt-5" href="http://127.0.0.1:8000/"
-                >Registrati</a
-              >
-            </div>
-          </div>
+  <!-- section ristoratore -->
+  <section id="ristoratore">
+    <div class="container">
+      <div class="row text-center">
+        <!-- colonna testo e bottone -->
+        <div class="col-md-6 col-sm-12">
+          <h2  class="display-5">Vuoi unirti al team di Comus?</h2>
+          <p>
+            Registrati e inizia a vendere sul nostro portale
+          </p>
+          <a class="costum-btn-primary" href="http://127.0.0.1:8000/">Registrati</a>
         </div>
-        <div class="cont-dx col-12 col-lg-6">
-
-          <div class="cont-img">
-            <img src="/img/work-with-us.png" alt="" />
-          </div>
+        <!-- /colonna testo e bottone -->
+        <!-- immagine lavora con noi -->
+        <div class="col-md-6 col-sm-12">
+          <img src="/img/work-with-us.png" class="costum-cont-img" alt="work-with-us.png" />
         </div>
+        <!-- immagine lavora con noi -->
       </div>
     </div>
   </section>
+  <!-- section ristoratore -->
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+//importazione file variables
 
+@import "../assets/scss/partials/variables.scss";
 a {
   text-decoration: none;
 }
 
-.ristoratore {
+#ristoratore {
+  padding: $size_48 0;
+
   h2 {
     font-family: "Bevan", serif;
   }
-  
-  .cont-sx {
-    height: 100%;
+  .costum-btn-primary {
+    background-color: $custom-secondary;
+    color: $custom-white;
+    border-radius: $size_8;
+    padding: $size_8 $size_16;
   }
 
-  .cont-dx {
-    .cont-img {
-      width: 80%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        height: 100%;
-        width: 90%;
-      }
-    }
+  .costum-cont-img {
+    margin-top: $size_8;
+    width: 100%;
   }
 }
 </style>

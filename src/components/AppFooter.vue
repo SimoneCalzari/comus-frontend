@@ -22,102 +22,101 @@ export default {
 
 <template>
   <footer>
-    <div class="footer-top pt-3">
-      <div class="row">
+    <!--lista menu footer: sinistra, centro, destra-->
+    <div id="footer-top">
+      <div class="row align-items-md-start align-items-sm-center">
         <!-- sinistra -->
-        <div class="box-sx col-6 col-sm-4">
-          <ul>
+        <div class="custom-box-sx col-md-4 col-sm-12">
+          <ul class="text-md-start text-center p-0">
             <li v-for="menu_1 in menus_1">
-              <a href="#">{{ menu_1 }}</a>
+              <a href="#" target="_blank">{{ menu_1 }}</a>
             </li>
           </ul>
         </div>
+        <!-- /sinistra-->
         <!-- centro -->
-        <div class="box-ct col-6 col-sm-4">
-          <ul>
+        <div class="custom-box-ct col-md-4 col-sm-12">
+          <ul class="text-md-start text-center p-0">
             <li v-for="menu_2 in menus_2">
-              <a href="#">{{ menu_2 }}</a>
+              <a href="#" target="_blank">{{ menu_2 }}</a>
             </li>
           </ul>
         </div>
+        <!-- /centro -->
         <!-- destra -->
-        <div class="box-dx col-12 col-sm-4">
-          <div class="row">
+        <div class="costum-box-dx col-md-4 col-sm-12">
+          <div class="row align-items-center flex-md-column">
             <!-- logo -->
-            <div
-              class="col-6 col-sm-12 d-flex justify-content-center align-items-center"
-            >
-              <div class="cont-img">
-                <img src="/img/logo/logo-sm-purple.svg" alt="logo-footer" />
-              </div>
+            <div class="col-md-6 col-sm-12 d-flex justify-content-center">
+                <img src="/img/logo/logo-sm-snow.svg" class="cont-image" alt="logo-footer" />
             </div>
+            <!-- /logo -->
             <!-- socials -->
-            <div class="col-6 col-sm-12">
-              <ul class="d-flex justify-content-around m-0 mt-3">
+            <div class="col-md-6 col-sm-12 pt-4">
+              <ul class="col d-flex p-0 d-flex justify-content-center gap-3">
+                <!-- twitter -->
                 <li>
-                  <a href="#">
+                  <a href="#" target="_blank">
                     <i class="fa-brands fa-x-twitter"></i>
                   </a>
                 </li>
+                <!-- /twitter -->
+                <!-- youtube -->
                 <li>
-                  <a href="#">
+                  <a href="#" target="_blank">
                     <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
+                <!-- /youtube -->
+                <!-- instagram -->
                 <li>
-                  <a href="#">
+                  <a href="#" target="_blank">
                     <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
+                <!-- /instagram -->
+                <!-- facebook -->
                 <li>
-                  <a href="#">
+                  <a href="#" target="_blank">
                     <i class="fa-brands fa-square-facebook"></i>
                   </a>
                 </li>
+                <!-- facebook -->
               </ul>
             </div>
           </div>
         </div>
+        <!-- /destra -->
       </div>
     </div>
-
-    <div class="footer-bottom">
+    <!--lista menu footer: sinistra, centro, destra-->
+    <!-- copyright -->
+    <div id="footer-bottom">
       <p class="m-0 mt-3 text-center fs-6 text-body-secondary">
         Copyright © 2024 Comus Italia. All Rights Reserved.
       </p>
     </div>
+    <!-- /copyright -->
   </footer>
 </template>
 
 <style scoped lang="scss">
+//importazione fogli stili
 @import "../assets/scss/partials/variables.scss";
-ul {
-  padding: 0;
-}
-a {
-  text-decoration: none;
-}
+@import "../assets/scss/partials/reset.scss";
 
 li {
   padding: $size-8 0;
 }
 
 footer {
-  padding: 10px 30px;
+  padding: $size_24 $size_16;
   background-color: $custom-primary;
 
-  .box-sx a,
-  .box-ct a {
-    color: $custom-white;
-
-    &:hover {
-      color: $custom-secondary;
-    }
-  }
-
-  .box-dx {
-    i {
-      font-size: $size-32;
+  #footer-top {
+    padding: $size_16 0;
+    .custom-box-sx a,
+    .custom-box-ct a{
       color: $custom-white;
 
       &:hover {
@@ -126,12 +125,25 @@ footer {
     }
   }
 
-  .cont-img {
+  .cont-image {
     width: 100px;
+  }
+  .costum-box-dx {
+    i {
+      color: $custom-white;
+      font-size: $size_24;
+      
+      &:hover {
+        color: $custom-secondary;
+      }
 
-    img {
-      width: 100%;
+      .custom-box-ct a {
+      color: $custom-white;
+
+      
+    }
     }
   }
-}
+ } 
+  
 </style>
