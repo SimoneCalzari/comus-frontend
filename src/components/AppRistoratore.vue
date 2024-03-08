@@ -14,7 +14,7 @@ export default {
       <div class="row text-center">
         <!-- colonna testo e bottone -->
         <div class="col-md-6 col-sm-12">
-          <h2>Vuoi unirti al team di Comus?</h2>
+          <h2  class="display-5">Vuoi unirti al team di Comus?</h2>
           <p>
             Registrati e inizia a vendere sul nostro portale
           </p>
@@ -47,8 +47,8 @@ a {
     font-family: "Bevan", serif;
   }
   .costum-btn-primary {
-    background-color: red;
-    color: white;
+    background-color: $custom-secondary;
+    color: $custom-white;
     border-radius: $size_8;
     padding: $size_8 $size_16;
   }

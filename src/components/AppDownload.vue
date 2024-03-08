@@ -15,7 +15,7 @@ export default {
       <div class="row flex-column flex-md-row ">
         <!-- scarica testo e apps -->
         <div class="col-md-6 col-sm-12 text-ms-start text-center">
-          <h2>Scarica l'app</h2>
+          <h2 class="display-5">Scarica l'app</h2>
           <p class="custom-font-primary">Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia voglia!</p>
           
           <div class="costum-list-app d-flex gap-2 justify-content-center">

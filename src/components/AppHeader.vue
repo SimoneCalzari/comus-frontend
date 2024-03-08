@@ -42,7 +42,7 @@ export default {
 @import "../assets/scss/partials/variables.scss";
 
 header {
-  background-color: #432456;
+  background-color: $custom-secondary;
   padding: $size_24 $size_16;
 
   .custom-logo {
@@ -59,27 +59,32 @@ header {
 
       a {
       text-decoration: none;
-      color: rgb(160, 90, 90);
+      color: $custom-white;
 
       &:hover {
-        color: white;
+        color: $custom-primary;
         transition: bottom 0.3s ease-in-out;
       }
 
       i {
         padding: $size_8 $size_16;
-        background-color: red;
+        background-color: $custom-light_p;
+        color: $custom-primary;
         border-radius: $size_8;
+
+        &:hover {
+        color: $custom-secondary;
+        transition: bottom 0.3s ease-in-out;
       }
     }
-    }
+  }
 
     
 
 
 
 
-
+    }
 
 
 
