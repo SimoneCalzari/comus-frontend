@@ -8,12 +8,10 @@ export const store = reactive({
       restaurants: "/api/restaurants",
     },
   },
-  currentType: 0,
   restaurants: [],
   types: [],
-  cart:[],
-  typesearch: [],
-
+  cart: [],
+  typesSearched: [],
 });
 
 export default store;

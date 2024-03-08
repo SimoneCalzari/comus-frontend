@@ -1,54 +1,18 @@
 <script>
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
 import store from "../store";
 import axios from "axios";
-
-// Import Swiper styles
-import "swiper/css";
 
 export default {
   data() {
     return {
       store,
-      slidesNumberPerView: 6,
     };
   },
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    return {};
-  },
   created() {
-    this.checkWidth();
     this.getTypes();
     this.getRestaurants();
   },
   methods: {
-    checkWidth() {
-      setInterval(() => {
-        const viewWidth = window.innerWidth;
-        if (viewWidth > 1200) {
-          this.slidesNumberPerView = 6;
-          return;
-        }
-        if (viewWidth > 992) {
-          this.slidesNumberPerView = 5;
-          return;
-        }
-        if (viewWidth > 768) {
-          this.slidesNumberPerView = 4;
-          return;
-        }
-        if (viewWidth > 576) {
-          this.slidesNumberPerView = 3;
-          return;
-        }
-        this.slidesNumberPerView = 2;
-      }, 1000);
-    },
     getTypes() {
       axios
         .get(this.store.api.baseUrl + this.store.api.apiUrls.types)
@@ -60,17 +24,19 @@ export default {
           console.log(error);
         });
     },
-    searchRestaurant(id) {
+    searchRestaurants(id) {
       // controllo se l'id è già nel mio array
-      if (store.typesearch.includes(id)) {
+      if (store.typesSearched.includes(id)) {
         // cerco l index dell id nell'array
-        const index = store.typesearch.indexOf(id);
-        store.typesearch.splice(index, 1);
+        const index = store.typesSearched.indexOf(id);
+        // rimuovo l id dall array
+        store.typesSearched.splice(index, 1);
       } else {
-        store.typesearch.push(id);
+        // aggiungo l id all array
+        store.typesSearched.push(id);
       }
       // stringa con tipi da cercare separati da virgole
-      const types_search = store.typesearch.join();
+      const types_search = store.typesSearched.join();
       axios
         .get(
           this.store.api.baseUrl +
@@ -100,23 +66,22 @@ export default {
 </script>
 <template>
   <section class="mb-3">
-    <h2 class="my-4 text-center">
+    <h2 class="my-4 px-1 text-center">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
-    <div class="container d-flex flex-wrap row-cols-4">
+    <div class="d-flex flex-wrap justify-content-center">
       <div
-        @click="searchRestaurant(element.id)"
+        class="card-type"
         v-for="element in store.types"
-        class="card"
+        :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+        @click="searchRestaurants(element.id)"
       >
         <img
           :src="`${store.api.baseUrl}/storage/${element.image}`"
           class="card-img-top"
           alt="..."
         />
-        <div class="card-body">
-          <h5 class="card-title">{{ element.name_type }}</h5>
-        </div>
+        <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
       </div>
     </div>
   </section>
@@ -129,22 +94,43 @@ h2 {
   font-family: "Bevan", serif;
 }
 
-.card {
+.card-type {
+  margin: 1vw;
+  width: calc((100% - 12vw) / 6);
   cursor: pointer;
+  border: 3px solid $custom-primary;
+  border-radius: 10px;
+  overflow: hidden;
+  img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    display: block;
+  }
+}
+.active {
+  -webkit-box-shadow: -1px 1px 60px 1px $custom-secondary;
+  -moz-box-shadow: -1px 1px 60px 1px $custom-secondary;
+  -o-box-shadow: -1px 1px 60px 1px $custom-secondary;
+  box-shadow: -1px 1px 60px 1px $custom-secondary;
+}
+@media screen and (max-width: 1200px) {
+  .card-type {
+    width: calc((100% - 10vw) / 5);
+  }
+}
+@media screen and (max-width: 992px) {
+  .card-type {
+    width: calc((100% - 8vw) / 4);
+  }
+}
+@media screen and (max-width: 768px) {
+  .card-type {
+    width: calc((100% - 6vw) / 3);
+  }
+}
+@media screen and (max-width: 576px) {
+  .card-type {
+    width: calc((100% - 4vw) / 2);
+  }
 }
 </style>
-
-<!-- <swiper 
-  :watchSlidesProgress="true"
-  :slidesPerView="slidesNumberPerView"
-  draggable="false"
->
-  <swiper-slide
-    v-for="element in store.types"
-    :class="store.currentType === element.id ? 'active' : ''"
-    @click="searchRestaurant(element.id)"
-  >
-    <img :src="`${store.api.baseUrl}/storage/${element.image}`" />
-    <h3 class="text-center py-3 m-0">{{ element.name_type }}</h3>
-  </swiper-slide>
-</swiper> -->
