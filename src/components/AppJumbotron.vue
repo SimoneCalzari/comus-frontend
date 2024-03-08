@@ -1,17 +1,18 @@
 <script>
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import AppSearch from '../components/AppJumboSearch.vue';
-import store from '../store';
+import { Swiper, SwiperSlide } from "swiper/vue";
+import AppSearch from "../components/AppJumboSearch.vue";
+import store from "../store";
 import axios from "axios";
 
 // Import Swiper styles
-import 'swiper/css';
+import "swiper/css";
 
 export default {
   data() {
     return {
       store,
+      slidesNumberPerView: 6,
     };
   },
   components: {
@@ -22,8 +23,34 @@ export default {
   setup() {
     return {};
   },
-  methods:{
+  created() {
+    this.checkWidth();
+  },
+  methods: {
+    checkWidth() {
+      setInterval(() => {
+        const viewWidth = window.innerWidth;
+        if (viewWidth > 1200) {
+          this.slidesNumberPerView = 6;
+          return;
+        }
+        if (viewWidth > 992) {
+          this.slidesNumberPerView = 5;
+          return;
+        }
+        if (viewWidth > 768) {
+          this.slidesNumberPerView = 4;
+          return;
+        }
+        if (viewWidth > 576) {
+          this.slidesNumberPerView = 3;
+          return;
+        }
+        this.slidesNumberPerView = 2;
+      }, 1000);
+    },
     searchRestaurant(id) {
+      store.currentType = id;
       axios
         .get(
           this.store.api.baseUrl +
@@ -33,7 +60,6 @@ export default {
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
-          console.log(this.store.restaurants);
           if (!response.data.success) {
             this.getRestaurants();
           }
@@ -42,63 +68,110 @@ export default {
           console.log(error);
         });
     },
-  }
+  },
+  getRestaurants() {
+    axios
+      .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+      .then((response) => {
+        this.store.restaurants = response.data.results;
+      });
+  },
 };
-
-// export default {
-//   name: "Jumbotron",
-// };
 </script>
 <template>
   <section class="mb-3">
-    <h2 class="container my-4 text-center ">
+    <h2 class="container my-4 text-center">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
     <AppSearch />
-    <swiper  :loop="true" :watchSlidesProgress="true" :slidesPerView="5" class="mySwiper">
-      <swiper-slide v-for="element in store.types">
-        <img @click="searchRestaurant(element.id)"
-          :src="`${store.api.baseUrl}/storage/${element.image}`"
-          draggable="false"
+    <swiper
+      :watchSlidesProgress="true"
+      :loop="true"
+      :slidesPerView="slidesNumberPerView"
+      draggable="false"
+    >
+      <swiper-slide
+        @click="searchRestaurant(0)"
+        :class="store.currentType === 0 ? 'active' : ''"
+      >
+        <img
+          src="/public/img/logo/big-orange-white.svg"
+          :class="store"
+          id="prima-slide"
         />
-        <h3 class="text-center py-2">{{ element.name_type }}</h3>
+        <h3 class="text-center py-3 m-0">Tutte</h3>
+      </swiper-slide>
+      <swiper-slide
+        v-for="element in store.types"
+        :class="store.currentType === element.id ? 'active' : ''"
+        @click="searchRestaurant(element.id)"
+      >
+        <img :src="`${store.api.baseUrl}/storage/${element.image}`" />
+        <h3 class="text-center py-3 m-0">{{ element.name_type }}</h3>
       </swiper-slide>
     </swiper>
   </section>
 </template>
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 h2 {
   color: $custom-secondary;
   font-family: "Bevan", serif;
 }
-
 .swiper {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.swiper-slide {
-  cursor: pointer;
-  background-position: center;
-  background-size: cover;
-  width: calc(100% / 12 - 80px);
-  height: 310px;
-  margin: 10px;
-
-  img {
-    width: calc(100% / 10 - 50px);
-    height: 300px;
+  padding: 50px 0;
+  .swiper-slide {
+    margin: 0 10px;
+    width: calc((100% - 120px) / 6) !important;
+    border: 3px solid $custom-primary;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      display: block;
+    }
   }
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
+#prima-slide {
+  background-color: #432456;
 }
-.swiper-slide:hover {
-  border: 5px solid $custom-primary;
-  border-radius: 5px;
+.active {
+  -webkit-box-shadow: -1px 1px 60px 1px $custom-primary;
+  -moz-box-shadow: -1px 1px 60px 1px $custom-primary;
+  -o-box-shadow: -1px 1px 60px 1px $custom-primary;
+  box-shadow: -1px 1px 60px 1px $custom-primary;
+}
+
+@media screen and (max-width: 1200px) {
+  .swiper {
+    .swiper-slide {
+      width: calc((100% - 100px) / 5) !important;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .swiper {
+    .swiper-slide {
+      width: calc((100% - 80px) / 4) !important;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .swiper {
+    .swiper-slide {
+      width: calc((100% - 60px) / 3) !important;
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .swiper {
+    .swiper-slide {
+      width: calc((100% - 40px) / 2) !important;
+    }
+  }
 }
 </style>
