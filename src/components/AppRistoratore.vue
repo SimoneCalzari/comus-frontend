@@ -13,17 +13,25 @@ export default {
     <div class="container">
       <div class="row text-center">
         <!-- colonna testo e bottone -->
-        <div class="col-md-6 col-sm-12">
-          <h2  class="display-5">Vuoi unirti al team di Comus?</h2>
-          <p>
-            Registrati e inizia a vendere sul nostro portale
-          </p>
-          <a class="costum-btn-primary" href="http://127.0.0.1:8000/">Registrati</a>
+        <div
+          class="col-md-6 col-sm-12 d-flex justify-content-center flex-column"
+        >
+          <h2 class="display-5">Vuoi unirti al team di Comus?</h2>
+          <p>Registrati e inizia a vendere sul nostro portale</p>
+          <a
+            class="costum-btn-primary align-self-center"
+            href="http://127.0.0.1:8000/"
+            >Registrati</a
+          >
         </div>
         <!-- /colonna testo e bottone -->
         <!-- immagine lavora con noi -->
         <div class="col-md-6 col-sm-12">
-          <img src="/img/work-with-us.png" class="costum-cont-img" alt="work-with-us.png" />
+          <img
+            src="/img/work-with-us.png"
+            class="costum-cont-img"
+            alt="work-with-us.png"
+          />
         </div>
         <!-- immagine lavora con noi -->
       </div>
@@ -35,7 +43,7 @@ export default {
 <style scoped lang="scss">
 //importazione file variables
 
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 a {
   text-decoration: none;
 }
@@ -44,7 +52,7 @@ a {
   padding: $size_48 0;
 
   h2 {
-    font-family: "Bevan", serif;
+    font-family: 'Bevan', serif;
   }
   .costum-btn-primary {
     background-color: $custom-secondary;

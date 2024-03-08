@@ -11,33 +11,44 @@ export default {
   <!-- section download -->
   <section id="download">
     <div class="container">
-
-      <div class="row flex-column flex-md-row ">
+      <div class="row flex-column flex-md-row">
         <!-- scarica testo e apps -->
-        <div class="col-md-6 col-sm-12 text-ms-start text-center">
+        <div
+          class="col-md-6 col-sm-12 text-ms-start text-center d-flex justify-content-center flex-column"
+        >
           <h2 class="display-5">Scarica l'app</h2>
-          <p class="custom-font-primary">Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia voglia!</p>
-          
+          <p class="custom-font-primary">
+            Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia
+            voglia!
+          </p>
+
           <div class="costum-list-app d-flex gap-2 justify-content-center">
             <a href="#" target="_blank">
-              <img src="/img/app-store.png" alt="app-store" class="costum-app"/>
+              <img
+                src="/img/app-store.png"
+                alt="app-store"
+                class="costum-app"
+              />
             </a>
             <a href="#" target="_blank">
-              <img src="/img/play-store.svg" alt="play-store" class="costum-app"/>
+              <img
+                src="/img/play-store.svg"
+                alt="play-store"
+                class="costum-app"
+              />
             </a>
           </div>
         </div>
         <!-- /scarica testo e apps -->
         <!-- illustrazione scarica -->
         <div class="col-md-6 col-sm-12">
-          <img src="/img/hamburger.jpg" class="false-img ">
+          <img src="/img/hamburger.jpg" class="false-img" />
         </div>
         <!-- illustrazione scarica -->
       </div>
     </div>
   </section>
   <!-- section /download -->
-
 </template>
 
 <style scoped lang="scss">
@@ -48,7 +59,7 @@ export default {
   padding: $size-48 0;
 
   h2 {
-    font-family: "Bevan", serif;
+    font-family: 'Bevan', serif;
   }
   .custom-font-primary {
     font-weight: 400;
@@ -60,7 +71,7 @@ export default {
     height: 40px;
     object-fit: cover;
     border-radius: 10px;
-    
+
     img {
       object-fit: cover;
     }
