@@ -1,7 +1,6 @@
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
-import AppSearch from "../components/AppJumboSearch.vue";
 import store from "../store";
 import axios from "axios";
 
@@ -18,13 +17,14 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    AppSearch,
   },
   setup() {
     return {};
   },
   created() {
     this.checkWidth();
+    this.getTypes();
+    this.getRestaurants();
   },
   methods: {
     checkWidth() {
@@ -49,14 +49,34 @@ export default {
         this.slidesNumberPerView = 2;
       }, 1000);
     },
+    getTypes() {
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.types)
+        .then((response) => {
+          this.store.types = response.data.results;
+          // console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     searchRestaurant(id) {
-      store.currentType = id;
+      // controllo se l'id è già nel mio array
+      if (store.typesearch.includes(id)) {
+        // cerco l index dell id nell'array
+        const index = store.typesearch.indexOf(id);
+        store.typesearch.splice(index, 1);
+      } else {
+        store.typesearch.push(id);
+      }
+      // stringa con tipi da cercare separati da virgole
+      const types_search = store.typesearch.join();
       axios
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
             "/search/" +
-            id
+            types_search
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -68,110 +88,63 @@ export default {
           console.log(error);
         });
     },
-  },
-  getRestaurants() {
-    axios
-      .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
-      .then((response) => {
-        this.store.restaurants = response.data.results;
-      });
+    getRestaurants() {
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+        .then((response) => {
+          this.store.restaurants = response.data.results;
+        });
+    },
   },
 };
 </script>
 <template>
   <section class="mb-3">
-    <h2 class="container my-4 text-center">
+    <h2 class="my-4 text-center">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
-    <AppSearch />
-    <swiper
-      :watchSlidesProgress="true"
-      :loop="true"
-      :slidesPerView="slidesNumberPerView"
-      draggable="false"
-    >
-      <swiper-slide
-        @click="searchRestaurant(0)"
-        :class="store.currentType === 0 ? 'active' : ''"
+    <div class="container d-flex flex-wrap row-cols-4">
+      <div
+        @click="searchRestaurant(element.id)"
+        v-for="element in store.types"
+        class="card"
       >
         <img
-          src="/public/img/logo/big-orange-white.svg"
-          :class="store"
-          id="prima-slide"
+          :src="`${store.api.baseUrl}/storage/${element.image}`"
+          class="card-img-top"
+          alt="..."
         />
-        <h3 class="text-center py-3 m-0">Tutte</h3>
-      </swiper-slide>
-      <swiper-slide
-        v-for="element in store.types"
-        :class="store.currentType === element.id ? 'active' : ''"
-        @click="searchRestaurant(element.id)"
-      >
-        <img :src="`${store.api.baseUrl}/storage/${element.image}`" />
-        <h3 class="text-center py-3 m-0">{{ element.name_type }}</h3>
-      </swiper-slide>
-    </swiper>
+        <div class="card-body">
+          <h5 class="card-title">{{ element.name_type }}</h5>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
+
 h2 {
   color: $custom-secondary;
   font-family: "Bevan", serif;
 }
-.swiper {
-  width: 100%;
-  padding: 50px 0;
-  .swiper-slide {
-    margin: 0 10px;
-    width: calc((100% - 120px) / 6) !important;
-    border: 3px solid $custom-primary;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      display: block;
-    }
-  }
-}
 
-#prima-slide {
-  background-color: #432456;
-}
-.active {
-  -webkit-box-shadow: -1px 1px 60px 1px $custom-primary;
-  -moz-box-shadow: -1px 1px 60px 1px $custom-primary;
-  -o-box-shadow: -1px 1px 60px 1px $custom-primary;
-  box-shadow: -1px 1px 60px 1px $custom-primary;
-}
-
-@media screen and (max-width: 1200px) {
-  .swiper {
-    .swiper-slide {
-      width: calc((100% - 100px) / 5) !important;
-    }
-  }
-}
-@media screen and (max-width: 992px) {
-  .swiper {
-    .swiper-slide {
-      width: calc((100% - 80px) / 4) !important;
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-  .swiper {
-    .swiper-slide {
-      width: calc((100% - 60px) / 3) !important;
-    }
-  }
-}
-@media screen and (max-width: 576px) {
-  .swiper {
-    .swiper-slide {
-      width: calc((100% - 40px) / 2) !important;
-    }
-  }
+.card {
+  cursor: pointer;
 }
 </style>
+
+<!-- <swiper 
+  :watchSlidesProgress="true"
+  :slidesPerView="slidesNumberPerView"
+  draggable="false"
+>
+  <swiper-slide
+    v-for="element in store.types"
+    :class="store.currentType === element.id ? 'active' : ''"
+    @click="searchRestaurant(element.id)"
+  >
+    <img :src="`${store.api.baseUrl}/storage/${element.image}`" />
+    <h3 class="text-center py-3 m-0">{{ element.name_type }}</h3>
+  </swiper-slide>
+</swiper> -->
