@@ -61,13 +61,22 @@ export default {
         });
     },
     searchRestaurant(id) {
-      store.currentType = id;
+      // controllo se l'id è già nel mio array
+      if (store.typesearch.includes(id)) {
+        // cerco l index dell id nell'array
+        const index = store.typesearch.indexOf(id);
+        store.typesearch.splice(index, 1);
+      } else {
+        store.typesearch.push(id);
+      }
+      // stringa con tipi da cercare separati da virgole
+      const types_search = store.typesearch.join();
       axios
         .get(
           this.store.api.baseUrl +
-          this.store.api.apiUrls.restaurants +
-          "/search/" +
-          id
+            this.store.api.apiUrls.restaurants +
+            "/search/" +
+            types_search
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -87,7 +96,6 @@ export default {
         });
     },
   },
-
 };
 </script>
 <template>
@@ -95,9 +103,17 @@ export default {
     <h2 class="my-4 text-center">
       Puoi scegliere tra queste categorie di ristorante:
     </h2>
-    <div class="container d-flex flex-wrap row-cols-4 ">
-      <div @click="searchRestaurant(element.id)" v-for="element in store.types" class="card ">
-        <img :src="`${store.api.baseUrl}/storage/${element.image}`" class="card-img-top" alt="...">
+    <div class="container d-flex flex-wrap row-cols-4">
+      <div
+        @click="searchRestaurant(element.id)"
+        v-for="element in store.types"
+        class="card"
+      >
+        <img
+          :src="`${store.api.baseUrl}/storage/${element.image}`"
+          class="card-img-top"
+          alt="..."
+        />
         <div class="card-body">
           <h5 class="card-title">{{ element.name_type }}</h5>
         </div>
@@ -117,13 +133,6 @@ h2 {
   cursor: pointer;
 }
 </style>
-
-
-
-
-
-
-
 
 <!-- <swiper 
   :watchSlidesProgress="true"
