@@ -11,7 +11,9 @@ export const store = reactive({
   currentType: 0,
   restaurants: [],
   types: [],
+  cart:[],
   typesearch: [],
+
 });
 
 export default store;

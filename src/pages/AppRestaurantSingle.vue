@@ -1,11 +1,12 @@
 <script>
 import axios from "axios";
 import store from "../store";
+import AppCart from "../components/AppCart.vue";
 import AppDish from "../components/AppDish.vue"
 
 export default {
   name: "AppRestaurantSingle",
-  components: {AppDish},
+  components: {AppDish , AppCart},
   data() {
     return {
       store,
@@ -70,6 +71,7 @@ export default {
       </ul>
     </div>
   </div>
+  <AppCart />
 </template>
 
 <style scoped lang="scss">

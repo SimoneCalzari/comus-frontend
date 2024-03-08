@@ -1,9 +1,24 @@
 <script>
+import store from '../store';
+
 export default {
   name: "AppDish",
   data() {
-    return {};
+    return {
+      store,
+    };
   },
+  methods: {
+    addToCart(dish){
+      console.log(dish.name, dish);
+      this.store.cart.push(dish);
+      // LOCAL STORAGE DA GESTIRE 
+      // localStorage.setItem('cart', JSON.stringify(this.store.cart));
+      console.log(this.store.cart);
+    },
+    
+  },
+
   props: ["dish"],
 };
 </script>
@@ -17,10 +32,15 @@ export default {
       <h3>{{ dish.name }}</h3>
       <h5>{{ dish.price }} €</h5>
     </div>
-    <a class="custom-btn mt-5 position-absolute" href="#"
-                >+</a
-              >
+    <a
+      class="custom-btn mt-5 position-absolute"
+      @click="addToCart(dish)"
+      href="#"
+      >+</a
+    >
+    
   </div>
+  
 </template>
 
 <style scoped lang="scss">
@@ -31,11 +51,11 @@ export default {
   color: $custom-secondary;
   background-color: $custom-lighter_p;
 }
-a{
-    bottom: 5px;
-    right: 5px;
-    text-decoration: none;
-    font-size: $size-16;
-    font-weight: 700;
+a {
+  bottom: 5px;
+  right: 5px;
+  text-decoration: none;
+  font-size: $size-16;
+  font-weight: 700;
 }
 </style>
