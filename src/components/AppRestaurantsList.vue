@@ -20,9 +20,7 @@ export default {
 <template>
   <section class="container" id="costum-restaurants">
     <h2 class="display-5 text-center">I nostri ristoranti</h2>
-
     <div v-if="store.restaurants.length">
-
       <div class="row g-2 g-lg-3">
         <div class="col-sm-12 col-md-4 restaurant-card" v-for="restaurant in store.restaurants">
           <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug }}">
@@ -38,10 +36,9 @@ export default {
             </div>
           </router-link>
         </div>
-    
+      </div>
     </div>
-  </div>
-
+    
     <h3 v-else>Nessun Risultato</h3>
   </section>
 </template>
