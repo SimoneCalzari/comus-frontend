@@ -8,23 +8,24 @@ export default {
       store,
     };
   },
-  methods: {
-   
-  },
-
-  created() {
-    
-  },
 };
 </script>
 <template>
-  <section class="container" id="costum-restaurants">
-    <h2 class="display-5 text-center">I nostri ristoranti</h2>
+  <section id="costum-restaurants">
+    <!-- <h2 class="display-5 text-center">I nostri ristoranti</h2>
     <div v-if="store.restaurants.length">
       <div class="row g-2 g-lg-3">
-        <div class="col-sm-12 col-md-4 restaurant-card" v-for="restaurant in store.restaurants">
-          <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug }}">
-            <img :src="`${store.api.baseUrl}/storage/${restaurant.img}`" alt="immagine ristorante"/>
+        <div
+          class="col-sm-12 col-md-4 restaurant-card"
+          v-for="restaurant in store.restaurants"
+        >
+          <router-link
+            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+          >
+            <img
+              :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
+              alt="immagine ristorante"
+            />
             <div class="banner p-2">Solo con Comus!</div>
             <div class="caption">
               <h3>{{ restaurant.name_restaurant }}</h3>
@@ -38,14 +39,47 @@ export default {
         </div>
       </div>
     </div>
-    
-    <h3 v-else>Nessun Risultato</h3>
+
+    <h3 v-else>Nessun Risultato</h3> -->
+    <div class="container-fluid">
+      <h2 class="text-center fs-1">I nostri ristoranti</h2>
+      <div v-if="store.restaurants.length">
+        <h3 class="mb-4 text-center">
+          Sono presenti {{ store.restaurants.length }} ristoranti
+        </h3>
+        <div class="restaurants d-flex justify-content-center flex-wrap">
+          <div class="restaurant-card" v-for="restaurant in store.restaurants">
+            <router-link
+              :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+              class="d-flex flex-column h-100"
+            >
+              <img
+                :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
+                alt="immagine ristorante"
+              />
+              <div
+                class="caption p-2 border flex-grow-1 d-flex flex-column justify-content-center"
+              >
+                <h4 class="fw-bold text-center">
+                  {{ restaurant.name_restaurant }}
+                </h4>
+                <p class="mb-0 fs-5 text-center">
+                  <span v-for="category in restaurant.types" class="me-2">
+                    {{ category.name_type }}
+                  </span>
+                </p>
+              </div>
+            </router-link>
+          </div>
+        </div>
+      </div>
+      <h3 v-else>La ricerca non ha prodotto risultati</h3>
+    </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
-
 
 #costum-restaurants {
   padding-bottom: $size_48;
@@ -53,7 +87,7 @@ export default {
   h2 {
     color: $custom-secondary;
     font-family: "Bevan", serif;
-    padding: $size_48;
+    // padding: $size_48;
   }
   .restaurant-card {
     -webkit-box-shadow: -1px 1px 20px 1px $custom-secondary;
@@ -61,26 +95,17 @@ export default {
     -o-box-shadow: -1px 1px 20px 1px $custom-secondary;
     box-shadow: -1px 1px 20px 1px $custom-secondary;
     border-radius: $size_8;
-    position: relative;
-
-
+    width: calc((100% - 100px) / 5);
+    margin: 10px;
+    overflow: hidden;
     img {
-      height: 70%;
-      width: 100%; 
-      object-fit: cover
+      aspect-ratio: 4/3;
+      width: 100%;
+      display: block;
     }
-
-    .banner {
-      position: absolute;
-      left: -20px;
-      top: $size_8;
-      border-radius: $size_8;
-      background-color: $custom-primary;
-      color: $custom-white ;
-    }
-    .caption {
-      padding-bottom: $size_16;
-    }
+    // .caption {
+    //   padding-bottom: $size_16;
+    // }
   }
   .restaurant-card:hover {
     -webkit-box-shadow: -1px 1px 20px 1px $custom-primary;
@@ -93,6 +118,32 @@ export default {
     color: $custom-secondary;
   }
 }
-
-
+@media screen and (max-width: 1200px) {
+  #costum-restaurants {
+    .restaurant-card {
+      width: calc((100% - 80px) / 4);
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  #costum-restaurants {
+    .restaurant-card {
+      width: calc((100% - 60px) / 3);
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  #costum-restaurants {
+    .restaurant-card {
+      width: calc((100% - 40px) / 2);
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  #costum-restaurants {
+    .restaurant-card {
+      width: calc((100% - 20px) / 1);
+    }
+  }
+}
 </style>
