@@ -10,6 +10,16 @@ export default {
   },
   methods: {
     addToCart(dish) {
+
+      // se provo ad aggiungere un piatto da un altro ristorante devo svuotare il carrello
+      const currentRestaurant = this.store.cart[0].restaurant_id;
+      console.log(currentRestaurant);
+      if (currentRestaurant !== dish.restaurant_id){
+        alert('Nel carrello sono presenti piatti di un altro ristorante, se vuoi aggiungere questo piatto, devi svuotare prima il carrello, procedere?');
+        this.store.cart = [];
+      }
+      
+      
       // caso a carrello vuoto pusho il piatto direttamente
       if (!this.store.cart.length) {
         // creo oggetto copia del piatto aggiungendo la quantita
@@ -46,6 +56,7 @@ export default {
           return;
         }
       }
+      
     },
   },
 
