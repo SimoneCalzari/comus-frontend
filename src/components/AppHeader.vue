@@ -13,17 +13,19 @@ export default {
     <nav class="navbar d-flex align-item-center">
       <div class="custom-logo">
         <router-link :to="{ name: 'home' }">
-          <img src="/img/logo/big-white-orange.svg" alt="logo"/>
+          <img src="/img/logo/big-white-orange.svg" alt="logo" />
         </router-link>
       </div>
-      
+
       <div class="costum-links">
         <ul class="d-flex m-0 gap-4">
           <li class="d-flex align-items-center">
             <a class="nav-link" href="#">Lista ristoranti</a>
           </li>
           <li class="d-flex align-items-center">
-            <a class="nav-link" href="#">Sei un ristoratore?</a>
+            <a class="nav-link" href="http://127.0.0.1:8000"
+              >Area Ristoratori</a
+            >
           </li>
           <li class="d-flex align-items-center">
             <router-link :to="{ name: 'cart' }">
@@ -38,7 +40,6 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
 @import "../assets/scss/partials/variables.scss";
 
 header {
@@ -54,40 +55,29 @@ header {
   }
 
   .costum-links {
-
     ul {
-
       a {
-      text-decoration: none;
-      color: $custom-white;
-
-      &:hover {
-        color: $custom-primary;
-        transition: bottom 0.3s ease-in-out;
-      }
-
-      i {
-        padding: $size_8 $size_16;
-        background-color: $custom-light_p;
-        color: $custom-primary;
-        border-radius: $size_8;
+        text-decoration: none;
+        color: $custom-white;
 
         &:hover {
-        color: $custom-secondary;
-        transition: bottom 0.3s ease-in-out;
+          color: $custom-primary;
+          transition: bottom 0.3s ease-in-out;
+        }
+
+        i {
+          padding: $size_8 $size_16;
+          background-color: $custom-light_p;
+          color: $custom-primary;
+          border-radius: $size_8;
+
+          &:hover {
+            color: $custom-secondary;
+            transition: bottom 0.3s ease-in-out;
+          }
+        }
       }
     }
-  }
-
-    
-
-
-
-
-    }
-
-
-
 
     .cart a {
       background-color: #faebd7;
