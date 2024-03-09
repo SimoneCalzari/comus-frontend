@@ -10,7 +10,8 @@ export default {
   },
   methods: {
     addToCart(dish) {
-
+      // aggiungo piatto e ristorante_id
+      this.store.cart.push(dish.restaurant_id);
       // se provo ad aggiungere un piatto da un altro ristorante devo svuotare il carrello
       const currentRestaurant = this.store.cart[0].restaurant_id;
       console.log(currentRestaurant);
@@ -71,14 +72,14 @@ export default {
     </div>
     <div class="info ms-3">
       <h3>{{ dish_new.name }}</h3>
-      <h5>{{ dish_new.price }} €</h5>
+      <p>{{ dish_new.price }} €</p>
     </div>
     <div
-      class="custom-btn mt-5 position-absolute"
+      class="custom-btn position-absolute"
       @click="addToCart(dish_new)"
       href="#"
     >
-      +
+    <i class="fa-solid fa-plus"></i>
     </div>
   </div>
 </template>
@@ -96,7 +97,7 @@ export default {
   right: 5px;
   text-decoration: none;
   font-size: $size-16;
-  font-weight: 700;
   cursor: pointer;
+  padding: $size_8;
 }
 </style>
