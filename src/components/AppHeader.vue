@@ -1,8 +1,20 @@
 <script>
+import store from "../store";
 export default {
   name: "Header",
   data() {
-    return {};
+    return {
+      store,
+    };
+  },
+  methods: {
+    totalItemsCart() {
+      let total = 0;
+      this.store.cart.forEach((item) => {
+        total += item.quantity;
+      });
+      return total;
+    },
   },
 };
 </script>
@@ -29,7 +41,9 @@ export default {
           </li>
           <li class="d-flex align-items-center">
             <router-link :to="{ name: 'cart' }">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping">
+                <div id="items-cart">{{ totalItemsCart() }}</div>
+              </i>
             </router-link>
           </li>
         </ul>
@@ -70,6 +84,21 @@ header {
           background-color: $custom-light_p;
           color: $custom-primary;
           border-radius: $size_8;
+          position: relative;
+          #items-cart {
+            position: absolute;
+            color: white;
+            top: -10px;
+            right: -10px;
+            background-color: $custom-primary;
+            width: 25px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 25px;
+            font-size: 12px;
+          }
 
           &:hover {
             color: $custom-secondary;
