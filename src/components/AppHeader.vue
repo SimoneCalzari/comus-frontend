@@ -1,8 +1,23 @@
 <script>
+import store from "../store";
 export default {
   name: "Header",
   data() {
-    return {};
+    return {
+      store,
+    };
+  },
+  methods: {
+    totalItemsCart() {
+      let total = 0;
+      this.store.cart.forEach((item) => {
+        total += item.quantity;
+      });
+      return total;
+    },
+  },
+  mounted() {
+    this.store.cart = JSON.parse(localStorage.getItem("dishes")) || [];
   },
 };
 </script>
@@ -20,7 +35,7 @@ export default {
       <div class="costum-links">
         <ul class="d-flex m-0 gap-4">
           <li class="d-flex align-items-center">
-            <a class="nav-link" href="#">Lista ristoranti</a>
+            <a class="nav-link" href="#costum-restaurants">Lista ristoranti</a>
           </li>
           <li class="d-flex align-items-center">
             <a class="nav-link" href="http://127.0.0.1:8000"
@@ -29,7 +44,9 @@ export default {
           </li>
           <li class="d-flex align-items-center">
             <router-link :to="{ name: 'cart' }">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping">
+                <div id="items-cart">{{ totalItemsCart() }}</div>
+              </i>
             </router-link>
           </li>
         </ul>
@@ -70,6 +87,21 @@ header {
           background-color: $custom-light_p;
           color: $custom-primary;
           border-radius: $size_8;
+          position: relative;
+          #items-cart {
+            position: absolute;
+            color: white;
+            top: -10px;
+            right: -10px;
+            background-color: $custom-primary;
+            width: 25px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 25px;
+            font-size: 12px;
+          }
 
           &:hover {
             color: $custom-secondary;

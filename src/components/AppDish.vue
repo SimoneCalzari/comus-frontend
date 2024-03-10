@@ -8,65 +8,14 @@ export default {
       store,
     };
   },
-  methods: {
-    addToCart(dish) {
-      // aggiungo piatto e ristorante_id
-      this.store.cart.push(dish.restaurant_id);
-      // se provo ad aggiungere un piatto da un altro ristorante devo svuotare il carrello
-      const currentRestaurant = this.store.cart[0].restaurant_id;
-      console.log(currentRestaurant);
-      if (currentRestaurant !== dish.restaurant_id){
-        alert('Nel carrello sono presenti piatti di un altro ristorante, se vuoi aggiungere questo piatto, devi svuotare prima il carrello, procedere?');
-        this.store.cart = [];
-      }
-      
-      
-      // caso a carrello vuoto pusho il piatto direttamente
-      if (!this.store.cart.length) {
-        // creo oggetto copia del piatto aggiungendo la quantita
-        const dishWithQuantity = { ...dish, quantity: 1 };
-        // pusho la copia piatto nel carrello store
-        this.store.cart.push(dishWithQuantity);
-        // metto il carrello store TUTTO nel local storage alla key 'dishes'
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
-        return;
-      }
-      // se arrivo qua il carrello non è vuoto e devo verificare se ho già il piatto passato alla funzione nel carrello
-      let isInCart = false;
-      for (let i = 0; i < this.store.cart.length; i++) {
-        if (dish.id === this.store.cart[i].id) {
-          isInCart = true;
-          break;
-        }
-      }
-      // se il piatto non è nel carrello faccio come nel caso a carrello vuoto
-      if (!isInCart) {
-        // creo oggetto copia del piatto aggiungendo la quantita
-        const dishWithQuantity = { ...dish, quantity: 1 };
-        // pusho la copia piatto nel carrello store
-        this.store.cart.push(dishWithQuantity);
-        // metto il carrello store TUTTO nel local storage alla key 'dishes'
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
-        return;
-      }
-      // se il piatto è già nel carrello store devo trovarlo e aumentare la sua quantità di uno
-      for (let i = 0; i < this.store.cart.length; i++) {
-        if (dish.id === this.store.cart[i].id) {
-          this.store.cart[i].quantity++;
-          localStorage.setItem("dishes", JSON.stringify(this.store.cart));
-          return;
-        }
-      }
-      
-    },
-  },
-
+  methods: {},
+  emits: ["newItem"],
   props: ["dish_new"],
 };
 </script>
 
 <template>
-  <div class="menu-item p-3 d-flex position-relative">
+  <div class="menu-item p-3 d-flex position-relative h-100">
     <div class="dish-img m-1">
       <img src="" alt="piatto" />
     </div>
@@ -75,11 +24,11 @@ export default {
       <p>{{ dish_new.price }} €</p>
     </div>
     <div
-      class="custom-btn position-absolute"
-      @click="addToCart(dish_new)"
+      class="custom-btn mt-5 position-absolute"
+      @click="$emit('newItem')"
       href="#"
     >
-    <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-plus"></i>
     </div>
   </div>
 </template>
