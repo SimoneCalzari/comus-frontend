@@ -1,7 +1,7 @@
 <script>
 import store from "../store";
 export default {
-  name: "AppCart",
+  name: "AppCartPreview",
   data() {
     return {
       store,
@@ -10,17 +10,24 @@ export default {
     methods: {
       addInCart() {
       console.log('vai al carello');
+    },
+      sumDish (num1 ) {
+        console.log('somma');
     }
+  },
+  mounted() {
+    this.sumDish()
   }
 };
 </script>
 
 <template>
   <div class="container info-restaurant">
-    <h3 class="fs-1">Carrello</h3>
+    <h3 class="fs-1">Preview carello</h3>
     <div v-for="product in this.store.cart" class="fs-3">
       <!-- tolto trattino perchè altrimenti il trattino compariva vuoto quando aggiungevo lo stesso piatto -->
-      {{ product.name }} {{ product.quantity }}
+      {{ product.name }} {{ product.quantity }} {{ product.price }}
+      <span @v-on="sumDish"></span>
     </div>
       <!--evento al click per poi andare alla pagina carello senza routerlink per ora-->
       <button class="btn btn-primary" @click="addInCart">Conferma ordine</button>

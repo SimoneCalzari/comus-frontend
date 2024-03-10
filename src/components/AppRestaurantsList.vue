@@ -12,35 +12,6 @@ export default {
 </script>
 <template>
   <section id="costum-restaurants">
-    <!-- <h2 class="display-5 text-center">I nostri ristoranti</h2>
-    <div v-if="store.restaurants.length">
-      <div class="row g-2 g-lg-3">
-        <div
-          class="col-sm-12 col-md-4 restaurant-card"
-          v-for="restaurant in store.restaurants"
-        >
-          <router-link
-            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
-          >
-            <img
-              :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
-              alt="immagine ristorante"
-            />
-            <div class="banner p-2">Solo con Comus!</div>
-            <div class="caption">
-              <h3>{{ restaurant.name_restaurant }}</h3>
-              <p>
-                <span v-for="category in restaurant.types">
-                  {{ category.name_type }}
-                </span>
-              </p>
-            </div>
-          </router-link>
-        </div>
-      </div>
-    </div>
-
-    <h3 v-else>Nessun Risultato</h3> -->
     <div class="container-fluid">
       <h2 class="text-center fs-1">I nostri ristoranti</h2>
       <div v-if="store.restaurants.length">

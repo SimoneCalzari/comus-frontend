@@ -1,12 +1,13 @@
 <script>
 import axios from "axios";
 import store from "../store";
-import AppCart from "../components/AppCart.vue";
+import AppCartPreview from "../components/AppCartPreview.vue";
 import AppDish from "../components/AppDish.vue";
+import AppCartEmpty from "../components/AppCartEmpty.vue";
 
 export default {
   name: "AppRestaurantSingle",
-  components: { AppDish, AppCart },
+  components: { AppDish, AppCartPreview, AppCartEmpty },
   data() {
     return {
       store,
@@ -66,7 +67,12 @@ export default {
       </ul>
     </div>
   </div>
-  <AppCart />
+  <!--v if-->
+  <AppCartPreview/>
+  <!--v if-->
+  <!--v else-->
+  <AppCartEmpty/>
+  <!--v else-->
 </template>
 
 <style scoped lang="scss">
