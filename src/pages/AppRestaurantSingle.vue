@@ -98,76 +98,78 @@ export default {
 </script>
 
 <template>
-  <div class="container my-5">
-    <div class="info-restaurant d-flex">
-      <div class="left-img m-2" v-if="restaurant">
-        <img
-          :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
-          alt="piatto"
-        />
-      </div>
+  <main>
+    <div class="container my-5">
+      <div class="info-restaurant d-flex">
+        <div class="left-img m-2" v-if="restaurant">
+          <img
+            :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
+            alt="piatto"
+          />
+        </div>
 
-      <div class="caption d-flex flex-column justify-content-between">
-        <h1 v-if="restaurant">{{ restaurant.restaurant.name_restaurant }}</h1>
-        <div>
-          <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
-          <h5 v-if="restaurant">{{ restaurant.restaurant.phone_number }}</h5>
+        <div class="caption d-flex flex-column justify-content-between">
+          <h1 v-if="restaurant">{{ restaurant.restaurant.name_restaurant }}</h1>
+          <div>
+            <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
+            <h5 v-if="restaurant">{{ restaurant.restaurant.phone_number }}</h5>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="menu">
-      <ul class="d-flex flex-wrap row p-0">
-        <li class="col-4 my-2" v-for="dish in restaurant.dishes">
-          <AppDish :dish_new="dish" @newItem="addToCart(dish)" />
-          <!-- Modal -->
-          <div
-            class="modal bg-dark"
-            style="--bs-bg-opacity: 0.8"
-            :class="modalOn && currentModal === dish.id ? 'd-block' : ''"
-            @click.self="toogleModal(dish.id)"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h3 class="modal-title fs-5">
-                    Conferma svuotamento carrello
-                  </h3>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    @click="toogleModal(dish.id)"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  Se aggiungi un piatto di un altro ristorante il carrello verrà
-                  svuotato, vuoi procedere comunque?
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    @click="toogleModal(dish.id)"
-                  >
-                    Annulla
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                    @click="addToCart(dish)"
-                  >
-                    Conferma
-                  </button>
+      <div class="menu">
+        <ul class="d-flex flex-wrap row p-0">
+          <li class="col-4 my-2" v-for="dish in restaurant.dishes">
+            <AppDish :dish_new="dish" @newItem="addToCart(dish)" />
+            <!-- Modal -->
+            <div
+              class="modal bg-dark"
+              style="--bs-bg-opacity: 0.8"
+              :class="modalOn && currentModal === dish.id ? 'd-block' : ''"
+              @click.self="toogleModal(dish.id)"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title fs-5">
+                      Conferma svuotamento carrello
+                    </h3>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      @click="toogleModal(dish.id)"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    Se aggiungi un piatto di un altro ristorante il carrello
+                    verrà svuotato, vuoi procedere comunque?
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click="toogleModal(dish.id)"
+                    >
+                      Annulla
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      @click="addToCart(dish)"
+                    >
+                      Conferma
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Modal -->
-        </li>
-      </ul>
+            <!-- Modal -->
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <AppCart />
+    <AppCart />
+  </main>
 </template>
 
 <style scoped lang="scss">
