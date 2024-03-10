@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <div class="menu-item p-3 d-flex position-relative">
+  <div class="menu-item p-3 d-flex position-relative h-100">
     <div class="dish-img m-1">
       <img src="" alt="piatto" />
     </div>

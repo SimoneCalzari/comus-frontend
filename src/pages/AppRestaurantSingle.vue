@@ -39,7 +39,10 @@ export default {
     },
     addToCart(dish) {
       // se provo ad aggiungere un piatto da un altro ristorante ho due casi
-      if (this.store.cart[0].restaurant_id !== dish.restaurant_id) {
+      if (
+        this.store.cart.length > 0 &&
+        this.store.cart[0].restaurant_id !== dish.restaurant_id
+      ) {
         // la modale di avvertimento che si svuoterà il carrello viene mostrata e la funzione si interrompe
         if (!this.modalOn) {
           this.toogleModal(dish.id);
@@ -90,9 +93,6 @@ export default {
   },
   created() {
     this.getSingleRestaurant();
-  },
-  mounted() {
-    this.store.cart = JSON.parse(localStorage.getItem("dishes")) || [];
   },
 };
 </script>
