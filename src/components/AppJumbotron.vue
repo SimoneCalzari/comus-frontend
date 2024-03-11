@@ -125,10 +125,10 @@ export default {
 }
 
 .active {
-  -webkit-box-shadow: 1px 1px 10px 1px $custom-secondary;
-  -moz-box-shadow: -1px 1px 10px 1px $custom-secondary;
-  -o-box-shadow: -1px 1px 10px 1px $custom-secondary;
-  box-shadow: -1px 1px 10px 1px $custom-secondary;
+  -webkit-box-shadow: 1px 1px 20px 1px #8749aa;
+  -moz-box-shadow: -1px 1px 20px 1px #8749aa;
+  -o-box-shadow: -1px 1px 20px 1px #8749aa;
+  box-shadow: -1px 1px 20px 1px #8749aa;
 }
 @media screen and (max-width: 1200px) {
   .card-type {
