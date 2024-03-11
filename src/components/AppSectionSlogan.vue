@@ -11,7 +11,7 @@ export default {
       <h2 class="display-4">
         Gusto in viaggio, qualità in ogni boccone.
       </h2>
-      <img src="/img/logo/big-orange-white.svg" class="costum-img img-fluid" alt="logo-orange-purple.svg"/>
+      <img src="/img/logo/big-orange-white.svg" class="custom-img img-fluid" alt="logo-orange-purple.svg"/>
     </div>
   </section>
   <!--section slogan-->
@@ -34,7 +34,7 @@ export default {
     font-weight: 900;
   }
 
-  .costum-img {
+  .custom-img {
     width: 12.5rem;
     padding: $size-16 $size-16 $size-48;
   }

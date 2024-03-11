@@ -44,7 +44,7 @@ export default {
         </div>
         <!-- /centro -->
         <!-- destra -->
-        <div class="costum-box-dx col-md-4 col-sm-12">
+        <div class="custom-box-dx col-md-4 col-sm-12">
           <div class="row align-items-center flex-md-column">
             <!-- logo -->
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
@@ -128,7 +128,7 @@ footer {
   .cont-image {
     width: 100px;
   }
-  .costum-box-dx {
+  .custom-box-dx {
     i {
       color: $custom-white;
       font-size: $size_24;

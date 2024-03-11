@@ -22,19 +22,19 @@ export default {
             voglia!
           </p>
 
-          <div class="costum-list-app d-flex gap-2 justify-content-center">
+          <div class="custom-list-app d-flex gap-2 justify-content-center">
             <a href="#" target="_blank">
               <img
                 src="/img/app-store.png"
                 alt="app-store"
-                class="costum-app"
+                class="custom-app"
               />
             </a>
             <a href="#" target="_blank">
               <img
                 src="/img/play-store.svg"
                 alt="play-store"
-                class="costum-app"
+                class="custom-app"
               />
             </a>
           </div>
@@ -66,7 +66,7 @@ export default {
     font-style: normal;
   }
 
-  .costum-app {
+  .custom-app {
     width: 120px;
     height: 40px;
     object-fit: cover;
