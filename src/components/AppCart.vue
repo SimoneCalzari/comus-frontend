@@ -19,8 +19,8 @@ export default {
         console.log(this.store.cart[i]);
 
       }
+      this.store.totalPrice = total;
       return total;
-
     }
   },
 };

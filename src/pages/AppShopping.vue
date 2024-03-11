@@ -20,7 +20,7 @@ export default {
       console.log(this.formData.customer_name);
       console.log(this.formData.delivery_address);
       console.log(this.formData.email);
-     
+
       const data = {
         formData: this.formData,
         cart: this.store.cart,
@@ -28,11 +28,11 @@ export default {
 
       //axios chiamata per passaggio dati
       axios
-      .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
-      .then((response) => console.log(response))
-      .catch((error) => {
-        console.log(error);
-      })
+        .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
+        .then((response) => console.log(response))
+        .catch((error) => {
+          console.log(error);
+        })
     }
   },
   components: {
@@ -47,7 +47,8 @@ export default {
     <form action="" method="POST" @submit.prevent="addDataOrder">
       <div class="mb-3">
         <label for="customer_name" class="form-label">Nome Cognome</label>
-        <input type="text" class="form-control" id="customer_name" placeholder="ex. Mario Rossi" v-model="formData.customer_name">
+        <input type="text" class="form-control" id="customer_name" placeholder="ex. Mario Rossi"
+          v-model="formData.customer_name">
       </div>
       <div class="mb-3">
         <label for="delivery_address" class="form-label">Indirizzo di consegna</label>
@@ -60,12 +61,10 @@ export default {
       <button class="btn btn-primary" type="submit">Invia</button>
     </form>
     <div>
-      final price
+      <h4>Prezzo Finale: {{ this.store.totalPrice }} €</h4>
     </div>
-  <AppPayment />
+    <AppPayment />
   </main>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
