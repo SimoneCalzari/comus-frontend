@@ -12,7 +12,7 @@ export default {
         delivery_address: null,
         email: null,
         totalPrice: null,
-      }
+      },
     };
   },
   methods: {
@@ -25,7 +25,7 @@ export default {
         formData: this.formData,
         cart: this.store.cart,
         totalPrice: this.store.totalPrice,
-      }
+      };
       console.log(data.totalPrice);
 
       //axios chiamata per passaggio dati
@@ -34,8 +34,8 @@ export default {
         .then((response) => console.log(response))
         .catch((error) => {
           console.log(error);
-        })
-    }
+        });
+    },
   },
   components: {
     AppPayment,
@@ -45,34 +45,73 @@ export default {
 
 <template>
   <main>
-    <h3>Inserisci dati ordine</h3>
-    <form action="" method="POST" @submit.prevent="addDataOrder">
-      <div class="mb-3">
-        <label for="customer_name" class="form-label">Nome Cognome</label>
-        <input type="text" class="form-control" id="customer_name" placeholder="ex. Mario Rossi"
-          v-model="formData.customer_name">
-      </div>
-      <div class="mb-3">
-        <label for="delivery_address" class="form-label">Indirizzo di consegna</label>
-        <input type="text" class="form-control" id="delivery_address" v-model="formData.delivery_address">
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="name@example.com" v-model="formData.email">
-      </div>
-      Lista Piatti
-      <ul>
-        <li v-for="dish in this.store.cart">
-          {{ dish.name }}
-        </li>
-      </ul>
-      <h4>Prezzo Finale: {{ this.store.totalPrice }} €</h4>
-      <button class="btn btn-primary" type="submit">Invia</button>
-    </form>
-    <div>
+    <div class="container border pt-3 pb-5">
+      <div v-if="store.cart.length" class="d-flex flex-column gap-4">
+        <h1>Il tuo carrello</h1>
+        <!-- riepilogo -->
+        <div class="riepilogo border border-primary">
+          <h4>Riepilogo</h4>
+          <ul class="border">
+            <li v-for="dish in this.store.cart" class="d-flex">
+              <span>{{ dish.quantity }}x</span>
+              <p class="mx-3">{{ dish.name }}</p>
+              <p>{{ dish.price }}€</p>
+            </li>
+          </ul>
+          <strong>Totale: {{ store.totalPrice }}€</strong>
+        </div>
+        <!-- dati di consegna -->
+        <div class="ship-data border border-warning">
+          <h4>Dati di consegna</h4>
+          <form action="" method="POST" @submit.prevent="addDataOrder">
+            <div class="mb-3">
+              <label for="customer_name" class="form-label">Nome Cognome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="customer_name"
+                placeholder="ex. Mario Rossi"
+                v-model="formData.customer_name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="delivery_address" class="form-label"
+                >Indirizzo di consegna</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="delivery_address"
+                v-model="formData.delivery_address"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="name@example.com"
+                v-model="formData.email"
+              />
+            </div>
 
+            <button class="btn btn-primary" type="submit">Invia</button>
+          </form>
+        </div>
+
+        <div class="payment border border-danger">
+          <h4>Dati di pagamento</h4>
+          <AppPayment />
+        </div>
+      </div>
+      <div v-else class="text-center py-5">
+        <h4>Il tuo carrello è vuoto</h4>
+        <router-link :to="{ name: 'home' }">
+          Torna a fare acquisti
+        </router-link>
+      </div>
     </div>
-    <AppPayment />
   </main>
 </template>
 
