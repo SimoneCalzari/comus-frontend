@@ -17,14 +17,14 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <h3 class="fs-1">Carrello</h3>
+  <div class="container p-3">
+    <h3>Anteprima carrello</h3>
     <p v-show="!store.cart.length">
       Non ci sono prodotti nel carrello attualmente ...
     </p>
     <div
       v-for="product in this.store.cart"
-      class="fs-3"
+      class="cart-item"
       v-show="store.cart.length"
     >
       {{ product.name }} - {{ product.quantity }}
@@ -47,4 +47,16 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
+.container{
+  border: 2px solid $custom-secondary;
+  border-radius: 20px;
+  background-color: $custom_light_s;
+
+  h3{
+    font-size: $size-32;
+  }
+  p .cart-item{
+    font-size: $size-24;
+  }
+}
 </style>
