@@ -1,8 +1,8 @@
 <script>
-import { RouterLink } from "vue-router";
-import store from "../store";
+import { RouterLink } from 'vue-router';
+import store from '../store';
 export default {
-  name: "AppListRestaurants",
+  name: 'AppListRestaurants',
   data() {
     return {
       store,
@@ -12,20 +12,34 @@ export default {
 </script>
 <template>
   <section id="custom-restaurants">
-
     <h2 class="text-center fs-1">I nostri ristoranti</h2>
     <div v-if="store.restaurants.length">
       <div class="row flex-row gap-4 justify-content-center">
         <!-- <h3 class="mb-4 text-center">
           Sono presenti {{ store.restaurants.length }} ristoranti
         </h3> -->
-          
-        <div class="card-restaurant col-lg-2 col-md-4 col-12" v-for="restaurant in store.restaurants">
-          <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug } }" class="d-flex flex-column">
-            <img :src="`${store.api.baseUrl}/storage/${restaurant.img}`" alt="immagine ristorante"/>
+
+        <div
+          class="card-restaurant col-lg-2 col-md-4 col-12"
+          v-for="restaurant in store.restaurants"
+        >
+          <router-link
+            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+            class="d-flex flex-column"
+          >
+            <div class="cont-img">
+              <img
+                :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
+                alt="immagine ristorante"
+              />
+            </div>
             <div class="flex-grow-1 d-flex flex-column justify-content-center">
-              <h4 class="fw-bold text-center">{{ restaurant.name_restaurant }}</h4>
-              <span v-for="category in restaurant.types" class="text-center">{{ category.name_type }}</span>
+              <h5 class="text-center py-3 fs-4 mb-0">
+                {{ restaurant.name_restaurant }}
+              </h5>
+              <span v-for="category in restaurant.types" class="text-center">{{
+                category.name_type
+              }}</span>
             </div>
           </router-link>
         </div>
@@ -36,40 +50,49 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 #custom-restaurants {
-  padding-bottom: $size_48;
+  padding: $size_48 0;
   max-width: 80%;
   margin: 0 auto;
 
   h2 {
     color: $custom-secondary;
-    font-family: "Bevan", serif;
+    font-family: 'Bevan', serif;
     // padding: $size_48;
   }
   .card-restaurant {
-    border: 4px solid $custom-secondary;
+    border: 3px solid $custom-secondary;
     border-radius: $size_32;
     // width: calc((100% - 100px) / 5);
     padding: 0;
     overflow: hidden;
+    &:hover {
+      border: 3px solid $custom-primary;
+    }
 
-    img {
-      object-fit: cover;
-      aspect-ratio: 1/1;
+    &:hover img {
+      transform: scale(1.1);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .cont-img {
       width: 100%;
+      height: calc(100vw / 8);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
     }
     // .caption {
     //   padding-bottom: $size_16;
     // }
   }
-  .card-restaurant:hover {
-    -webkit-box-shadow: -1px 1px 20px 1px $custom-primary;
-    -moz-box-shadow: -1px 1px 20px 1px $custom-primary;
-    -o-box-shadow: -1px 1px 20px 1px $custom-primary;
-    box-shadow: -1px 1px 20px 1px $custom-primary;
-  }
+
   a {
     text-decoration: none;
     color: $custom-secondary;
@@ -102,5 +125,4 @@ export default {
 //       width: calc((100% - 20px) / 1);
 //     }
 //   }
-
 </style>

@@ -61,90 +61,114 @@ export default {
         });
     },
     clearRestaurants() {
-      // Resetto l'array
-      this.store.typesSearched = [];
       axios
         .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
         .then((response) => {
           this.store.restaurants = response.data.results;
         });
+      this.store.typesSearched = [];
     },
   },
 };
 </script>
 <template>
-  <section id="custom-categories" @click="clearRestaurants" class="border">
-    <div class="row flex-wrap justify-content-center">
+  <section class="mb-3" @click="clearRestaurants">
+    <div class="d-flex flex-wrap justify-content-center">
       <div
-        class="card-type col-2"
+        class="card-type"
         v-for="element in store.types"
         :class="store.typesSearched.includes(element.id) ? 'active' : ''"
         @click.stop="searchRestaurants(element.id)"
       >
-        <img :src="`${store.api.baseUrl}/storage/${element.image}`" alt="..." />
-        <h5 class="text-center">{{ element.name_type }}</h5>
+        <!-- image -->
+        <div class="card-img">
+          <img
+            :src="`${store.api.baseUrl}/storage/${element.image}`"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
+        <!-- info -->
+        <div class="card-info">
+          <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
+        </div>
       </div>
-      <!-- NEW -->
     </div>
   </section>
 </template>
 <style scoped lang="scss">
 @import '../assets/scss/partials/variables.scss';
 
-#custom-categories {
-  max-width: 70%;
-  margin: 0 auto;
-  padding: $size-48 0;
-  color: $custom-primary;
+h2 {
+  color: $custom-secondary;
+  font-family: 'Bevan', serif;
+}
 
-  .row {
-    padding: 0;
-    gap: $size_16;
+.card-type {
+  width: calc((100% - 12vw) / 6);
+  border-radius: 30px;
+  margin: 1vw;
+  cursor: pointer;
+  border: 3px solid $custom-secondary;
+  overflow: hidden;
 
-    .card-type {
-      padding: 0;
-      border-radius: $size_32;
-      border: 4px solid $custom-secondary;
-      overflow: hidden;
+  &:hover img {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
 
-      img {
-        object-fit: cover;
-        aspect-ratio: 1/1;
-        width: 100%;
+  .card-img {
+    width: 100%;
+    height: calc(100vw / 8);
 
-        h5 {
-          color: $custom-primary;
-          font-family: 'Bevan', serif;
-        }
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 }
 
 .active {
-  -webkit-box-shadow: 1px 1px 10px 1px $custom-secondary;
-  -moz-box-shadow: -1px 1px 10px 1px $custom-secondary;
-  -o-box-shadow: -1px 1px 10px 1px $custom-secondary;
-  box-shadow: -1px 1px 10px 1px $custom-secondary;
+  border: 3px solid $custom-primary;
 }
+
+// Media queries
 @media screen and (max-width: 1200px) {
   .card-type {
-    width: calc((100% - 10vw) / 6);
+    width: calc((100% - 10vw) / 5);
+
+    .card-img {
+      height: calc(100vw / 5);
+    }
   }
 }
 @media screen and (max-width: 992px) {
   .card-type {
     width: calc((100% - 8vw) / 4);
+
+    .card-img {
+      height: calc(100vw / 4);
+    }
   }
 }
 @media screen and (max-width: 768px) {
   .card-type {
     width: calc((100% - 6vw) / 3);
+
+    .card-img {
+      height: calc(100vw / 3);
+    }
   }
 }
 @media screen and (max-width: 576px) {
   .card-type {
     width: calc((100% - 4vw) / 2);
+
+    .card-img {
+      height: calc(100vw / 2);
+    }
   }
 }
 </style>
