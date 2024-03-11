@@ -24,7 +24,7 @@ export default {
       <h5>{{ dish_new.price }} €</h5>
     </div>
     <div
-      class="custom-btn mt-5 position-absolute"
+      class="custom-btn mt-5 position-absolute"type="button"
       @click="$emit('newItem')"
       href="#"
     >

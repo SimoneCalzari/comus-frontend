@@ -99,7 +99,7 @@ export default {
 
 <template>
   <main>
-    <div class="container my-5">
+    <div class="container my-5 position-relative">
       <div class="info-restaurant d-flex">
         <div class="left-img m-2" v-if="restaurant">
           <img
@@ -167,8 +167,14 @@ export default {
           </li>
         </ul>
       </div>
+       <div class="cart-position position-absolute">
+      <AppCart />
     </div>
-    <AppCart />
+    </div>
+   
+    
+
+    
   </main>
 </template>
 
@@ -195,5 +201,9 @@ export default {
   padding: $size_16;
   margin-top: $size_8;
   background-color: $custom_light_p;
+}
+.cart-position{
+  top: 20px;
+  right: -20px;
 }
 </style>
