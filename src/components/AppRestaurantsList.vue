@@ -11,103 +11,60 @@ export default {
 };
 </script>
 <template>
-  <section id="costum-restaurants">
-    <!-- <h2 class="display-5 text-center">I nostri ristoranti</h2>
+  <section id="custom-restaurants">
+
+    <h2 class="text-center fs-1">I nostri ristoranti</h2>
     <div v-if="store.restaurants.length">
-      <div class="row g-2 g-lg-3">
-        <div
-          class="col-sm-12 col-md-4 restaurant-card"
-          v-for="restaurant in store.restaurants"
-        >
-          <router-link
-            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
-          >
-            <img
-              :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
-              alt="immagine ristorante"
-            />
-            <div class="banner p-2">Solo con Comus!</div>
-            <div class="caption">
-              <h3>{{ restaurant.name_restaurant }}</h3>
-              <p>
-                <span v-for="category in restaurant.types">
-                  {{ category.name_type }}
-                </span>
-              </p>
+      <div class="row flex-row gap-4 justify-content-center">
+        <!-- <h3 class="mb-4 text-center">
+          Sono presenti {{ store.restaurants.length }} ristoranti
+        </h3> -->
+          
+        <div class="card-restaurant col-lg-2 col-md-4 col-12" v-for="restaurant in store.restaurants">
+          <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug } }" class="d-flex flex-column">
+            <img :src="`${store.api.baseUrl}/storage/${restaurant.img}`" alt="immagine ristorante"/>
+            <div class="flex-grow-1 d-flex flex-column justify-content-center">
+              <h4 class="fw-bold text-center">{{ restaurant.name_restaurant }}</h4>
+              <span v-for="category in restaurant.types" class="text-center">{{ category.name_type }}</span>
             </div>
           </router-link>
         </div>
       </div>
     </div>
-
-    <h3 v-else>Nessun Risultato</h3> -->
-    <div class="container-fluid">
-      <h2 class="text-center fs-1">I nostri ristoranti</h2>
-      <div v-if="store.restaurants.length">
-        <h3 class="mb-4 text-center">
-          Sono presenti {{ store.restaurants.length }} ristoranti
-        </h3>
-        <div class="restaurants d-flex justify-content-center flex-wrap">
-          <div class="restaurant-card" v-for="restaurant in store.restaurants">
-            <router-link
-              :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
-              class="d-flex flex-column h-100"
-            >
-              <img
-                :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
-                alt="immagine ristorante"
-              />
-              <div
-                class="caption p-2 border flex-grow-1 d-flex flex-column justify-content-center"
-              >
-                <h4 class="fw-bold text-center">
-                  {{ restaurant.name_restaurant }}
-                </h4>
-                <p class="mb-0 fs-5 text-center">
-                  <span v-for="category in restaurant.types" class="me-2">
-                    {{ category.name_type }}
-                  </span>
-                </p>
-              </div>
-            </router-link>
-          </div>
-        </div>
-      </div>
-      <h3 v-else>La ricerca non ha prodotto risultati</h3>
-    </div>
+    <h3 v-else>La ricerca non ha prodotto risultati</h3>
   </section>
 </template>
 
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
 
-#costum-restaurants {
+#custom-restaurants {
   padding-bottom: $size_48;
+  max-width: 80%;
+  margin: 0 auto;
 
   h2 {
     color: $custom-secondary;
     font-family: "Bevan", serif;
     // padding: $size_48;
   }
-  .restaurant-card {
-    -webkit-box-shadow: -1px 1px 20px 1px $custom-secondary;
-    -moz-box-shadow: -1px 1px 20px 1px $custom-secondary;
-    -o-box-shadow: -1px 1px 20px 1px $custom-secondary;
-    box-shadow: -1px 1px 20px 1px $custom-secondary;
-    border-radius: $size_8;
-    width: calc((100% - 100px) / 5);
-    margin: 10px;
+  .card-restaurant {
+    border: 4px solid $custom-secondary;
+    border-radius: $size_32;
+    // width: calc((100% - 100px) / 5);
+    padding: 0;
     overflow: hidden;
+
     img {
-      aspect-ratio: 4/3;
+      object-fit: cover;
+      aspect-ratio: 1/1;
       width: 100%;
-      display: block;
     }
     // .caption {
     //   padding-bottom: $size_16;
     // }
   }
-  .restaurant-card:hover {
+  .card-restaurant:hover {
     -webkit-box-shadow: -1px 1px 20px 1px $custom-primary;
     -moz-box-shadow: -1px 1px 20px 1px $custom-primary;
     -o-box-shadow: -1px 1px 20px 1px $custom-primary;
@@ -118,32 +75,32 @@ export default {
     color: $custom-secondary;
   }
 }
-@media screen and (max-width: 1200px) {
-  #costum-restaurants {
-    .restaurant-card {
-      width: calc((100% - 80px) / 4);
-    }
-  }
-}
-@media screen and (max-width: 992px) {
-  #costum-restaurants {
-    .restaurant-card {
-      width: calc((100% - 60px) / 3);
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-  #costum-restaurants {
-    .restaurant-card {
-      width: calc((100% - 40px) / 2);
-    }
-  }
-}
-@media screen and (max-width: 576px) {
-  #costum-restaurants {
-    .restaurant-card {
-      width: calc((100% - 20px) / 1);
-    }
-  }
-}
+// @media screen and (max-width: 1200px) {
+//   #custom-restaurants {
+//     .card-restaurant {
+//       width: calc((100% - 80px) / 4);
+//     }
+//   }
+// }
+// @media screen and (max-width: 992px) {
+//   #custom-restaurants {
+//     .card-restaurant {
+//       width: calc((100% - 60px) / 3);
+//     }
+//   }
+// }
+// @media screen and (max-width: 768px) {
+//   #custom-restaurants {
+//     .card-restaurant {
+//       width: calc((100% - 40px) / 2);
+//     }
+//   }
+// }
+// @media screen and (max-width: 576px) {
+//   #custom-restaurants {
+//     .card-restaurant {
+//       width: calc((100% - 20px) / 1);
+//     }
+//   }
+
 </style>

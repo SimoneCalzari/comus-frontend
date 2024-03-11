@@ -64,57 +64,60 @@ export default {
 };
 </script>
 <template>
-  <section class="mb-3">
-    <h2 class="my-4 px-1 text-center">
-      Puoi scegliere tra queste categorie di ristorante:
-    </h2>
-    <div class="d-flex flex-wrap justify-content-center">
-      <div
-        class="card-type"
-        v-for="element in store.types"
-        :class="store.typesSearched.includes(element.id) ? 'active' : ''"
-        @click="searchRestaurants(element.id)"
-      >
-        <img
-          :src="`${store.api.baseUrl}/storage/${element.image}`"
-          class="card-img-top"
-          alt="..."
-        />
-        <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
+  <section id="custom-categories">
+    <div class="row flex-wrap justify-content-center">
+      <div class="card-type col-2" v-for="element in store.types" :class="store.typesSearched.includes(element.id) ? 'active' :''" @click="searchRestaurants(element.id)">
+        <img :src="`${store.api.baseUrl}/storage/${element.image}`" alt="...">
+        <h5 class="text-center"> {{ element.name_type }}</h5>
       </div>
     </div>
   </section>
+
 </template>
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
 
-h2 {
-  color: $custom-secondary;
-  font-family: "Bevan", serif;
-}
 
-.card-type {
-  margin: 1vw;
-  width: calc((100% - 12vw) / 6);
-  cursor: pointer;
-  border: 3px solid $custom-primary;
-  border-radius: 10px;
-  overflow: hidden;
-  img {
-    aspect-ratio: 1/1;
-    width: 100%;
-    display: block;
+#custom-categories {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: $size-48 0;
+  color: $custom-primary;
+
+  .row {
+    padding: 0;
+    gap: $size_16;
+    
+    
+    .card-type {
+      padding: 0;
+      border-radius: $size_32;
+      border: 4px solid $custom-secondary;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        width: 100%;
+
+        h5 {
+          color: $custom-primary;
+          font-family: "Bevan", serif;
+        }
+      }
+    }
   }
 }
+ 
 .active {
-  -webkit-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  -moz-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  -o-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  box-shadow: -1px 1px 60px 1px $custom-secondary;
+  -webkit-box-shadow: 1px 1px 10px 1px $custom-secondary;
+  -moz-box-shadow: -1px 1px 10px 1px $custom-secondary;
+  -o-box-shadow: -1px 1px 10px 1px $custom-secondary;
+  box-shadow: -1px 1px 10px 1px $custom-secondary;
 }
 @media screen and (max-width: 1200px) {
   .card-type {
-    width: calc((100% - 10vw) / 5);
+    width: calc((100% - 10vw) / 6);
   }
 }
 @media screen and (max-width: 992px) {
