@@ -1,6 +1,6 @@
 <script>
-import store from "../store";
-import axios from "axios";
+import store from '../store';
+import axios from 'axios';
 
 export default {
   data() {
@@ -40,7 +40,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/search/" +
+            '/search/' +
             types_search
         )
         .then((response) => {
@@ -60,22 +60,30 @@ export default {
           this.store.restaurants = response.data.results;
         });
     },
+    clearRestaurants() {
+      // Resetto l'array
+      this.store.typesSearched = [];
+    },
   },
 };
 </script>
 <template>
+
   <section id="custom-categories">
     <div class="row flex-wrap justify-content-center">
       <div class="card-type col-2" v-for="element in store.types" :class="store.typesSearched.includes(element.id) ? 'active' :''" @click="searchRestaurants(element.id)">
         <img :src="`${store.api.baseUrl}/storage/${element.image}`" alt="...">
         <h5 class="text-center"> {{ element.name_type }}</h5>
+
       </div>
+      <!-- NEW -->
     </div>
   </section>
 
 </template>
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
+
 
 
 #custom-categories {
@@ -114,6 +122,7 @@ export default {
   -moz-box-shadow: -1px 1px 10px 1px $custom-secondary;
   -o-box-shadow: -1px 1px 10px 1px $custom-secondary;
   box-shadow: -1px 1px 10px 1px $custom-secondary;
+
 }
 @media screen and (max-width: 1200px) {
   .card-type {
