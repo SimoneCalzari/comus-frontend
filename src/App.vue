@@ -18,7 +18,7 @@ export default {
   <AppHeader />
   <!--/header-->
   <!--router-view-->
-  <router-view class="costum-body"></router-view>
+  <router-view></router-view>
   <!--/router-view-->
   <!--footer-->
   <AppFooter />

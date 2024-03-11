@@ -19,7 +19,7 @@ export default {
           <h2 class="display-5">Vuoi unirti al team di Comus?</h2>
           <p>Registrati e inizia a vendere sul nostro portale</p>
           <a
-            class="costum-btn-primary align-self-center"
+            class="custom-btn-primary align-self-center"
             href="http://127.0.0.1:8000/"
             >Registrati</a
           >
@@ -29,7 +29,7 @@ export default {
         <div class="col-md-6 col-sm-12">
           <img
             src="/img/work-with-us.png"
-            class="costum-cont-img"
+            class="custom-cont-img"
             alt="work-with-us.png"
           />
         </div>
@@ -54,14 +54,14 @@ a {
   h2 {
     font-family: 'Bevan', serif;
   }
-  .costum-btn-primary {
+  .custom-btn-primary {
     background-color: $custom-secondary;
     color: $custom-white;
     border-radius: $size_8;
     padding: $size_8 $size_16;
   }
 
-  .costum-cont-img {
+  .custom-cont-img {
     margin-top: $size_8;
     width: 100%;
   }

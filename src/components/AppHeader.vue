@@ -32,10 +32,10 @@ export default {
         </router-link>
       </div>
 
-      <div class="costum-links">
+      <div class="custom-links">
         <ul class="d-flex m-0 gap-4">
           <li class="d-flex align-items-center">
-            <a class="nav-link" href="#costum-restaurants">Lista ristoranti</a>
+            <a class="nav-link" href="#custom-restaurants">Lista ristoranti</a>
           </li>
           <li class="d-flex align-items-center">
             <a class="nav-link" href="http://127.0.0.1:8000"
@@ -71,7 +71,7 @@ header {
     }
   }
 
-  .costum-links {
+  .custom-links {
     ul {
       a {
         text-decoration: none;
