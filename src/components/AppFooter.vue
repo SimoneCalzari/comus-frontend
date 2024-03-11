@@ -1,19 +1,19 @@
 <script>
 export default {
-  name: "AppFooter",
+  name: 'AppFooter',
   data() {
     return {
       menus_1: [
-        "Lista Ristoranti",
-        "Area Ristoratore",
-        "Lavora con Noi",
-        "Aiuto",
+        'Lista Ristoranti',
+        'Area Ristoratore',
+        'Lavora con Noi',
+        'Aiuto',
       ],
       menus_2: [
-        "Informativa sulla Privacy",
-        "Informativa relativa ai cookie",
-        "Termini & Condizioni",
-        "Informazioni sul packaging",
+        'Informativa sulla Privacy',
+        'Informativa relativa ai cookie',
+        'Termini & Condizioni',
+        'Informazioni sul packaging',
       ],
     };
   },
@@ -24,10 +24,10 @@ export default {
   <footer>
     <!--lista menu footer: sinistra, centro, destra-->
     <div id="footer-top">
-      <div class="row align-items-md-start align-items-sm-center">
+      <div class="row">
         <!-- sinistra -->
         <div class="custom-box-sx col-md-4 col-sm-12">
-          <ul class="text-md-start text-center p-0">
+          <ul class="text-center text-md-start p-0">
             <li v-for="menu_1 in menus_1">
               <a href="#" target="_blank">{{ menu_1 }}</a>
             </li>
@@ -36,7 +36,7 @@ export default {
         <!-- /sinistra-->
         <!-- centro -->
         <div class="custom-box-ct col-md-4 col-sm-12">
-          <ul class="text-md-start text-center p-0">
+          <ul class="text-center text-md-start p-0">
             <li v-for="menu_2 in menus_2">
               <a href="#" target="_blank">{{ menu_2 }}</a>
             </li>
@@ -45,10 +45,14 @@ export default {
         <!-- /centro -->
         <!-- destra -->
         <div class="custom-box-dx col-md-4 col-sm-12">
-          <div class="row align-items-center flex-md-column">
+          <div class="row align-items-center flex-column">
             <!-- logo -->
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
-                <img src="/img/logo/logo-sm-snow.svg" class="cont-image" alt="logo-footer" />
+              <img
+                src="/img/logo/logo-sm-snow.svg"
+                class="cont-image"
+                alt="logo-footer"
+              />
             </div>
             <!-- /logo -->
             <!-- socials -->
@@ -102,8 +106,8 @@ export default {
 
 <style scoped lang="scss">
 //importazione fogli stili
-@import "../assets/scss/partials/variables.scss";
-@import "../assets/scss/partials/reset.scss";
+@import '../assets/scss/partials/variables.scss';
+@import '../assets/scss/partials/reset.scss';
 
 li {
   padding: $size-8 0;
@@ -116,7 +120,7 @@ footer {
   #footer-top {
     padding: $size_16 0;
     .custom-box-sx a,
-    .custom-box-ct a{
+    .custom-box-ct a {
       color: $custom-white;
 
       &:hover {
@@ -132,18 +136,15 @@ footer {
     i {
       color: $custom-white;
       font-size: $size_24;
-      
+
       &:hover {
         color: $custom-secondary;
       }
 
       .custom-box-ct a {
-      color: $custom-white;
-
-      
-    }
+        color: $custom-white;
+      }
     }
   }
- } 
-  
+}
 </style>

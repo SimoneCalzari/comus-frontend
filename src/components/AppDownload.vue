@@ -11,18 +11,18 @@ export default {
   <!-- section download -->
   <section id="download">
     <div class="container">
-      <div class="row flex-column flex-md-row">
+      <div class="row text-center">
         <!-- scarica testo e apps -->
         <div
-          class="col-md-6 col-sm-12 text-ms-start text-center d-flex justify-content-center flex-column"
+          class="col-md-6 col-sm-12 d-flex justify-content-center flex-column"
         >
           <h2 class="display-5">Scarica l'app</h2>
-          <p class="custom-font-primary">
+          <p>
             Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia
             voglia!
           </p>
 
-          <div class="custom-list-app d-flex gap-2 justify-content-center">
+          <div class="d-flex gap-2 justify-content-center">
             <a href="#" target="_blank">
               <img
                 src="/img/app-store.png"
@@ -60,10 +60,6 @@ export default {
 
   h2 {
     font-family: 'Bevan', serif;
-  }
-  .custom-font-primary {
-    font-weight: 400;
-    font-style: normal;
   }
 
   .custom-app {
