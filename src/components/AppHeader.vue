@@ -1,7 +1,7 @@
 <script>
-import store from "../store";
+import store from '../store';
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
       store,
@@ -17,7 +17,7 @@ export default {
     },
   },
   mounted() {
-    this.store.cart = JSON.parse(localStorage.getItem("dishes")) || [];
+    this.store.cart = JSON.parse(localStorage.getItem('dishes')) || [];
   },
 };
 </script>
@@ -34,9 +34,6 @@ export default {
 
       <div class="custom-links">
         <ul class="d-flex m-0 gap-4">
-          <li class="d-flex align-items-center">
-            <a class="nav-link" href="#custom-restaurants">Lista ristoranti</a>
-          </li>
           <li class="d-flex align-items-center">
             <a class="nav-link" href="http://127.0.0.1:8000"
               >Area Ristoratori</a
@@ -57,7 +54,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 header {
   background-color: $custom-secondary;

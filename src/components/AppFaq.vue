@@ -11,7 +11,7 @@ export default {
   <!-- section faq -->
   <section id="custom-faq">
     <div class="container">
-      <h2>FAQ</h2>
+      <h2 class="display-5">FAQ</h2>
       <div
         class="accordion accordion-flush border rounded-4 px-4 py-3"
         id="accordionFlushExample"
