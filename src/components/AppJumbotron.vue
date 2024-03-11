@@ -1,6 +1,6 @@
 <script>
-import store from "../store";
-import axios from "axios";
+import store from '../store';
+import axios from 'axios';
 
 export default {
   data() {
@@ -40,7 +40,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/search/" +
+            '/search/' +
             types_search
         )
         .then((response) => {
@@ -60,16 +60,20 @@ export default {
           this.store.restaurants = response.data.results;
         });
     },
+    clearRestaurants() {
+      // Resetto l'array
+      this.store.typesSearched = [];
+    },
   },
 };
 </script>
 <template>
-  <section class="mb-3">
+  <section class="mb-3" @click="clearRestaurants">
     <h2 class="my-4 px-1 text-center">
-      Puoi scegliere tra queste categorie di ristorante:
+      Scegli la categoria di cui ha più voglia oggi
     </h2>
     <div class="d-flex flex-wrap justify-content-center">
-      <div
+      <!-- <div
         class="card-type"
         v-for="element in store.types"
         :class="store.typesSearched.includes(element.id) ? 'active' : ''"
@@ -81,36 +85,80 @@ export default {
           alt="..."
         />
         <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
+      </div> -->
+
+      <!-- NEW -->
+      <div
+        class="card-type"
+        v-for="element in store.types"
+        :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+        @click.stop="searchRestaurants(element.id)"
+      >
+        <!-- image -->
+        <div class="card-img">
+          <img
+            :src="`${store.api.baseUrl}/storage/${element.image}`"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
+        <!-- info -->
+        <div class="card-info">
+          <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
+        </div>
       </div>
+      <!-- NEW -->
     </div>
   </section>
 </template>
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 h2 {
   color: $custom-secondary;
-  font-family: "Bevan", serif;
+  font-family: 'Bevan', serif;
 }
 
 .card-type {
-  margin: 1vw;
   width: calc((100% - 12vw) / 6);
+  border-radius: 20px;
+  margin: 1vw;
   cursor: pointer;
-  border: 3px solid $custom-primary;
-  border-radius: 10px;
+  border: 1px solid grey;
   overflow: hidden;
-  img {
-    aspect-ratio: 1/1;
+
+  .card-img {
     width: 100%;
-    display: block;
+    height: calc(100vw / 8);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   }
 }
+
+// .card-type {
+//   margin: 1vw;
+//   width: calc((100% - 12vw) / 6);
+//   cursor: pointer;
+//   border: 3px solid $custom-primary;
+//   border-radius: 10px;
+//   overflow: hidden;
+//   img {
+//     aspect-ratio: 1/1;
+//     width: 100%;
+//     display: block;
+//   }
+// }
 .active {
-  -webkit-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  -moz-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  -o-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  box-shadow: -1px 1px 60px 1px $custom-secondary;
+  // -webkit-box-shadow: -1px 1px 60px 1px $custom-secondary;
+  // -moz-box-shadow: -1px 1px 60px 1px $custom-secondary;
+  // -o-box-shadow: -1px 1px 60px 1px $custom-secondary;
+  // box-shadow: -1px 1px 60px 1px $custom-secondary;
+  border: 3px solid $custom-primary;
 }
 @media screen and (max-width: 1200px) {
   .card-type {

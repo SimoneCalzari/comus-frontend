@@ -41,8 +41,8 @@ export default {
         </div>
         <!-- /scarica testo e apps -->
         <!-- illustrazione scarica -->
-        <div class="col-md-6 col-sm-12">
-          <img src="/img/hamburger.jpg" class="false-img" />
+        <div class="phone col-md-6 col-sm-12 pt-5">
+          <img src="/img/phone-download.png" class="phone-download" />
         </div>
         <!-- illustrazione scarica -->
       </div>
@@ -76,11 +76,14 @@ export default {
       object-fit: cover;
     }
   }
-  .false-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    margin-top: $size_16;
+  .phone {
+    img {
+      height: 100%;
+      object-fit: cover;
+      margin-top: $size_16;
+      margin: 0;
+      transform: rotate(20deg);
+    }
   }
 }
 </style>
