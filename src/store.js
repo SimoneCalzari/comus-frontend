@@ -6,6 +6,7 @@ export const store = reactive({
     apiUrls: {
       types: "/api/types",
       restaurants: "/api/restaurants",
+      orders: "/orders"
     },
   },
   restaurants: [],
