@@ -101,7 +101,7 @@ export default {
 
 h2 {
   color: $custom-secondary;
-  font-family: 'Bevan', serif;
+  font-family: "Bevan", serif;
 }
 
 .card-type {
@@ -116,37 +116,30 @@ h2 {
     transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
   }
-  
+
   h5 {
-          color: $custom-primary;
-          font-family: "Bevan", serif;
-        }
+    color: $custom-primary;
+    font-family: "Bevan", serif;
+  }
 
   .card-img {
     width: 100%;
     height: calc(100vw / 8);
-
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-
-        
-      }
-
     }
   }
-  .card-type:hover {
-    cursor: pointer;
-  }
+}
+.card-type:hover {
+  cursor: pointer;
 }
 
 .active {
-
   border: 3px solid $custom-primary;
-
 }
 
 // Media queries
