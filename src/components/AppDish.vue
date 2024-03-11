@@ -17,14 +17,19 @@ export default {
 <template>
   <div class="menu-item p-3 d-flex position-relative h-100">
     <div class="dish-img m-1">
-      <img src="" alt="piatto" />
+      <img
+        :src="`${store.api.baseUrl}/storage/${dish_new.img}`"
+        alt="piatto"
+        class="img-fluid"
+      />
     </div>
     <div class="info ms-3">
       <h3>{{ dish_new.name }}</h3>
       <h5>{{ dish_new.price }} €</h5>
     </div>
     <div
-      class="custom-btn mt-5 position-absolute"type="button"
+      class="custom-btn mt-5 position-absolute"
+      type="button"
       @click="$emit('newItem')"
       href="#"
     >
