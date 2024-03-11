@@ -68,101 +68,65 @@ export default {
 };
 </script>
 <template>
-  <section class="mb-3" @click="clearRestaurants">
-    <h2 class="my-4 px-1 text-center">
-      Scegli la categoria di cui ha più voglia oggi
-    </h2>
-    <div class="d-flex flex-wrap justify-content-center">
-      <!-- <div
-        class="card-type"
-        v-for="element in store.types"
-        :class="store.typesSearched.includes(element.id) ? 'active' : ''"
-        @click="searchRestaurants(element.id)"
-      >
-        <img
-          :src="`${store.api.baseUrl}/storage/${element.image}`"
-          class="card-img-top"
-          alt="..."
-        />
-        <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
-      </div> -->
 
-      <!-- NEW -->
-      <div
-        class="card-type"
-        v-for="element in store.types"
-        :class="store.typesSearched.includes(element.id) ? 'active' : ''"
-        @click.stop="searchRestaurants(element.id)"
-      >
-        <!-- image -->
-        <div class="card-img">
-          <img
-            :src="`${store.api.baseUrl}/storage/${element.image}`"
-            class="card-img-top"
-            alt="..."
-          />
-        </div>
-        <!-- info -->
-        <div class="card-info">
-          <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
-        </div>
+  <section id="custom-categories">
+    <div class="row flex-wrap justify-content-center">
+      <div class="card-type col-2" v-for="element in store.types" :class="store.typesSearched.includes(element.id) ? 'active' :''" @click="searchRestaurants(element.id)">
+        <img :src="`${store.api.baseUrl}/storage/${element.image}`" alt="...">
+        <h5 class="text-center"> {{ element.name_type }}</h5>
+
       </div>
       <!-- NEW -->
     </div>
   </section>
+
 </template>
 <style scoped lang="scss">
 @import '../assets/scss/partials/variables.scss';
 
-h2 {
-  color: $custom-secondary;
-  font-family: 'Bevan', serif;
-}
 
-.card-type {
-  width: calc((100% - 12vw) / 6);
-  border-radius: 20px;
-  margin: 1vw;
-  cursor: pointer;
-  border: 1px solid grey;
-  overflow: hidden;
 
-  .card-img {
-    width: 100%;
-    height: calc(100vw / 8);
+#custom-categories {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: $size-48 0;
+  color: $custom-primary;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+  .row {
+    padding: 0;
+    gap: $size_16;
+    
+    
+    .card-type {
+      padding: 0;
+      border-radius: $size_32;
+      border: 4px solid $custom-secondary;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        width: 100%;
+
+        h5 {
+          color: $custom-primary;
+          font-family: "Bevan", serif;
+        }
+      }
     }
   }
 }
-
-// .card-type {
-//   margin: 1vw;
-//   width: calc((100% - 12vw) / 6);
-//   cursor: pointer;
-//   border: 3px solid $custom-primary;
-//   border-radius: 10px;
-//   overflow: hidden;
-//   img {
-//     aspect-ratio: 1/1;
-//     width: 100%;
-//     display: block;
-//   }
-// }
+ 
 .active {
-  // -webkit-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  // -moz-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  // -o-box-shadow: -1px 1px 60px 1px $custom-secondary;
-  // box-shadow: -1px 1px 60px 1px $custom-secondary;
-  border: 3px solid $custom-primary;
+  -webkit-box-shadow: 1px 1px 10px 1px $custom-secondary;
+  -moz-box-shadow: -1px 1px 10px 1px $custom-secondary;
+  -o-box-shadow: -1px 1px 10px 1px $custom-secondary;
+  box-shadow: -1px 1px 10px 1px $custom-secondary;
+
 }
 @media screen and (max-width: 1200px) {
   .card-type {
-    width: calc((100% - 10vw) / 5);
+    width: calc((100% - 10vw) / 6);
   }
 }
 @media screen and (max-width: 992px) {
