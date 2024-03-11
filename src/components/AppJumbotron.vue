@@ -1,6 +1,6 @@
 <script>
-import store from "../store";
-import axios from "axios";
+import store from '../store';
+import axios from 'axios';
 
 export default {
   data() {
@@ -40,7 +40,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/search/" +
+            '/search/' +
             types_search
         )
         .then((response) => {
@@ -97,7 +97,7 @@ export default {
   </section>
 </template>
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 h2 {
   color: $custom-secondary;
@@ -116,37 +116,29 @@ h2 {
     transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
   }
-  
-  h5 {
-          color: $custom-primary;
-          font-family: "Bevan", serif;
-        }
 
   .card-img {
     width: 100%;
     height: calc(100vw / 8);
-
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-
-        
-      }
-
     }
   }
-  .card-type:hover {
-    cursor: pointer;
+
+  .card-info {
+    h5 {
+      color: $custom-primary;
+      font-family: 'Bevan', serif;
+    }
   }
 }
 
 .active {
-
   border: 3px solid $custom-primary;
-
 }
 
 // Media queries
