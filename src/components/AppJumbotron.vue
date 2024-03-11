@@ -63,28 +63,33 @@ export default {
     clearRestaurants() {
       // Resetto l'array
       this.store.typesSearched = [];
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+        .then((response) => {
+          this.store.restaurants = response.data.results;
+        });
     },
   },
 };
 </script>
 <template>
-
-  <section id="custom-categories">
+  <section id="custom-categories" @click="clearRestaurants" class="border">
     <div class="row flex-wrap justify-content-center">
-      <div class="card-type col-2" v-for="element in store.types" :class="store.typesSearched.includes(element.id) ? 'active' :''" @click="searchRestaurants(element.id)">
-        <img :src="`${store.api.baseUrl}/storage/${element.image}`" alt="...">
-        <h5 class="text-center"> {{ element.name_type }}</h5>
-
+      <div
+        class="card-type col-2"
+        v-for="element in store.types"
+        :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+        @click.stop="searchRestaurants(element.id)"
+      >
+        <img :src="`${store.api.baseUrl}/storage/${element.image}`" alt="..." />
+        <h5 class="text-center">{{ element.name_type }}</h5>
       </div>
       <!-- NEW -->
     </div>
   </section>
-
 </template>
 <style scoped lang="scss">
 @import '../assets/scss/partials/variables.scss';
-
-
 
 #custom-categories {
   max-width: 70%;
@@ -95,8 +100,7 @@ export default {
   .row {
     padding: 0;
     gap: $size_16;
-    
-    
+
     .card-type {
       padding: 0;
       border-radius: $size_32;
@@ -110,19 +114,18 @@ export default {
 
         h5 {
           color: $custom-primary;
-          font-family: "Bevan", serif;
+          font-family: 'Bevan', serif;
         }
       }
     }
   }
 }
- 
+
 .active {
   -webkit-box-shadow: 1px 1px 10px 1px $custom-secondary;
   -moz-box-shadow: -1px 1px 10px 1px $custom-secondary;
   -o-box-shadow: -1px 1px 10px 1px $custom-secondary;
   box-shadow: -1px 1px 10px 1px $custom-secondary;
-
 }
 @media screen and (max-width: 1200px) {
   .card-type {
