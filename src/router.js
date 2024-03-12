@@ -4,6 +4,7 @@ import AppHome from "./pages/AppHome.vue";
 import AppRestaurantSingle from "./pages/AppRestaurantSingle.vue";
 import AppShopping from "./pages/AppShopping.vue";
 import NotFound from "./pages/NotFound.vue";
+import AppConfirmOrder from "./pages/AppConfirmOrder.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: "/:pathMatch(.*)*",
       name: "NotFound",
       component: NotFound,
+    },
+    {
+      path: "/confirm-order-comus",
+      name: "confirmOrder",
+      component: AppConfirmOrder,
     },
   ],
 });
