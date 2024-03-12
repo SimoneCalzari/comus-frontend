@@ -16,12 +16,11 @@ export default {
       let total = 0;
       for (let i = 0; i < this.store.cart.length; i++) {
         total += +this.store.cart[i].price * this.store.cart[i].quantity;
-        console.log(this.store.cart[i]);
-
       }
       this.store.totalPrice = total;
+      localStorage.setItem("totalPrice", JSON.stringify(this.store.totalPrice));
       return total;
-    }
+    },
   },
 };
 </script>
@@ -32,13 +31,25 @@ export default {
     <p v-show="!store.cart.length">
       Non ci sono prodotti nel carrello attualmente ...
     </p>
-    <div v-for="product in this.store.cart" class="cart-item" v-show="store.cart.length">
+    <div
+      v-for="product in this.store.cart"
+      class="cart-item"
+      v-show="store.cart.length"
+    >
       {{ product.name }} - {{ product.quantity }} - {{ product.price }}€
     </div>
-    <h4 class="text-uppercase ">Totale:{{ getSum() }}€</h4>
-    <router-link class="btn btn-success me-3" :to="{ name: 'cart' }" v-show="store.cart.length">Procedi
-      all'ordine</router-link>
-    <button class="btn btn-danger" @click="emptyCart" v-show="store.cart.length">
+    <h4 class="text-uppercase">Totale:{{ getSum() }}€</h4>
+    <router-link
+      class="btn btn-success me-3"
+      :to="{ name: 'cart' }"
+      v-show="store.cart.length"
+      >Procedi all'ordine</router-link
+    >
+    <button
+      class="btn btn-danger"
+      @click="emptyCart"
+      v-show="store.cart.length"
+    >
       Svuota carrello
     </button>
   </div>

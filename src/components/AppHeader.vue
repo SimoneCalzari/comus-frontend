@@ -1,7 +1,7 @@
 <script>
-import store from '../store';
+import store from "../store";
 export default {
-  name: 'Header',
+  name: "Header",
   data() {
     return {
       store,
@@ -17,7 +17,8 @@ export default {
     },
   },
   mounted() {
-    this.store.cart = JSON.parse(localStorage.getItem('dishes')) || [];
+    this.store.cart = JSON.parse(localStorage.getItem("dishes")) || [];
+    this.store.totalPrice = JSON.parse(localStorage.getItem("totalPrice")) || 0;
   },
 };
 </script>
@@ -54,7 +55,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 header {
   background-color: $custom-secondary;
