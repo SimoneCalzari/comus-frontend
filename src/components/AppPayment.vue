@@ -1,32 +1,38 @@
 <script>
+import store from "../store";
 export default {
-  name: 'AppPayment',
+  name: "AppPayment",
   data() {
-    return {};
+    return {
+      store,
+    };
   },
 
   mounted() {
-    let button = document.querySelector('#submit-button');
+    let button = document.querySelector("#submit-button");
 
     braintree.dropin.create(
       {
-        authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
-        selector: '#dropin-container',
-        locale: 'it_IT',
+        authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
+        selector: "#dropin-container",
+        locale: "it_IT",
       },
       function (err, instance) {
         if (err) {
-          console.error('Errore durante la creazione del drop-in:', err);
+          console.error("Errore durante la creazione del drop-in:", err);
           return;
         }
 
-        button.addEventListener('click', function () {
+        button.addEventListener("click", function () {
           instance.requestPaymentMethod(function (err, payload) {
             if (err) {
-              console.error('Errore durante la richiesta del metodo di pagamento:', err);
+              console.error(
+                "Errore durante la richiesta del metodo di pagamento:",
+                err
+              );
               return;
             }
-            // Submit payload.nonce to your server
+            store.paymentIsValid = true;
           });
         });
       }
@@ -34,7 +40,6 @@ export default {
   },
 };
 </script>
-
 
 <template>
   <div id="dropin-container"></div>
@@ -44,7 +49,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 .button {
   cursor: pointer;

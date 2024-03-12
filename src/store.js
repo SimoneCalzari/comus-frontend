@@ -14,5 +14,6 @@ export const store = reactive({
   cart: [],
   typesSearched: [],
   totalPrice: null,
+  paymentIsValid: false,
 });
 export default store;

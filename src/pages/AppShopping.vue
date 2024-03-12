@@ -17,24 +17,24 @@ export default {
   },
   methods: {
     addDataOrder() {
-      console.log("ho cliccato");
-      console.log(this.formData.customer_name);
-      console.log(this.formData.delivery_address);
-      console.log(this.formData.email);
-      const data = {
-        formData: this.formData,
-        cart: this.store.cart,
-        totalPrice: this.store.totalPrice,
-      };
-      console.log(data.totalPrice);
+      if (store.paymentIsValid) {
+        const data = {
+          formData: this.formData,
+          cart: this.store.cart,
+          totalPrice: this.store.totalPrice,
+        };
 
-      //axios chiamata per passaggio dati
-      axios
-        .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
-        .then((response) => console.log(response))
-        .catch((error) => {
-          console.log(error);
-        });
+        //axios chiamata per passaggio dati
+        axios
+          .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
+          .then((response) => console.log(response))
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        const errorCard = "Metodo di pagamento obbligatorio";
+        return errorCard;
+      }
     },
   },
   components: {
@@ -106,7 +106,7 @@ export default {
                 required
               />
             </div>
-
+            <p>{{ addDataOrder() }}</p>
             <button class="btn btn-primary" type="submit">Invia</button>
           </form>
         </div>
