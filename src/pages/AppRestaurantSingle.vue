@@ -37,6 +37,24 @@ export default {
           this.restaurant = response.data.results;
         });
     },
+    removeToCart(dish) {
+      // Trova il piatto nel carrello
+      const item = this.store.cart.find((item) => item.id === dish.id);
+
+      if (item) {
+        // Diminuisci la quantità se è maggiore di 1
+        if (item.quantity > 1) {
+          item.quantity--;
+        } else {
+          // Rimuovi il piatto dal carrello se la quantità è 1
+          this.store.cart = this.store.cart.filter(
+            (item) => item.id !== dish.id
+          );
+        }
+        // Aggiorna il carrello nel local storage
+        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+      }
+    },
     addToCart(dish) {
       // se provo ad aggiungere un piatto da un altro ristorante ho due casi
       if (
@@ -100,7 +118,7 @@ export default {
 <template>
   <main>
     <div class="cart-position m-5">
-      <AppCart class="position-absolute"/>
+      <AppCart class="position-absolute" />
     </div>
     <div class="container my-5">
       <div class="info-restaurant d-flex flex-row-reverse">
@@ -123,7 +141,11 @@ export default {
       <div class="menu">
         <ul class="d-flex flex-wrap row p-0">
           <li class="col-4 my-2" v-for="dish in restaurant.dishes">
-            <AppDish :dish_new="dish" @newItem="addToCart(dish)" />
+            <AppDish
+              :dish_new="dish"
+              @newItem="addToCart(dish)"
+              @removeItem="removeToCart(dish)"
+            />
             <!-- Modal -->
             <div
               class="modal bg-dark"
@@ -170,12 +192,7 @@ export default {
           </li>
         </ul>
       </div>
-      
     </div>
-   
-    
-
-    
   </main>
 </template>
 
@@ -203,7 +220,7 @@ export default {
   margin-top: $size_8;
   background-color: $custom_light_p;
 }
-.cart-position{
+.cart-position {
   top: 20px;
   right: -20px;
   position: sticky;

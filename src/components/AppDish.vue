@@ -9,7 +9,7 @@ export default {
     };
   },
   methods: {},
-  emits: ["newItem"],
+  emits: ["newItem" , "removeItem"],
   props: ["dish_new"],
 };
 </script>
@@ -27,13 +27,9 @@ export default {
       <h3>{{ dish_new.name }}</h3>
       <h5>{{ dish_new.price }} €</h5>
     </div>
-    <div
-      class="custom-btn mt-5 position-absolute"
-      type="button"
-      @click="$emit('newItem')"
-      href="#"
-    >
-      +
+    <div class="d-flex shrink-0 align-items-end">
+      <div type="button" class="m-1 custom-btn" @click="$emit('newItem')">+</div>
+      <div type="button" class="m-1 custom-btn" @click="$emit('removeItem')">-</div>
     </div>
   </div>
 </template>
@@ -46,7 +42,7 @@ export default {
   color: $custom-secondary;
   background-color: $custom-lighter_p;
 }
-.custom-btn {
+.custom-btn{
   bottom: 5px;
   right: 5px;
   text-decoration: none;
