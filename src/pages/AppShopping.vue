@@ -1,9 +1,9 @@
 <script>
-import AppPayment from '../components/AppPayment.vue';
-import store from '../store';
-import axios from 'axios';
+import AppPayment from "../components/AppPayment.vue";
+import store from "../store";
+import axios from "axios";
 export default {
-  name: 'AppCart',
+  name: "AppCart",
   data() {
     return {
       store,
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     addDataOrder() {
-      console.log('ho cliccato');
+      console.log("ho cliccato");
       console.log(this.formData.customer_name);
       console.log(this.formData.delivery_address);
       console.log(this.formData.email);
@@ -63,36 +63,47 @@ export default {
         <!-- dati di consegna -->
         <div class="ship-data border border-warning">
           <h4>Dati di consegna</h4>
+          <p class="mb-0 fs-5">
+            I campi contrassegnati con <span class="fs-5">*</span> sono
+            obbligatori
+          </p>
           <form action="" method="POST" @submit.prevent="addDataOrder">
             <div class="mb-3">
-              <label for="customer_name" class="form-label">Nome Cognome</label>
+              <label for="customer_name" class="form-label"
+                >Nome Cognome <span class="fs-5">*</span></label
+              >
               <input
                 type="text"
                 class="form-control"
                 id="customer_name"
                 placeholder="ex. Mario Rossi"
                 v-model="formData.customer_name"
+                required
               />
             </div>
             <div class="mb-3">
               <label for="delivery_address" class="form-label"
-                >Indirizzo di consegna</label
+                >Indirizzo di consegna <span class="fs-5">*</span></label
               >
               <input
                 type="text"
                 class="form-control"
                 id="delivery_address"
                 v-model="formData.delivery_address"
+                required
               />
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
+              <label for="email" class="form-label"
+                >Indirizzo email <span class="fs-5">*</span></label
+              >
               <input
                 type="email"
                 class="form-control"
                 id="email"
-                placeholder="name@example.com"
+                placeholder="mario.rossi@esempio.com"
                 v-model="formData.email"
+                required
               />
             </div>
 
