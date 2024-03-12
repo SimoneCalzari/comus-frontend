@@ -15,9 +15,12 @@ export default {
     <h2 class="text-center fs-1">I nostri ristoranti</h2>
     <div v-if="store.restaurants.length">
       <div class="row flex-row gap-4 justify-content-center">
-        <!-- <h3 class="mb-4 text-center">
+        <h3 v-if="store.restaurants.length === 1" class="mb-4 text-center">
+          è presente un ristorante
+        </h3>
+        <h3 v-else class="mb-4 text-center">
           Sono presenti {{ store.restaurants.length }} ristoranti
-        </h3> -->
+        </h3>
 
         <div
           class="card-restaurant col-lg-2 col-md-4 col-12"
