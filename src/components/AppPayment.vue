@@ -5,7 +5,7 @@ export default {
     return {};
   },
 
-  created() {
+  mounted() {
     let button = document.querySelector('#submit-button');
 
     braintree.dropin.create(
@@ -15,8 +15,17 @@ export default {
         locale: 'it_IT',
       },
       function (err, instance) {
+        if (err) {
+          console.error('Errore durante la creazione del drop-in:', err);
+          return;
+        }
+
         button.addEventListener('click', function () {
           instance.requestPaymentMethod(function (err, payload) {
+            if (err) {
+              console.error('Errore durante la richiesta del metodo di pagamento:', err);
+              return;
+            }
             // Submit payload.nonce to your server
           });
         });
@@ -25,6 +34,7 @@ export default {
   },
 };
 </script>
+
 
 <template>
   <div id="dropin-container"></div>
