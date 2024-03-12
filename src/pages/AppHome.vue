@@ -1,6 +1,6 @@
 <script>
 //importazione file components
-
+import AppPageLoader from '../components/AppPageLoader.vue';
 import AppJumbotron from '../components/AppJumbotron.vue';
 import AppRestaurantList from '../components/AppRestaurantsList.vue';
 import AppSectionSlogan from '../components/AppSectionSlogan.vue';
@@ -12,6 +12,7 @@ import AppDownload from '../components/AppDownload.vue';
 export default {
   name: 'Home',
   components: {
+    AppPageLoader,
     AppJumbotron,
     AppRestaurantList,
     AppSectionSlogan,
@@ -19,16 +20,28 @@ export default {
     AppFaq,
     AppDownload,
   },
+  data(){
+    return{loading : true,};
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 3000); // Imposto il tempo di caricamento a 3 secondi
+  },
 };
 </script>
 
 <template>
-  <main>
+  <loading v-if="loading">
+    <AppPageLoader />
+  </loading>
+  <main v-else>
     <AppJumbotron />
     <AppRestaurantList />
     <AppSectionSlogan />
     <AppRistoratore />
     <AppDownload />
     <AppFaq />
+    
   </main>
-</template>
+</template>../components/AppPageLoader.vue

@@ -1,8 +1,8 @@
 <script>
-import { RouterLink } from 'vue-router';
-import store from '../store';
+import { RouterLink } from "vue-router";
+import store from "../store";
 export default {
-  name: 'AppListRestaurants',
+  name: "AppListRestaurants",
   data() {
     return {
       store,
@@ -23,25 +23,31 @@ export default {
           class="card-restaurant col-lg-2 col-md-4 col-12"
           v-for="restaurant in store.restaurants"
         >
-          <router-link
-            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
-            class="d-flex flex-column"
-          >
-            <div class="cont-img">
-              <img
-                :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
-                alt="immagine ristorante"
-              />
-            </div>
-            <div class="flex-grow-1 d-flex flex-column justify-content-center">
-              <h5 class="text-center py-3 fs-4 mb-0">
-                {{ restaurant.name_restaurant }}
-              </h5>
-              <span v-for="category in restaurant.types" class="text-center">{{
-                category.name_type
-              }}</span>
-            </div>
-          </router-link>
+          <transition name="grow-in">
+            <router-link
+              :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+              class="d-flex flex-column"
+            >
+              <div class="cont-img">
+                <img
+                  :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
+                  alt="immagine ristorante"
+                />
+              </div>
+              <div
+                class="flex-grow-1 d-flex flex-column justify-content-center"
+              >
+                <h5 class="text-center py-3 fs-4 mb-0">
+                  {{ restaurant.name_restaurant }}
+                </h5>
+                <span
+                  v-for="category in restaurant.types"
+                  class="text-center"
+                  >{{ category.name_type }}</span
+                >
+              </div>
+            </router-link>
+          </transition>
         </div>
       </div>
     </div>
@@ -50,7 +56,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 #custom-restaurants {
   padding: $size_48 0;
@@ -59,7 +65,7 @@ export default {
 
   h2 {
     color: $custom-secondary;
-    font-family: 'Bevan', serif;
+    font-family: "Bevan", serif;
     // padding: $size_48;
   }
   .card-restaurant {
@@ -125,4 +131,10 @@ export default {
 //       width: calc((100% - 20px) / 1);
 //     }
 //   }
+.grow-in-enter-active {
+  transition: transform 0.5s ease-in-out;
+}
+.grow-in-enter {
+  transform: scale(0);
+}
 </style>
