@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'SectionSlogna',
+  name: 'SectionSlogan',
 };
 </script>
 
