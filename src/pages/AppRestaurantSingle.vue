@@ -99,8 +99,11 @@ export default {
 
 <template>
   <main>
-    <div class="container my-5 position-relative">
-      <div class="info-restaurant d-flex">
+    <div class="cart-position m-5">
+      <AppCart class="position-absolute"/>
+    </div>
+    <div class="container my-5">
+      <div class="info-restaurant d-flex flex-row-reverse">
         <div class="left-img m-2" v-if="restaurant">
           <img
             :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
@@ -167,9 +170,7 @@ export default {
           </li>
         </ul>
       </div>
-       <div class="cart-position position-absolute">
-      <AppCart />
-    </div>
+      
     </div>
    
     
@@ -205,5 +206,8 @@ export default {
 .cart-position{
   top: 20px;
   right: -20px;
+  position: sticky;
+  z-index: 99;
+  width: 25%;
 }
 </style>
