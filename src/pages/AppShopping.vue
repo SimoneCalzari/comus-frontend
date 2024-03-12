@@ -29,7 +29,20 @@ export default {
         //axios chiamata per passaggio dati
         axios
           .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
-          .then((response) => console.log(response))
+          .then((response) => {
+            console.log(response)
+            if(response.data.status) {
+              this.$router.push({
+                name: "confirmOrder",
+              })
+              this.store.cart = [];
+              localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+            } else {
+              this.$router.push({
+                name: "NotFound"
+              })
+            }
+          })
           .catch((error) => {
             console.log(error);
           });
