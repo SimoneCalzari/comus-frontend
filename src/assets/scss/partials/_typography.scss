@@ -4,20 +4,22 @@ TYPOGRAPHY
 
 //font google Bevan static
 @import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+
 .font-primary {
   font-family: 'Bevan', serif;
 }
 
 //font google Embed code
 @import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital@0;1&display=swap');
+
 .font-secondary {
 
-    font-family: "Rethink Sans", sans-serif;
-} 
+  font-family: "Rethink Sans", sans-serif;
+}
 
 
 //@media query
-// Desktop
+// Desktop 1200+
 // Label / Link : 16px
 // Paragrafi : 20px
 // H1: 56px bolder
@@ -27,97 +29,107 @@ TYPOGRAPHY
 // H5: 20px
 // H6: 16px
 
-// iPad
+// iPad 992px 
 // Label / Link : 12px
 // Paragrafi : 16px
 // H1: 44px bolder
-// H2: 40px bolder / H2: 44px bolder
-// H3: 32px bolder
-// H4: 28px
-// H5: 20px
-// H6: 16px
 
-// iPhone
-// Label / Link : 12px
-// Paragrafi : 16px
+// iPhone 576px
 // H1: 28px bolder
 // H2: 28px bolder
-// H3: 32px bolder
 // H4: 20px
 // H5: 16px
-// H6: 16px
 
 /************* 
 MEDIA QUERY FONTS
 **************/
 
-// @media screen and (max-width: 1200px) {
-// }
+
+
+label,
+h6,
+a {
+  font-size: 1rem;
+}
+
+p,
+span {
+  font-size: 1.25rem;
+}
+
+h1 {
+  font-size: 3.5rem !important;
+  font-family: 'Bevan', serif !important;
+}
+
+h2 {
+  font-size: 2.5rem !important;
+  font-family: 'Bevan', serif !important;
+}
+
+h3 {
+  font-size: 2rem !important;
+  font-family: 'Bevan', serif !important;
+}
+
+h4 {
+  font-size: 1.75rem !important;
+}
+
+h5 {
+  font-size: 1.25rem !important;
+}
+
+
 
 @media screen and (max-width: 992px) {
+
   label,
-  a {
+  h6 {
     font-size: 0.75rem;
   }
 
   p,
   span {
     font-size: 1rem;
+
   }
 
   h1 {
     font-size: 2.75rem !important;
-  }
-
-  h2 {
-    font-size: 2.5rem !important;
     font-family: 'Bevan', serif !important;
-  }
-
-  h3 {
-    font-size: 2rem !important;
-    font-family: 'Bevan', serif !important;
-  }
-
-  h4 {
-    font-size: 1.75rem !important;
-  }
-
-  h5 {
-    font-size: 1.25rem !important;
-  }
-
-  h6 {
-    font-size: 1rem !important;
   }
 }
 
-@media screen and (max-width: 768px) {
-  label,
-  a {
-    font-size: 0.75rem !important;
-  }
 
-  p,
-  span,
-  h5,
-  h6 {
-    font-size: 1rem !important;
-  }
+@media screen and (max-width: 768px) {
 
   h1,
   h2 {
     font-size: 1.75rem !important;
-  }
-
-  h3 {
-    font-size: 2rem !important;
+    font-family: 'Bevan', serif !important;
   }
 
   h4 {
     font-size: 1.25rem !important;
   }
+
+  h5 {
+    font-size: 1rem !important;
+  }
 }
 
-// @media screen and (max-width: 576px) {
-// }
+
+
+@media screen and (max-width: 576px) {
+
+  p,
+  span {
+    font-size: 0.75rem;
+
+  }
+
+  h6 {
+    font-size: 0.50rem !important;
+  }
+}
