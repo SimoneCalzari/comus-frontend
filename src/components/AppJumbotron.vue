@@ -60,23 +60,19 @@ export default {
           this.store.restaurants = response.data.results;
         });
     },
-    clearRestaurants() {
-      axios
-        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
-        .then((response) => {
-          this.store.restaurants = response.data.results;
-        });
-      this.store.typesSearched = [];
-    },
-    activeBorder() {
-      document.getElementById("border-circle");
-      element.classList.add("active-border");
-    },
+    // clearRestaurants() {
+    //   axios
+    //     .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+    //     .then((response) => {
+    //       this.store.restaurants = response.data.results;
+    //     });
+    //   this.store.typesSearched = [];
+    // },
   },
 };
 </script>
 <template>
-  <section id="jumbotron" @click="clearRestaurants">
+  <section id="jumbotron">
     <div class="container-md d-flex flex-wrap justify-content-center">
       <div
         class="card-type"
@@ -84,15 +80,15 @@ export default {
         @click.stop="searchRestaurants(element.id)"
       >
         <!-- image -->
-        <div id="border-circle" @click="activeBorder()">
-          <div class="card-img">
-            <img
-              :src="`${store.api.baseUrl}/storage/${element.image}`"
-              class="card-img-top"
-              :class="store.typesSearched.includes(element.id) ? 'active' : ''"
-              alt="..."
-            />
-          </div>
+        <div
+          class="card-img"
+          :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+        >
+          <img
+            :src="`${store.api.baseUrl}/storage/${element.image}`"
+            class="card-img-top"
+            alt="..."
+          />
         </div>
 
         <!-- info -->
@@ -113,13 +109,11 @@ export default {
 
   .card-type {
     width: calc((100% - 12vw) / 6);
-    // border-radius: 30px;
     margin: 1vw;
     cursor: pointer;
 
     .card-img {
-      width: 100%;
-      height: calc(100vw / 12);
+      aspect-ratio: 1/1;
       overflow: hidden;
       border-radius: 50%;
 
@@ -128,32 +122,20 @@ export default {
         height: 100%;
         object-fit: cover;
         display: block;
+        &:hover {
+          transform: scale(1.1);
+          transition: transform 0.6s ease-in-out;
+          z-index: -1;
+        }
       }
     }
-    // .card-img:active{
-    //   border: $size_8 solid $custom-primary;
-    //   border-radius: 50%;
-    //   z-index: 99;
-    // }
-    #border-circle {
-      border: $size_8 solid $custom-secondary;
-      border-radius: 50%;
-      // &:active{border: $size_8 solid $custom-primary;}
-    }
-    .active-border {
+    .active {
       border: $size_8 solid $custom-primary;
-    }
-
-    &:hover img {
-      transform: scale(1.1);
-      transition: transform 0.6s ease-in-out;
-      z-index: -1;
     }
 
     .card-info {
       h6 {
         color: $custom-white;
-        font-family: "Bevan", serif;
         background-color: $custom-primary;
         border-radius: $size_32;
         padding: $size_8 0;
@@ -162,12 +144,6 @@ export default {
     }
   }
 }
-
-// //active solo sull'immagine da valutare in base alla shape di Alby
-// .active {
-//   border:$size_8 solid $custom-primary;
-//   border-radius: 50%;
-// }
 
 // Media queries
 @media screen and (max-width: 1200px) {
@@ -179,37 +155,21 @@ export default {
   @media screen and (max-width: 1200px) {
     .card-type {
       width: calc((100% - 10vw) / 5);
-
-      .card-img {
-        height: calc(100vw / 6);
-      }
     }
   }
   @media screen and (max-width: 992px) {
     .card-type {
       width: calc((100% - 8vw) / 4);
-
-      .card-img {
-        height: calc(100vw / 6);
-      }
     }
   }
   @media screen and (max-width: 768px) {
     .card-type {
       width: calc((100% - 6vw) / 3);
-
-      .card-img {
-        height: calc(100vw / 3);
-      }
     }
   }
   @media screen and (max-width: 576px) {
     .card-type {
       width: calc((100% - 4vw) / 4);
-
-      .card-img {
-        height: calc(100vw / 4);
-      }
     }
   }
 }
