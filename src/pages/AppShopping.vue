@@ -31,7 +31,7 @@ export default {
           .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
           .then((response) => {
             console.log(response)
-            if(response.data.status) {
+            if (response.data.status) {
               this.$router.push({
                 name: "confirmOrder",
               })
@@ -50,6 +50,13 @@ export default {
         this.errorCard = "Metodo di pagamento obbligatorio";
       }
     },
+    totalItemsCart() {
+      let total = 0;
+      this.store.cart.forEach((item) => {
+        total += item.quantity;
+      });
+      return total;
+    },
   },
   components: {
     AppPayment,
@@ -59,22 +66,22 @@ export default {
 
 <template>
   <main>
-    <div class="container border pt-3 pb-5">
+    <div class="container py-4">
       <div v-if="store.cart.length" class="d-flex flex-column gap-4">
         <h1>Il tuo carrello</h1>
         <!-- metodo pagamento -->
-        <div class="payment border border-danger">
+        <div class="payment">
           <h4>Dati di pagamento</h4>
           <AppPayment />
         </div>
         <!-- dati di consegna -->
-        <div class="ship-data border border-warning">
+        <div class="ship-data">
           <h4>Dati di consegna</h4>
           <p class="mb-0 fs-5">
             I campi contrassegnati con <span class="fs-5">*</span> sono
             obbligatori
           </p>
-          <form action="" method="POST" @submit.prevent="addDataOrder">
+          <form action="" method="POST" @submit.prevent="addDataOrder" id="getOrder">
             <div class="mb-3">
               <label for="customer_name" class="form-label">Nome Cognome <span class="fs-5">*</span></label>
               <input type="text" class="form-control" id="customer_name" placeholder="ex. Mario Rossi"
@@ -91,21 +98,22 @@ export default {
                 v-model="formData.email" required />
             </div>
             <p v-if="errorCard" class="error">{{ errorCard }}</p>
-            <button class="btn btn-primary" type="submit">Invia</button>
           </form>
         </div>
         <!-- riepilogo -->
-        <div class="riepilogo border border-primary">
+        <div class="riepilogo">
           <h4>Riepilogo</h4>
-          <ul class="border">
+          <p>Totali piatti: {{ this.totalItemsCart() }}</p>
+          <ul>
             <li v-for="dish in this.store.cart" class="d-flex">
               <span>{{ dish.quantity }}x</span>
               <p class="mx-3">{{ dish.name }}</p>
               <p>{{ dish.price }}€</p>
             </li>
           </ul>
-          <strong>Totale: {{ store.totalPrice }}€</strong>
+          <p class="text-uppercase fw-bolder ">Prezzo Totale: {{ store.totalPrice }}€</p>
         </div>
+        <button form="getOrder" class="btn btn-primary" type="submit">Invia</button>
       </div>
       <div v-else class="text-center py-5">
         <h4>Il tuo carrello è vuoto</h4>
@@ -118,6 +126,11 @@ export default {
 </template>
 
 <style scoped lang="scss">
+button {
+  width: 100px;
+  margin: 0 auto;
+}
+
 .error {
   color: red;
 }

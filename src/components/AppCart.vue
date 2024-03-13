@@ -31,25 +31,13 @@ export default {
     <p v-show="!store.cart.length">
       Non ci sono prodotti nel carrello attualmente ...
     </p>
-    <div
-      v-for="product in this.store.cart"
-      class="cart-item"
-      v-show="store.cart.length"
-    >
+    <div v-for="product in this.store.cart" class="cart-item" v-show="store.cart.length">
       {{ product.name }} - {{ product.quantity }} - {{ product.price }}€
     </div>
     <h4 class="text-uppercase">Totale:{{ getSum() }}€</h4>
-    <router-link
-      class="btn primary me-3"
-      :to="{ name: 'cart' }"
-      v-show="store.cart.length"
-      >Procedi all'ordine</router-link
-    >
-    <button
-      class="btn secondary"
-      @click="emptyCart"
-      v-show="store.cart.length"
-    >
+    <router-link class="btn primary me-3" :to="{ name: 'cart' }" v-show="store.cart.length">Procedi
+      all'ordine</router-link>
+    <button class="btn secondary" @click="emptyCart" v-show="store.cart.length">
       Svuota carrello
     </button>
   </div>
@@ -62,25 +50,26 @@ export default {
   color: $custom_secondary;
   border: 2px solid $custom-secondary;
   border-radius: 20px;
-  background-color: $custom_light;
+  background-color: rgba($custom_light , 0.5);
 
-  h3 {
+  bg h3 {
     font-size: $size-32;
   }
 
   p .cart-item {
     font-size: $size-24;
   }
-  .btn{
+
+  .btn {
     color: $custom_white;
   }
-  .primary{
+
+  .primary {
     background-color: $custom-primary;
   }
-  .secondary{
+
+  .secondary {
     background-color: $custom-secondary;
   }
 }
-
-
 </style>
