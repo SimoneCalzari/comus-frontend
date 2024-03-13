@@ -143,14 +143,6 @@ export default {
       }
     }
   }
-}
-
-// Media queries
-@media screen and (max-width: 1200px) {
-  .card-type {
-    width: calc((100% - 10vw) / 5);
-  }
-
   // Media queries
   @media screen and (max-width: 1200px) {
     .card-type {
@@ -169,7 +161,8 @@ export default {
   }
   @media screen and (max-width: 576px) {
     .card-type {
-      width: calc((100% - 4vw) / 4);
+      margin: 4vw;
+      width: calc((100% - 16vw) / 2);
     }
   }
 }
