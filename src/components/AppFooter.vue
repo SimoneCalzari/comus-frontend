@@ -10,10 +10,11 @@ export default {
         'Aiuto',
       ],
       menus_2: [
+
         'Informativa sulla Privacy',
         'Informativa relativa ai cookie',
-        'Termini & Condizioni',
         'Informazioni sul packaging',
+        'Termini & Condizioni',
       ],
     };
   },
@@ -24,35 +25,31 @@ export default {
   <footer>
     <!--lista menu footer: sinistra, centro, destra-->
     <div id="footer-top" class="justify-content-center">
-      <div class="row container d-flex justify-content-center">
+      <div class="row container d-flex justify-content-center align-items-center ">
         <!-- sinistra -->
-        <div class="custom-box-sx col-lg-4 col-md-6 col-sm-12 text-center">
+        <div class="custom-box-sx col-lg-4 col-6 text-center">
           <ul class="text-center text-md-center p-0">
             <li v-for="menu_1 in menus_1">
-              <a href="#" target="_blank">{{ menu_1 }}</a>
+              <a href="#">{{ menu_1 }}</a>
             </li>
           </ul>
         </div>
         <!-- /sinistra-->
         <!-- centro -->
-        <div class="custom-box-ct  col-lg-4 col-md-6 col-sm-12">
+        <div class="custom-box-ct  col-lg-4 col-6">
           <ul class="text-center text-md-center p-0">
             <li v-for="menu_2 in menus_2">
-              <a href="#" target="_blank">{{ menu_2 }}</a>
+              <a href="#">{{ menu_2 }}</a>
             </li>
           </ul>
         </div>
         <!-- /centro -->
         <!-- destra -->
-        <div class="custom-box-dx col-lg-4 col-md-6 col-sm-12">
+        <div class="custom-box-dx col-lg-4 col-6">
           <div class="row align-items-center flex-column">
             <!-- logo -->
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
-              <img
-                src="/img/logo/logo-sm-snow.svg"
-                class="cont-image"
-                alt="logo-footer"
-              />
+              <img src="/img/logo/logo-sm-snow.svg" class="cont-image" alt="logo-footer" />
             </div>
             <!-- /logo -->
             <!-- socials -->
@@ -60,28 +57,28 @@ export default {
               <ul class="col d-flex p-0 d-flex justify-content-center gap-3">
                 <!-- twitter -->
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://twitter.com/i/flow/login" target="_blank">
                     <i class="fa-brands fa-x-twitter"></i>
                   </a>
                 </li>
                 <!-- /twitter -->
                 <!-- youtube -->
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://www.youtube.com/" target="_blank">
                     <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
                 <!-- /youtube -->
                 <!-- instagram -->
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://www.instagram.com/accounts/login/" target="_blank">
                     <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
                 <!-- /instagram -->
                 <!-- facebook -->
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://m.facebook.com/login/?locale=it_IT" target="_blank">
                     <i class="fa-brands fa-square-facebook"></i>
                   </a>
                 </li>
@@ -108,13 +105,16 @@ export default {
 //importazione fogli stili
 @import '../assets/scss/partials/variables.scss';
 @import '../assets/scss/partials/reset.scss';
-a{
+
+a {
   text-decoration: none;
   color: $custom_white;
-   &:hover {
-        color: $custom-secondary;
-      }
+
+  &:hover {
+    color: $custom-secondary;
+  }
 }
+
 li {
   padding: $size-8 0;
 }
@@ -126,12 +126,15 @@ footer {
   #footer-top {
     padding: $size_16 0;
   }
-  .row{
+
+  .row {
     margin: $size-40 auto;
   }
+
   .cont-image {
     width: 100px;
   }
+
   .custom-box-dx {
     i {
       color: $custom-white;

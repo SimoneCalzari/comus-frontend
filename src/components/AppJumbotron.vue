@@ -39,9 +39,9 @@ export default {
       axios
         .get(
           this.store.api.baseUrl +
-            this.store.api.apiUrls.restaurants +
-            "/search/" +
-            types_search
+          this.store.api.apiUrls.restaurants +
+          "/search/" +
+          types_search
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -74,12 +74,9 @@ export default {
 <template>
   <section id="jumbotron">
     <div class="container-md d-flex flex-wrap justify-content-center">
-      <div
-        class="card-type"
-        v-for="element in store.types"
-        @click.stop="searchRestaurants(element.id)"
-      >
+      <div class="card-type" v-for="element in store.types" @click.stop="searchRestaurants(element.id)">
         <!-- image -->
+
         <div
           class="card-img"
           :class="store.typesSearched.includes(element.id) ? 'active' : ''"
@@ -89,6 +86,7 @@ export default {
             class="card-img-top"
             alt="..."
           />
+
         </div>
 
         <!-- info -->
@@ -129,7 +127,9 @@ export default {
         }
       }
     }
+
     .active {
+
       border: $size_8 solid $custom-primary;
     }
 
@@ -149,16 +149,19 @@ export default {
       width: calc((100% - 10vw) / 5);
     }
   }
+
   @media screen and (max-width: 992px) {
     .card-type {
       width: calc((100% - 8vw) / 4);
     }
   }
+
   @media screen and (max-width: 768px) {
     .card-type {
       width: calc((100% - 6vw) / 3);
     }
   }
+
   @media screen and (max-width: 576px) {
     .card-type {
       margin: 4vw;
