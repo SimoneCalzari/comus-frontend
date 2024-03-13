@@ -10,6 +10,7 @@ export default {
 <template>
   <!-- section download -->
   <section id="download">
+
       <div class="box-download d-flex flex-sm-column flex-md-row container-md justify-content-center align-items-center text-center">
         <!-- scarica testo e apps -->
         <!-- illustrazione scarica -->
@@ -41,10 +42,12 @@ export default {
               />
             </a>
           </div>
+
         </div>
-        <!-- /scarica testo e apps -->
-        
       </div>
+      <!-- /scarica testo e apps -->
+
+    </div>
 
   </section>
   <!-- section /download -->
@@ -80,13 +83,16 @@ export default {
 
   .phone {
     padding: $size_48 0;
+
     .phone-download {
+
       object-fit: cover;
       margin-top: $size_16;
       margin: 0;
       transform: rotate(20deg);
     }
   }
+
   }
   
   //   // Media queries
@@ -111,6 +117,8 @@ export default {
   //     width: 30%;
   //   }
   // }
-}
 
+
+
+}
 </style>
