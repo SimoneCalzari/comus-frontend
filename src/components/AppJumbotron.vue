@@ -154,43 +154,43 @@ export default {
 }
 
 
-// Media queries
-@media screen and (max-width: 1200px) {
-  .card-type {
-    width: calc((100% - 10vw) / 5);
+  // Media queries
+  @media screen and (max-width: 1200px) {
+    .card-type {
+      width: calc((100% - 10vw) / 5);
 
-    .card-img {
-      height: calc(100vw / 6);
+      .card-img {
+        height: calc(100vw / 6);
+      }
     }
   }
-}
-@media screen and (max-width: 992px) {
-  .card-type {
-    width: calc((100% - 8vw) / 4);
+  @media screen and (max-width: 992px) {
+    .card-type {
+      width: calc((100% - 8vw) / 4);
 
-    .card-img {
-      height: calc(100vw / 6);
+      .card-img {
+        height: calc(100vw / 6);
+      }
     }
   }
-}
-@media screen and (max-width: 768px) {
-  .card-type {
-    width: calc((100% - 6vw) / 3);
+  @media screen and (max-width: 768px) {
+    .card-type {
+      width: calc((100% - 6vw) / 3);
 
-    .card-img {
-      height: calc(100vw / 3);
+      .card-img {
+        height: calc(100vw / 3);
+      }
     }
   }
-}
-@media screen and (max-width: 576px) {
-  .card-type {
-    width: calc((100% - 4vw) / 4);
+  @media screen and (max-width: 576px) {
+    .card-type {
+      width: calc((100% - 4vw) / 4);
 
-    .card-img {
-      height: calc(100vw / 4);
+      .card-img {
+        height: calc(100vw / 4);
+      }
     }
   }
-}
 }
 
 </style>
