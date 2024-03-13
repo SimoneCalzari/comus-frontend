@@ -1,18 +1,18 @@
 <script>
-import axios from "axios";
-import store from "../store";
-import AppCart from "../components/AppCart.vue";
-import AppDish from "../components/AppDish.vue";
+import axios from 'axios';
+import store from '../store';
+import AppCart from '../components/AppCart.vue';
+import AppDish from '../components/AppDish.vue';
 
 export default {
-  name: "AppRestaurantSingle",
+  name: 'AppRestaurantSingle',
   components: { AppDish, AppCart },
   data() {
     return {
       store,
-      restaurant: "",
+      restaurant: '',
       modalOn: false,
-      currentModal: "",
+      currentModal: '',
     };
   },
   methods: {
@@ -27,7 +27,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/" +
+            '/' +
             this.$route.params.slug
         )
         .catch((error) => {
@@ -52,7 +52,7 @@ export default {
           );
         }
         // Aggiorna il carrello nel local storage
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+        localStorage.setItem('dishes', JSON.stringify(this.store.cart));
       }
     },
     addToCart(dish) {
@@ -78,7 +78,7 @@ export default {
         // pusho la copia piatto nel carrello store
         this.store.cart.push(dishWithQuantity);
         // metto il carrello store TUTTO nel local storage alla key 'dishes'
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+        localStorage.setItem('dishes', JSON.stringify(this.store.cart));
         return;
       }
       // se arrivo qua il carrello non è vuoto e devo verificare se ho già il piatto passato alla funzione nel carrello
@@ -96,14 +96,14 @@ export default {
         // pusho la copia piatto nel carrello store
         this.store.cart.push(dishWithQuantity);
         // metto il carrello store TUTTO nel local storage alla key 'dishes'
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+        localStorage.setItem('dishes', JSON.stringify(this.store.cart));
         return;
       }
       // se il piatto è già nel carrello store devo trovarlo e aumentare la sua quantità di uno
       for (let i = 0; i < this.store.cart.length; i++) {
         if (dish.id === this.store.cart[i].id) {
           this.store.cart[i].quantity++;
-          localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+          localStorage.setItem('dishes', JSON.stringify(this.store.cart));
           return;
         }
       }
@@ -144,7 +144,10 @@ export default {
         <h3 v-else>Sono presenti: {{ restaurant.dishes.length }} piatti</h3>
 
         <ul class="d-flex flex-wrap row p-0">
-          <li class="col-4 my-2" v-for="dish in restaurant.dishes">
+          <li
+            class="col-6 col-sm-4 col-lg-3 col-xl-3 g-3 my-2"
+            v-for="dish in restaurant.dishes"
+          >
             <AppDish
               :dish_new="dish"
               @newItem="addToCart(dish)"
@@ -201,7 +204,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 .left-img {
   width: 40%;
 

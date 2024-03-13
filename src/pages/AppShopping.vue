@@ -1,9 +1,9 @@
 <script>
-import AppPayment from "../components/AppPayment.vue";
-import store from "../store";
-import axios from "axios";
+import AppPayment from '../components/AppPayment.vue';
+import store from '../store';
+import axios from 'axios';
 export default {
-  name: "AppCart",
+  name: 'AppCart',
   data() {
     return {
       store,
@@ -12,7 +12,7 @@ export default {
         delivery_address: null,
         email: null,
         totalPrice: null,
-        phone_number: null
+        phone_number: null,
       },
       isSubmitting: false,
       errorCard: null,
@@ -33,17 +33,17 @@ export default {
         axios
           .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
           .then((response) => {
-            console.log(response)
+            console.log(response);
             if (response.data.status) {
               this.$router.push({
-                name: "confirmOrder",
-              })
+                name: 'confirmOrder',
+              });
               this.store.cart = [];
-              localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+              localStorage.setItem('dishes', JSON.stringify(this.store.cart));
             } else {
               this.$router.push({
-                name: "NotFound"
-              })
+                name: 'NotFound',
+              });
             }
             this.isSubmitting = false;
           })
@@ -52,7 +52,7 @@ export default {
             this.isSubmitting = false;
           });
       } else {
-        this.errorCard = "Metodo di pagamento obbligatorio";
+        this.errorCard = 'Metodo di pagamento obbligatorio';
         this.isSubmitting = false;
       }
     },
@@ -74,7 +74,14 @@ export default {
   <main>
     <div class="container py-4">
       <div v-if="store.cart.length" class="d-flex flex-column gap-4">
-        <h1>Il tuo carrello</h1>
+        <header>
+          <h1>Il tuo carrello</h1>
+          <!-- <router-link
+            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+          >
+            Torna ad acquistare</router-link
+          > -->
+        </header>
         <!-- metodo pagamento -->
         <div class="payment">
           <h4>Dati di pagamento</h4>
@@ -87,25 +94,61 @@ export default {
             I campi contrassegnati con <span class="fs-5">*</span> sono
             obbligatori
           </p>
-          <form action="" method="POST" @submit.prevent="addDataOrder" id="getOrder">
+          <form
+            action=""
+            method="POST"
+            @submit.prevent="addDataOrder"
+            id="getOrder"
+          >
             <div class="mb-3">
-              <label for="customer_name" class="form-label">Nome Cognome <span class="fs-5">*</span></label>
-              <input type="text" class="form-control" id="customer_name" placeholder="ex. Mario Rossi"
-                v-model="formData.customer_name" required />
+              <label for="customer_name" class="form-label"
+                >Nome Cognome <span class="fs-5">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="customer_name"
+                placeholder="ex. Mario Rossi"
+                v-model="formData.customer_name"
+                required
+              />
             </div>
             <div class="mb-3">
-              <label for="delivery_address" class="form-label">Indirizzo di consegna <span class="fs-5">*</span></label>
-              <input type="text" class="form-control" id="delivery_address" v-model="formData.delivery_address"
-                required />
+              <label for="delivery_address" class="form-label"
+                >Indirizzo di consegna <span class="fs-5">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="delivery_address"
+                v-model="formData.delivery_address"
+                required
+              />
             </div>
             <div class="mb-3">
-              <label for="phone_number" class="form-label fw-medium">Telefono<span class="fs-5 px-1">*</span></label>
-              <input type="number" class="form-control" v-model="formData.phone_number" required min="1" />
+              <label for="phone_number" class="form-label fw-medium"
+                >Telefono<span class="fs-5 px-1">*</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                v-model="formData.phone_number"
+                required
+                min="1"
+              />
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label">Indirizzo email <span class="fs-5">*</span></label>
-              <input type="email" class="form-control" id="email" placeholder="mario.rossi@esempio.com"
-                v-model="formData.email" required />
+              <label for="email" class="form-label"
+                >Indirizzo email <span class="fs-5">*</span></label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="mario.rossi@esempio.com"
+                v-model="formData.email"
+                required
+              />
             </div>
             <p v-if="errorCard" class="error">{{ errorCard }}</p>
           </form>
@@ -121,9 +164,18 @@ export default {
               <p>{{ dish.price }}€</p>
             </li>
           </ul>
-          <p class="text-uppercase fw-bolder ">Prezzo Totale: {{ store.totalPrice }}€</p>
+          <p class="text-uppercase fw-bolder">
+            Prezzo Totale: {{ store.totalPrice }}€
+          </p>
         </div>
-        <button :disabled="isSubmitting" form="getOrder" class="btn btn-primary" type="submit">Invia</button>
+        <button
+          :disabled="isSubmitting"
+          form="getOrder"
+          class="btn btn-primary"
+          type="submit"
+        >
+          Paga
+        </button>
       </div>
       <div v-else class="text-center py-5">
         <h4>Il tuo carrello è vuoto</h4>
