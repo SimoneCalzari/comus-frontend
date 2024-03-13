@@ -28,7 +28,7 @@ export default {
         <div class="row">
           <router-link
             :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
-            class="col-3 g-3"
+            class="col-12 col-sm-6 col-lg-4 col-xl-3 g-3"
             v-for="restaurant in store.restaurants"
           >
             <div class="card-restaurant d-flex flex-column align-items-center">
@@ -94,9 +94,9 @@ export default {
 
     .cont-img {
       width: 100%;
-      height: calc(100vw / 8);
       overflow: hidden;
       border-radius: $size_32;
+      aspect-ratio: 4/3;
 
       img {
         width: 100%;
