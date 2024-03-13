@@ -39,9 +39,9 @@ export default {
       axios
         .get(
           this.store.api.baseUrl +
-            this.store.api.apiUrls.restaurants +
-            "/search/" +
-            types_search
+          this.store.api.apiUrls.restaurants +
+          "/search/" +
+          types_search
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -78,20 +78,12 @@ export default {
 <template>
   <section id="jumbotron" @click="clearRestaurants">
     <div class="container-md d-flex flex-wrap justify-content-center">
-      <div
-        class="card-type"
-        v-for="element in store.types"
-        @click.stop="searchRestaurants(element.id)"
-      >
+      <div class="card-type" v-for="element in store.types" @click.stop="searchRestaurants(element.id)">
         <!-- image -->
         <div id="border-circle" @click="activeBorder()">
           <div class="card-img">
-            <img
-              :src="`${store.api.baseUrl}/storage/${element.image}`"
-              class="card-img-top"
-              :class="store.typesSearched.includes(element.id) ? 'active' : ''"
-              alt="..."
-            />
+            <img :src="`${store.api.baseUrl}/storage/${element.image}`" class="card-img-top"
+              :class="store.typesSearched.includes(element.id) ? 'active' : ''" alt="..." />
           </div>
         </div>
 
@@ -130,6 +122,7 @@ export default {
         display: block;
       }
     }
+
     // .card-img:active{
     //   border: $size_8 solid $custom-primary;
     //   border-radius: 50%;
@@ -140,6 +133,7 @@ export default {
       border-radius: 50%;
       // &:active{border: $size_8 solid $custom-primary;}
     }
+
     .active-border {
       border: $size_8 solid $custom-primary;
     }
@@ -185,6 +179,7 @@ export default {
       }
     }
   }
+
   @media screen and (max-width: 992px) {
     .card-type {
       width: calc((100% - 8vw) / 4);
@@ -194,6 +189,7 @@ export default {
       }
     }
   }
+
   @media screen and (max-width: 768px) {
     .card-type {
       width: calc((100% - 6vw) / 3);
@@ -203,6 +199,7 @@ export default {
       }
     }
   }
+
   @media screen and (max-width: 576px) {
     .card-type {
       width: calc((100% - 4vw) / 4);
