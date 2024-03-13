@@ -23,11 +23,11 @@ export default {
 <template>
   <footer>
     <!--lista menu footer: sinistra, centro, destra-->
-    <div id="footer-top">
-      <div class="row">
+    <div id="footer-top" class="justify-content-center">
+      <div class="row container d-flex justify-content-center">
         <!-- sinistra -->
-        <div class="custom-box-sx col-md-4 col-sm-12">
-          <ul class="text-center text-md-start p-0">
+        <div class="custom-box-sx col-lg-4 col-md-6 col-sm-12 text-center">
+          <ul class="text-center text-md-center p-0">
             <li v-for="menu_1 in menus_1">
               <a href="#" target="_blank">{{ menu_1 }}</a>
             </li>
@@ -35,8 +35,8 @@ export default {
         </div>
         <!-- /sinistra-->
         <!-- centro -->
-        <div class="custom-box-ct col-md-4 col-sm-12">
-          <ul class="text-center text-md-start p-0">
+        <div class="custom-box-ct  col-lg-4 col-md-6 col-sm-12">
+          <ul class="text-center text-md-center p-0">
             <li v-for="menu_2 in menus_2">
               <a href="#" target="_blank">{{ menu_2 }}</a>
             </li>
@@ -44,7 +44,7 @@ export default {
         </div>
         <!-- /centro -->
         <!-- destra -->
-        <div class="custom-box-dx col-md-4 col-sm-12">
+        <div class="custom-box-dx col-lg-4 col-md-6 col-sm-12">
           <div class="row align-items-center flex-column">
             <!-- logo -->
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
@@ -108,7 +108,13 @@ export default {
 //importazione fogli stili
 @import '../assets/scss/partials/variables.scss';
 @import '../assets/scss/partials/reset.scss';
-
+a{
+  text-decoration: none;
+  color: $custom_white;
+   &:hover {
+        color: $custom-secondary;
+      }
+}
 li {
   padding: $size-8 0;
 }
@@ -119,16 +125,10 @@ footer {
 
   #footer-top {
     padding: $size_16 0;
-    .custom-box-sx a,
-    .custom-box-ct a {
-      color: $custom-white;
-
-      &:hover {
-        color: $custom-secondary;
-      }
-    }
   }
-
+  .row{
+    margin: $size-40 auto;
+  }
   .cont-image {
     width: 100px;
   }
