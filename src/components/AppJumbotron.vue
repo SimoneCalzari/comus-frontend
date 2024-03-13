@@ -1,6 +1,6 @@
 <script>
-import store from "../store";
-import axios from "axios";
+import store from '../store';
+import axios from 'axios';
 
 export default {
   data() {
@@ -40,7 +40,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/search/" +
+            '/search/' +
             types_search
         )
         .then((response) => {
@@ -68,6 +68,10 @@ export default {
         });
       this.store.typesSearched = [];
     },
+    activeBorder(){
+      document.getElementById("border-circle")
+      element.classList.add("active-border");
+    }
   },
 };
 </script>
@@ -80,17 +84,20 @@ export default {
         @click.stop="searchRestaurants(element.id)"
       >
         <!-- image -->
-        <div class="card-img">
+        <div id="border-circle" @click="activeBorder()">
+          <div class="card-img">
           <img
             :src="`${store.api.baseUrl}/storage/${element.image}`"
-            class="card-img-top" :class="store.typesSearched.includes(element.id) ? 'active' : ''"
-            
+            class="card-img-top"
+
+            :class="store.typesSearched.includes(element.id) ? 'active' : ''"
 
             alt="..."
-
-            
           />
         </div>
+
+        </div>
+        
         <!-- info -->
         <div class="card-info">
           <h6 class="text-center">{{ element.name_type }}</h6>
@@ -101,26 +108,23 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 #jumbotron {
   background-color: $custom-secondary;
   padding: $size_48 0;
 
-  //sostiutire con shape
   .card-type {
     width: calc((100% - 12vw) / 6);
     // border-radius: 30px;
     margin: 1vw;
     cursor: pointer;
-    border: $size_8 solid $custom-secondary;
-    // overflow: hidden;
 
     .card-img {
       width: 100%;
       height: calc(100vw / 12);
       overflow: hidden;
-      border-radius: $size_32;
+      border-radius: 50%;
 
       img {
         width: 100%;
@@ -129,35 +133,62 @@ export default {
         display: block;
       }
     }
+    // .card-img:active{
+    //   border: $size_8 solid $custom-primary;
+    //   border-radius: 50%;
+    //   z-index: 99;
+    // }
+    #border-circle{
+      border: $size_8 solid $custom-secondary;
+      border-radius: 50%;
+      // &:active{border: $size_8 solid $custom-primary;}
+    }
+    .active-border{
+      border: $size_8 solid $custom-primary;
+    }      
 
     &:hover img {
       transform: scale(1.1);
       transition: transform 0.6s ease-in-out;
+      z-index: -1;
     }
 
     .card-info {
       h6 {
-      color: $custom-white;
-      font-family: "Bevan", serif;
-      background-color: $custom-primary;
-      border-radius: $size_32;
-      padding: $size_8 0;
-      margin-top: $size_8;
+        color: $custom-white;
+        font-family: 'Bevan', serif;
+        background-color: $custom-primary;
+        border-radius: $size_32;
+        padding: $size_8 0;
+        margin-top: $size_8;
+      }
     }
+
   }  
 }
 
-//active solo sull'immagine da valutare in base alla shape di Alby
-.active {
-  border: $size_8 solid $custom-primary;
-  border-radius: $size_32;
-}
+// //active solo sull'immagine da valutare in base alla shape di Alby
+// .active {
+//   border:$size_8 solid $custom-primary;
+//   border-radius: 50%;
+// }
+
+  }
 
 
   // Media queries
   @media screen and (max-width: 1200px) {
     .card-type {
       width: calc((100% - 10vw) / 5);
+
+
+
+
+  // Media queries
+  @media screen and (max-width: 1200px) {
+    .card-type {
+      width: calc((100% - 10vw) / 5);
+
 
       .card-img {
         height: calc(100vw / 6);
@@ -192,5 +223,7 @@ export default {
     }
   }
 }
+
+
 
 </style>
