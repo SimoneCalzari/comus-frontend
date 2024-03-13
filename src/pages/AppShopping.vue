@@ -14,11 +14,13 @@ export default {
         totalPrice: null,
         phone_number: null
       },
+      isSubmitting: false,
       errorCard: null,
     };
   },
   methods: {
     addDataOrder() {
+      this.isSubmitting = true;
       this.errorCard = null;
       if (store.paymentIsValid) {
         const data = {
@@ -43,12 +45,15 @@ export default {
                 name: "NotFound"
               })
             }
+            this.isSubmitting = false;
           })
           .catch((error) => {
             console.log(error);
+            this.isSubmitting = false;
           });
       } else {
         this.errorCard = "Metodo di pagamento obbligatorio";
+        this.isSubmitting = false;
       }
     },
     totalItemsCart() {
@@ -118,7 +123,7 @@ export default {
           </ul>
           <p class="text-uppercase fw-bolder ">Prezzo Totale: {{ store.totalPrice }}€</p>
         </div>
-        <button form="getOrder" class="btn btn-primary" type="submit">Invia</button>
+        <button :disabled="isSubmitting" form="getOrder" class="btn btn-primary" type="submit">Invia</button>
       </div>
       <div v-else class="text-center py-5">
         <h4>Il tuo carrello è vuoto</h4>
