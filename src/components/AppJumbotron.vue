@@ -68,6 +68,10 @@ export default {
         });
       this.store.typesSearched = [];
     },
+    activeBorder(){
+      document.getElementById("border-circle")
+      element.classList.add("active-border");
+    }
   },
 };
 </script>
@@ -80,7 +84,7 @@ export default {
         @click.stop="searchRestaurants(element.id)"
       >
         <!-- image -->
-        <div class="border-circle" :class="store.typesSearched.includes(element.id) ? 'active' : ''">
+        <div id="border-circle" @click="activeBorder()">
           <div class="card-img">
           <img
             :src="`${store.api.baseUrl}/storage/${element.image}`"
@@ -132,12 +136,12 @@ export default {
     //   border-radius: 50%;
     //   z-index: 99;
     // }
-    .border-circle{
+    #border-circle{
       border: $size_8 solid $custom-secondary;
       border-radius: 50%;
       // &:active{border: $size_8 solid $custom-primary;}
     }
-    .border-circle:focus{
+    .active-border{
       border: $size_8 solid $custom-primary;
     }      
 
