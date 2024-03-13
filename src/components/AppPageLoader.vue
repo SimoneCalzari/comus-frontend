@@ -18,14 +18,14 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
 .loading {
-  background-color: $custom-light ;
+  background-color: $custom-white ;
   height: 87vh;
   img{
     width: 200px;
   }
 }
 .spinner-border{
-  color: $custom-secondary;
+  color: $custom-primary;
 }
 
 </style>

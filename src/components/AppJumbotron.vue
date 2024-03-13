@@ -1,4 +1,5 @@
 <script>
+import AppPageLoader from "./AppPageLoader.vue";
 import store from "../store";
 import axios from "axios";
 
@@ -6,7 +7,12 @@ export default {
   data() {
     return {
       store,
+      isLoading : true,
     };
+
+  },
+  components:{
+    AppPageLoader,
   },
   created() {
     this.getTypes();
@@ -18,6 +24,7 @@ export default {
         .get(this.store.api.baseUrl + this.store.api.apiUrls.types)
         .then((response) => {
           this.store.types = response.data.results;
+          this.isLoading = false;
         })
         .catch((error) => {
           console.log(error);
@@ -73,7 +80,8 @@ export default {
 </script>
 <template>
   <section id="jumbotron">
-    <div class="container-md d-flex flex-wrap justify-content-center">
+    <AppPageLoader v-if="isLoading"/>
+    <div v-else class="container-md d-flex flex-wrap justify-content-center">
       <div
         class="card-type"
         v-for="element in store.types"
