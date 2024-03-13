@@ -5,17 +5,16 @@ TYPOGRAPHY
 //font google Bevan static
 @import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
 .font-primary {
-    font-family: "Bevan", serif;
-} 
+  font-family: 'Bevan', serif;
+}
 
 //font google Embed code
 @import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital@0;1&display=swap');
 .font-secondary {
-    font-family: "Rethink Sans", sans-serif;;
-} 
+  font-family: 'Rethink Sans', sans-serif;
+}
 
-
-//John @media screen
+//@media query
 // Desktop
 // Label / Link : 16px
 // Paragrafi : 20px
@@ -24,7 +23,7 @@ TYPOGRAPHY
 // H3: 32px bolder
 // H4: 28px
 // H5: 20px
-// H6: 16px 
+// H6: 16px
 
 // iPad
 // Label / Link : 12px
@@ -34,9 +33,9 @@ TYPOGRAPHY
 // H3: 32px bolder
 // H4: 28px
 // H5: 20px
-// H6: 16px 
+// H6: 16px
 
-// iPhone 
+// iPhone
 // Label / Link : 12px
 // Paragrafi : 16px
 // H1: 28px bolder
@@ -45,3 +44,76 @@ TYPOGRAPHY
 // H4: 20px
 // H5: 16px
 // H6: 16px
+
+/************* 
+MEDIA QUERY FONTS
+**************/
+
+// @media screen and (max-width: 1200px) {
+// }
+
+@media screen and (max-width: 992px) {
+  label,
+  a {
+    font-size: 0.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2.75rem !important;
+  }
+
+  h2 {
+    font-size: 2.5rem !important;
+    font-family: 'Bevan', serif !important;
+  }
+
+  h3 {
+    font-size: 2rem !important;
+    font-family: 'Bevan', serif !important;
+  }
+
+  h4 {
+    font-size: 1.75rem !important;
+  }
+
+  h5 {
+    font-size: 1.25rem !important;
+  }
+
+  h6 {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  label,
+  a {
+    font-size: 0.75rem !important;
+  }
+
+  p,
+  h5,
+  h6 {
+    font-size: 1rem !important;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  h3 {
+    font-size: 2rem !important;
+  }
+
+  h4 {
+    font-size: 1.25rem !important;
+  }
+}
+
+// @media screen and (max-width: 576px) {
+// }
