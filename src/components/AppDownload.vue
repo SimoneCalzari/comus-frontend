@@ -69,6 +69,7 @@ export default {
   }
 
   .phone {
+    padding: $size_48 0;
     img {
 
       object-fit: cover;
