@@ -12,7 +12,7 @@ import AppDownload from '../components/AppDownload.vue';
 export default {
   name: 'Home',
   components: {
-    AppPageLoader,
+    // AppPageLoader,
     AppJumbotron,
     AppRestaurantList,
     AppSectionSlogan,
@@ -20,8 +20,8 @@ export default {
     AppFaq,
     AppDownload,
   },
-  data(){
-    return{loading : true,};
+  data() {
+    return { loading: true };
   },
   mounted() {
     setTimeout(() => {
@@ -32,10 +32,18 @@ export default {
 </script>
 
 <template>
-  <loading v-if="loading">
+  <!-- <loading v-if="loading">
     <AppPageLoader />
-  </loading>
-  <main v-else>
+  </loading> -->
+  <main>
+    <AppJumbotron />
+    <AppRestaurantList />
+    <AppSectionSlogan />
+    <AppRistoratore />
+    <AppDownload />
+    <AppFaq />
+  </main>
+  <!-- <main v-else>
     <AppJumbotron />
     <AppRestaurantList />
     <AppSectionSlogan />
@@ -43,5 +51,6 @@ export default {
     <AppDownload />
     <AppFaq />
     
-  </main>
-</template>../components/AppPageLoader.vue
+  </main> -->
+</template>
+../components/AppPageLoader.vue

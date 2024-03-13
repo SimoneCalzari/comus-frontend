@@ -42,9 +42,10 @@ export default {
 </script>
 
 <template>
+  <span v-if="!this.store.paymentIsValid" class="fw-bolder ">La convalida della carta è obbligatoria</span>
   <div id="dropin-container"></div>
   <button id="submit-button" class="button button--small button--green">
-    Acquista
+    Convalida Metodo
   </button>
 </template>
 
