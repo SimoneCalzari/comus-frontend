@@ -5,8 +5,9 @@ export default {
 </script>
 
 <template>
-
-  <div class="loading  d-flex justify-content-center align-items-center flex-column">
+  <div
+    class="loading d-flex justify-content-center align-items-center flex-column"
+  >
     <img src="/img/logo/big-purple-orange.svg" alt="logo" />
     <div class="d-flex justify-content-center my-3">
       <div class="spinner-border" role="status">
@@ -18,14 +19,13 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
 .loading {
-  background-color: $custom-white ;
+  background-color: $custom-secondary;
   height: 87vh;
-  img{
+  img {
     width: 200px;
   }
 }
-.spinner-border{
+.spinner-border {
   color: $custom-primary;
 }
-
 </style>

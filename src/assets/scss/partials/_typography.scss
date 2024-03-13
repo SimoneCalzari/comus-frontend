@@ -3,20 +3,18 @@ TYPOGRAPHY
 **************/
 
 //font google Bevan static
-@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap");
 
 .font-primary {
-  font-family: 'Bevan', serif;
+  font-family: "Bevan", serif;
 }
 
 //font google Embed code
-@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rethink+Sans:ital@0;1&display=swap");
 
 .font-secondary {
-
   font-family: "Rethink Sans", sans-serif;
 }
-
 
 //@media query
 // Desktop 1200+
@@ -29,7 +27,7 @@ TYPOGRAPHY
 // H5: 20px
 // H6: 16px
 
-// iPad 992px 
+// iPad 992px
 // Label / Link : 12px
 // Paragrafi : 16px
 // H1: 44px bolder
@@ -44,8 +42,6 @@ TYPOGRAPHY
 MEDIA QUERY FONTS
 **************/
 
-
-
 label,
 h6,
 a {
@@ -59,17 +55,17 @@ span {
 
 h1 {
   font-size: 3.5rem !important;
-  font-family: 'Bevan', serif !important;
+  font-family: "Bevan", serif !important;
 }
 
 h2 {
   font-size: 2.5rem !important;
-  font-family: 'Bevan', serif !important;
+  font-family: "Bevan", serif !important;
 }
 
 h3 {
   font-size: 2rem !important;
-  font-family: 'Bevan', serif !important;
+  font-family: "Bevan", serif !important;
 }
 
 h4 {
@@ -80,10 +76,7 @@ h5 {
   font-size: 1.25rem !important;
 }
 
-
-
 @media screen and (max-width: 992px) {
-
   label,
   h6 {
     font-size: 0.75rem;
@@ -92,22 +85,19 @@ h5 {
   p,
   span {
     font-size: 1rem;
-
   }
 
   h1 {
     font-size: 2.75rem !important;
-    font-family: 'Bevan', serif !important;
+    font-family: "Bevan", serif !important;
   }
 }
 
-
 @media screen and (max-width: 768px) {
-
   h1,
   h2 {
     font-size: 1.75rem !important;
-    font-family: 'Bevan', serif !important;
+    font-family: "Bevan", serif !important;
   }
 
   h4 {
@@ -116,22 +106,5 @@ h5 {
 
   h5 {
     font-size: 1rem !important;
-  }
-}
-
-
-
-
-@media screen and (max-width: 576px) {
-
-
-  p,
-  span {
-    font-size: 0.75rem;
-
-  }
-
-  h6 {
-    font-size: 0.50rem !important;
   }
 }
