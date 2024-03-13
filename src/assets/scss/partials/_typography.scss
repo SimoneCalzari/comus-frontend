@@ -58,7 +58,8 @@ MEDIA QUERY FONTS
     font-size: 0.75rem;
   }
 
-  p {
+  p,
+  span {
     font-size: 1rem;
   }
 
@@ -96,6 +97,7 @@ MEDIA QUERY FONTS
   }
 
   p,
+  span,
   h5,
   h6 {
     font-size: 1rem !important;

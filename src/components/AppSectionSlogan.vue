@@ -11,7 +11,12 @@ export default {
       <div class="row">
         <div class="col-9 col-md-8 col-xl-6">
           <h2 class="">Gusto in viaggio, qualità in ogni boccone.</h2>
-          <p>Comus, l'app che fa danzare il gusto direttamente a casa tua! Scopri un mondo di sapori street-style in ogni boccone, perché il viaggio culinario è sempre più cool con noi. Ordina con stile, mangia con passione! </p>
+          <p>
+            Comus, l'app che fa danzare il gusto direttamente a casa tua!
+            <br />Scopri un mondo di sapori street-style in ogni boccone, perché
+            il viaggio culinario è sempre più cool con noi.<br />
+            Ordina con stile, mangia con passione!
+          </p>
           <div class="cont-img">
             <img
               src="/img/logo/big-orange-white.svg"
