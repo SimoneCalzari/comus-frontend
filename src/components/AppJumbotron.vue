@@ -80,17 +80,18 @@ export default {
         @click.stop="searchRestaurants(element.id)"
       >
         <!-- image -->
-        <div class="card-img">
+        <div class="border-circle" :class="store.typesSearched.includes(element.id) ? 'active' : ''">
+          <div class="card-img">
           <img
             :src="`${store.api.baseUrl}/storage/${element.image}`"
-            class="card-img-top" :class="store.typesSearched.includes(element.id) ? 'active' : ''"
-            
+            class="card-img-top"
 
             alt="..."
-
-            
           />
         </div>
+
+        </div>
+        
         <!-- info -->
         <div class="card-info">
           <h6 class="text-center">{{ element.name_type }}</h6>
@@ -107,20 +108,17 @@ export default {
   background-color: $custom-secondary;
   padding: $size_48 0;
 
-  //sostiutire con shape
   .card-type {
     width: calc((100% - 12vw) / 6);
     // border-radius: 30px;
     margin: 1vw;
     cursor: pointer;
-    border: $size_8 solid $custom-secondary;
-    // overflow: hidden;
 
     .card-img {
       width: 100%;
       height: calc(100vw / 12);
       overflow: hidden;
-      border-radius: $size_32;
+      border-radius: 50%;
 
       img {
         width: 100%;
@@ -129,10 +127,24 @@ export default {
         display: block;
       }
     }
+    // .card-img:active{
+    //   border: $size_8 solid $custom-primary;
+    //   border-radius: 50%;
+    //   z-index: 99;
+    // }
+    .border-circle{
+      border: $size_8 solid $custom-secondary;
+      border-radius: 50%;
+      // &:active{border: $size_8 solid $custom-primary;}
+    }
+    .border-circle:focus{
+      border: $size_8 solid $custom-primary;
+    }      
 
     &:hover img {
       transform: scale(1.1);
       transition: transform 0.6s ease-in-out;
+      z-index: -1;
     }
 
     .card-info {
@@ -147,11 +159,11 @@ export default {
   }  
 }
 
-//active solo sull'immagine da valutare in base alla shape di Alby
-.active {
-  border: $size_8 solid $custom-primary;
-  border-radius: $size_32;
-}
+// //active solo sull'immagine da valutare in base alla shape di Alby
+// .active {
+//   border:$size_8 solid $custom-primary;
+//   border-radius: 50%;
+// }
 
 
 // Media queries
