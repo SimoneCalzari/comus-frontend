@@ -32,9 +32,8 @@ export default {
 </script>
 
 <template>
-  <!-- <loading v-if="loading">
-    <AppPageLoader />
-  </loading> -->
+
+
   <main>
     <AppJumbotron />
     <AppRestaurantList />
@@ -43,14 +42,7 @@ export default {
     <AppDownload />
     <AppFaq />
   </main>
-  <!-- <main v-else>
-    <AppJumbotron />
-    <AppRestaurantList />
-    <AppSectionSlogan />
-    <AppRistoratore />
-    <AppDownload />
-    <AppFaq />
-    
-  </main> -->
-</template>
-../components/AppPageLoader.vue
+  
+  </template>
+
+

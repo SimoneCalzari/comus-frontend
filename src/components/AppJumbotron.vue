@@ -176,16 +176,19 @@ export default {
   }
 
 
-  //active solo sull'immagine da valutare in base alla shape di Alby
-  .active {
-    border: $size_8 solid $custom-primary;
-    border-radius: $size_32;
-  }
+  // Media queries
+  @media screen and (max-width: 1200px) {
+    .card-type {
+      width: calc((100% - 10vw) / 5);
+
+
+
 
   // Media queries
   @media screen and (max-width: 1200px) {
     .card-type {
       width: calc((100% - 10vw) / 5);
+
 
       .card-img {
         height: calc(100vw / 6);
@@ -220,4 +223,7 @@ export default {
     }
   }
 }
+
+
+
 </style>

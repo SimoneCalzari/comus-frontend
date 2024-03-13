@@ -10,13 +10,16 @@ export default {
 <template>
   <!-- section download -->
   <section id="download">
-    <div class="container">
-      <div class="row text-center">
+      <div class=" d-flex flex-sm-column flex-md-row g-0 container-md justify-content-center align-items-center text-center">
         <!-- scarica testo e apps -->
-        <div
-          class="col-md-6 col-sm-12 d-flex justify-content-center flex-column"
+        <!-- illustrazione scarica -->
+        <div class="phone col-md-6 col-sm-12 order-md-first order-sm-last">
+          <img src="/img/phone-download.png" class="phone-download" />
+        </div>
+        <!-- illustrazione scarica -->
+        <div class="col-md-6 col-sm-12 order-sm-first order-md-last d-flex justify-content-center flex-column"
         >
-          <h2 class="display-5">Scarica l'app</h2>
+          <h2>Scarica l'app</h2>
           <p>
             Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia
             voglia!
@@ -40,13 +43,9 @@ export default {
           </div>
         </div>
         <!-- /scarica testo e apps -->
-        <!-- illustrazione scarica -->
-        <div class="phone col-md-6 col-sm-12 pt-5">
-          <img src="/img/phone-download.png" class="phone-download" />
-        </div>
-        <!-- illustrazione scarica -->
+        
       </div>
-    </div>
+
   </section>
   <!-- section /download -->
 </template>
@@ -67,19 +66,40 @@ export default {
     height: 40px;
     object-fit: cover;
     border-radius: 10px;
-
-    img {
-      object-fit: cover;
-    }
   }
+
   .phone {
+    padding: $size_48 0;
     img {
-      height: 100%;
+
       object-fit: cover;
       margin-top: $size_16;
       margin: 0;
       transform: rotate(20deg);
     }
   }
+    // Media queries
+    @media screen and (max-width: 1200px) {
+      .phone-download {
+      width: 60%;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .phone-download {
+      width: 60%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .phone-download {
+      width: 40%;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .phone-download {
+      width: 30%;
+    }
+  }
 }
+
 </style>
