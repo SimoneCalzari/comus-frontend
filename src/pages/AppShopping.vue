@@ -1,9 +1,9 @@
 <script>
-import AppPayment from '../components/AppPayment.vue';
-import store from '../store';
-import axios from 'axios';
+import AppPayment from "../components/AppPayment.vue";
+import store from "../store";
+import axios from "axios";
 export default {
-  name: 'AppCart',
+  name: "AppCart",
   data() {
     return {
       store,
@@ -16,6 +16,7 @@ export default {
       },
       isSubmitting: false,
       errorCard: null,
+      isOrderConfirmed: false,
     };
   },
   methods: {
@@ -28,7 +29,8 @@ export default {
           cart: this.store.cart,
           totalPrice: this.store.totalPrice,
         };
-
+        // mostro loader intanto che rimando alla pagina di avvenuto pagamento
+        this.isOrderConfirmed = true;
         //axios chiamata per passaggio dati
         axios
           .post(this.store.api.baseUrl + this.store.api.apiUrls.orders, data)
@@ -36,15 +38,16 @@ export default {
             console.log(response);
             if (response.data.status) {
               this.$router.push({
-                name: 'confirmOrder',
+                name: "confirmOrder",
               });
               this.store.cart = [];
-              localStorage.setItem('dishes', JSON.stringify(this.store.cart));
+              localStorage.setItem("dishes", JSON.stringify(this.store.cart));
             } else {
               this.$router.push({
-                name: 'NotFound',
+                name: "NotFound",
               });
             }
+            this.isOrderConfirmed = false;
             this.isSubmitting = false;
           })
           .catch((error) => {
@@ -52,7 +55,7 @@ export default {
             this.isSubmitting = false;
           });
       } else {
-        this.errorCard = 'Metodo di pagamento obbligatorio';
+        this.errorCard = "Metodo di pagamento obbligatorio";
         this.isSubmitting = false;
       }
     },
@@ -62,6 +65,16 @@ export default {
         total += item.quantity;
       });
       return total;
+    },
+    getRestaurant() {
+      // prendo dal carrello l'id del ristorante da cui sto comprando
+      const restaurantId = this.store.cart[0].restaurant_id;
+      // tra i ristoranti cerco quello corrente
+      const currentRestaurant = this.store.restaurants.find((restaurant) => {
+        return restaurant.id === restaurantId;
+      });
+      // restituisco lo slug del ristorante da cui stavo cercando e il nome
+      return [currentRestaurant.slug, currentRestaurant.name_restaurant];
     },
   },
   components: {
@@ -74,13 +87,13 @@ export default {
   <main>
     <div class="container py-4">
       <div v-if="store.cart.length" class="d-flex flex-column gap-4">
-        <header>
+        <header class="d-flex justify-content-between align-items-center">
           <h1>Il tuo carrello</h1>
-          <!-- <router-link
-            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+          <router-link
+            class="custom-btn text-decoration-none"
+            :to="{ name: 'restaurant', params: { slug: getRestaurant()[0] } }"
+            >Torna da {{ getRestaurant()[1] }}</router-link
           >
-            Torna ad acquistare</router-link
-          > -->
         </header>
         <!-- metodo pagamento -->
         <div class="payment">
@@ -176,10 +189,18 @@ export default {
         >
           Paga
         </button>
+        <div class="d-flex justify-content-center" v-if="isOrderConfirmed">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
       <div v-else class="text-center py-5">
-        <h4>Il tuo carrello è vuoto</h4>
-        <router-link :to="{ name: 'home' }">
+        <h4 class="mb-5">Il tuo carrello è vuoto</h4>
+        <router-link
+          :to="{ name: 'home' }"
+          class="custom-btn text-decoration-none"
+        >
           Torna a fare acquisti
         </router-link>
       </div>
@@ -188,6 +209,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
+@import "../assets/scss/partials/variables.scss";
 button {
   width: 100px;
   margin: 0 auto;
@@ -195,5 +217,10 @@ button {
 
 .error {
   color: red;
+}
+.spinner-border {
+  color: $custom-primary;
+  width: 4rem;
+  height: 4rem;
 }
 </style>
