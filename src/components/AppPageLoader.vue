@@ -18,7 +18,7 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
 .loading {
-  background-color: $custom-lighter_p ;
+  background-color: $custom-light ;
   height: 87vh;
   img{
     width: 200px;

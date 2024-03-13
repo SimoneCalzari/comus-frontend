@@ -1,12 +1,14 @@
 @import './variables';
 
 .custom-btn {
-  padding: 10px 15px;
-  border-radius: 10px;
-  background-color: $custom-secondary;
+  padding: $size-16;
+  background-color: $custom_primary;
+  border-radius: $size-16;
   color: $custom_white;
+  border: 0px;
+  transition: all 0.6s ease-in-out; //ovunque
 
   &:hover {
-    background-color: #795e88;
+    background-color: $custom-light;
   }
 }

@@ -72,75 +72,87 @@ export default {
 };
 </script>
 <template>
-  <section class="mb-3" @click="clearRestaurants">
-    <div class="d-flex flex-wrap justify-content-center">
+  <section id="jumbotron" @click="clearRestaurants">
+    <div class="container-md d-flex flex-wrap justify-content-center">
       <div
         class="card-type"
         v-for="element in store.types"
-        :class="store.typesSearched.includes(element.id) ? 'active' : ''"
         @click.stop="searchRestaurants(element.id)"
       >
         <!-- image -->
         <div class="card-img">
           <img
             :src="`${store.api.baseUrl}/storage/${element.image}`"
-            class="card-img-top"
+            class="card-img-top" :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+            
+
             alt="..."
+
+            
           />
         </div>
         <!-- info -->
         <div class="card-info">
-          <h5 class="text-center py-3 fs-4 mb-0">{{ element.name_type }}</h5>
+          <h6 class="text-center">{{ element.name_type }}</h6>
         </div>
       </div>
     </div>
   </section>
 </template>
+
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
 
-h2 {
-  color: $custom-secondary;
-  font-family: "Bevan", serif;
-}
+#jumbotron {
+  background-color: $custom-secondary;
+  padding: $size_48 0;
 
-.card-type {
-  width: calc((100% - 12vw) / 6);
-  border-radius: 30px;
-  margin: 1vw;
-  cursor: pointer;
-  border: 3px solid $custom-secondary;
-  overflow: hidden;
+  //sostiutire con shape
+  .card-type {
+    width: calc((100% - 12vw) / 6);
+    // border-radius: 30px;
+    margin: 1vw;
+    cursor: pointer;
+    border: $size_8 solid $custom-secondary;
+    // overflow: hidden;
 
-  &:hover img {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-  }
-
-  h5 {
-    color: $custom-primary;
-    font-family: "Bevan", serif;
-  }
-
-  .card-img {
-    width: 100%;
-    height: calc(100vw / 8);
-
-    img {
+    .card-img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      height: calc(100vw / 12);
+      overflow: hidden;
+      border-radius: $size_32;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
     }
-  }
-}
-.card-type:hover {
-  cursor: pointer;
+
+    &:hover img {
+      transform: scale(1.1);
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .card-info {
+      h6 {
+      color: $custom-white;
+      font-family: "Bevan", serif;
+      background-color: $custom-primary;
+      border-radius: $size_32;
+      padding: $size_8 0;
+      margin-top: $size_8;
+    }
+  }  
 }
 
+//active solo sull'immagine da valutare in base alla shape di Alby
 .active {
-  border: 3px solid $custom-primary;
+  border: $size_8 solid $custom-primary;
+  border-radius: $size_32;
 }
+
 
 // Media queries
 @media screen and (max-width: 1200px) {
@@ -148,7 +160,7 @@ h2 {
     width: calc((100% - 10vw) / 5);
 
     .card-img {
-      height: calc(100vw / 5);
+      height: calc(100vw / 6);
     }
   }
 }
@@ -157,7 +169,7 @@ h2 {
     width: calc((100% - 8vw) / 4);
 
     .card-img {
-      height: calc(100vw / 4);
+      height: calc(100vw / 6);
     }
   }
 }
@@ -172,11 +184,13 @@ h2 {
 }
 @media screen and (max-width: 576px) {
   .card-type {
-    width: calc((100% - 4vw) / 2);
+    width: calc((100% - 4vw) / 4);
 
     .card-img {
-      height: calc(100vw / 2);
+      height: calc(100vw / 4);
     }
   }
 }
+}
+
 </style>

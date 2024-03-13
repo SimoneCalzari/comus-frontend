@@ -214,7 +214,7 @@ export default {
 .info-restaurant {
   border-radius: 10px 50px 10px 10px;
   padding: $size_16;
-  background-color: $custom_light_p;
+  background-color: $custom_light;
   color: $custom-secondary;
 }
 
@@ -222,7 +222,7 @@ export default {
   border-radius: 10px 10px 10px 50px;
   padding: $size_16;
   margin-top: $size_8;
-  background-color: $custom_light_p;
+  background-color: $custom_light;
 }
 .cart-position {
   top: 20px;

@@ -18,10 +18,10 @@ export default {
         >
           <h2 class="display-5">Vuoi unirti al team di Comus?</h2>
           <p>Registrati e inizia a vendere sul nostro portale</p>
-          <a
-            class="custom-btn-primary align-self-center"
+          <button
+            class="custom-btn align-self-center"
             href="http://127.0.0.1:8000/"
-            >Registrati</a
+            >Registrati</button
           >
         </div>
         <!-- /colonna testo e bottone -->
@@ -54,12 +54,7 @@ a {
   h2 {
     font-family: 'Bevan', serif;
   }
-  .custom-btn-primary {
-    background-color: $custom-secondary;
-    color: $custom-white;
-    border-radius: $size_8;
-    padding: $size_8 $size_16;
-  }
+
 
   .custom-cont-img {
     margin-top: $size_8;
