@@ -12,6 +12,7 @@ export default {
         delivery_address: null,
         email: null,
         totalPrice: null,
+        phone_number: null
       },
       errorCard: null,
     };
@@ -91,6 +92,10 @@ export default {
               <label for="delivery_address" class="form-label">Indirizzo di consegna <span class="fs-5">*</span></label>
               <input type="text" class="form-control" id="delivery_address" v-model="formData.delivery_address"
                 required />
+            </div>
+            <div class="mb-3">
+              <label for="phone_number" class="form-label fw-medium">Telefono<span class="fs-5 px-1">*</span></label>
+              <input type="number" class="form-control" v-model="formData.phone_number" required min="1" />
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Indirizzo email <span class="fs-5">*</span></label>
