@@ -15,28 +15,6 @@ export default {
 </script>
 
 <template>
-  <!-- <div class="menu-item d-flex position-relative h-100 border">
-    <div class="dish-img m-1">
-      <img
-        :src="`${store.api.baseUrl}/storage/${dish_new.img}`"
-        alt="piatto"
-        class="img-fluid"
-      />
-    </div>
-    <div class="info ms-3">
-      <h3>{{ dish_new.name }}</h3>
-      <h5>{{ dish_new.price }} €</h5>
-    </div>
-    <div class="d-flex shrink-0 align-items-end">
-      <div type="button" class="m-1 custom-btn" @click="$emit('newItem')">
-        +
-      </div>
-      <div type="button" class="m-1 custom-btn" @click="$emit('removeItem')">
-        -
-      </div>
-    </div>
-  </div> -->
-
   <div class="card-dish d-flex flex-column align-items-center">
     <!-- img -->
     <div class="cont-img">
@@ -49,9 +27,13 @@ export default {
       </h6>
       <!-- info -->
       <div class="cont-info row">
-        <div class="col-6">{{ dish_new.price }} €</div>
+        <div
+          class="col-12 col-lg-6 d-flex align-items-center justify-content-center"
+        >
+          <strong>{{ dish_new.price }} €</strong>
+        </div>
         <!-- bottoni + - -->
-        <div class="col-6 d-flex justify-content-between">
+        <div class="col-12 col-lg-6 d-flex p-0 justify-content-around">
           <div type="button" class="dish-btn" @click="$emit('removeItem')">
             -
           </div>
