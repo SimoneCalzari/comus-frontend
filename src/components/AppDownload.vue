@@ -55,7 +55,7 @@ export default {
 @import '../assets/scss/partials/variables.scss';
 
 #download {
-  background-color: $custom-light-s;
+  background-color: $custom-light;
   padding: $size-48 0;
 
   h2 {

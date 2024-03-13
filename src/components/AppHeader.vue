@@ -73,25 +73,31 @@ header {
     ul {
       a {
         text-decoration: none;
-        color: $custom-white;
+        color: $custom-primary;
 
         &:hover {
-          color: $custom-primary;
-          transition: bottom 0.3s ease-in-out;
+          color: $custom-light;
+          transition: 0.6s ease-in-out;
         }
 
         i {
           padding: $size_8 $size_16;
-          background-color: $custom-light_p;
-          color: $custom-primary;
+          background-color: $custom-primary;
+          color: $custom-white;
           border-radius: $size_8;
           position: relative;
+
+            &:hover {
+                background-color: $custom-light;
+                transition: 0.6s ease-in-out;
+              }
+
           #items-cart {
             position: absolute;
-            color: white;
+            color: $custom_secondary;
             top: -10px;
             right: -10px;
-            background-color: $custom-primary;
+            background-color: $custom-white;
             width: 25px;
             aspect-ratio: 1/1;
             border-radius: 50%;
@@ -99,25 +105,13 @@ header {
             vertical-align: middle;
             line-height: 25px;
             font-size: 12px;
-          }
 
-          &:hover {
-            color: $custom-secondary;
-            transition: bottom 0.3s ease-in-out;
+              &:hover {
+              color: $custom-light;
+              transition: 0.6s ease-in-out;
+            }
           }
         }
-      }
-    }
-
-    .cart a {
-      background-color: #faebd7;
-      padding: 10px 30px;
-      color: #432456;
-      border-radius: 10px;
-      font-size: 20px;
-
-      &:hover {
-        background-color: #ffff;
       }
     }
   }

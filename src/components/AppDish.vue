@@ -40,7 +40,7 @@ export default {
   border: 1px solid $custom-primary;
   border-radius: 10px 25px 10px 10px;
   color: $custom-secondary;
-  background-color: $custom-lighter_p;
+  background-color: $custom-light;
 }
 .custom-btn{
   bottom: 5px;

@@ -59,10 +59,10 @@ export default {
 @import "../assets/scss/partials/variables.scss";
 
 .container {
-  color: $custom_text;
+  color: $custom_secondary;
   border: 2px solid $custom-secondary;
   border-radius: 20px;
-  background-color: $custom_light_s;
+  background-color: $custom_light;
 
   h3 {
     font-size: $size-32;

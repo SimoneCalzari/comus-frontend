@@ -4,17 +4,44 @@ TYPOGRAPHY
 
 //font google Bevan static
 @import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
-
-//font google Syne
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
-
-
-.font-secondary {
-    font-family: "Syne", sans-serif;
-} 
-
 .font-primary {
     font-family: "Bevan", serif;
-    font-weight: 400;
-    font-style: normal;
 } 
+
+//font google Embed code
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital@0;1&display=swap');
+.font-secondary {
+    font-family: "Rethink Sans", sans-serif;;
+} 
+
+
+//John @media screen
+// Desktop
+// Label / Link : 16px
+// Paragrafi : 20px
+// H1: 56px bolder
+// H2: 40px bolder
+// H3: 32px bolder
+// H4: 28px
+// H5: 20px
+// H6: 16px 
+
+// iPad
+// Label / Link : 12px
+// Paragrafi : 16px
+// H1: 44px bolder
+// H2: 40px bolder / H2: 44px bolder
+// H3: 32px bolder
+// H4: 28px
+// H5: 20px
+// H6: 16px 
+
+// iPhone 
+// Label / Link : 12px
+// Paragrafi : 16px
+// H1: 28px bolder
+// H2: 28px bolder
+// H3: 32px bolder
+// H4: 20px
+// H5: 16px
+// H6: 16px
