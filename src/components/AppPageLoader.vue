@@ -8,7 +8,7 @@ export default {
   <div
     class="loading d-flex justify-content-center align-items-center flex-column"
   >
-    <img src="/img/logo/big-purple-orange.svg" alt="logo" />
+    <img src="/img/logo/logo-orange-light.svg" alt="logo" />
     <div class="d-flex justify-content-center my-3">
       <div class="spinner-border" role="status">
         <span class="visually-hidden"></span>
