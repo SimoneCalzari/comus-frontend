@@ -7,11 +7,10 @@ export default {
   data() {
     return {
       store,
-      isLoading : true,
+      isLoading: true,
     };
-
   },
-  components:{
+  components: {
     AppPageLoader,
   },
   created() {
@@ -46,9 +45,9 @@ export default {
       axios
         .get(
           this.store.api.baseUrl +
-          this.store.api.apiUrls.restaurants +
-          "/search/" +
-          types_search
+            this.store.api.apiUrls.restaurants +
+            "/search/" +
+            types_search
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -80,15 +79,13 @@ export default {
 </script>
 <template>
   <section id="jumbotron">
-
-    <AppPageLoader v-if="isLoading"/>
+    <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
       <div
         class="card-type"
         v-for="element in store.types"
         @click.stop="searchRestaurants(element.id)"
       >
-
         <!-- image -->
 
         <div
@@ -100,7 +97,6 @@ export default {
             class="card-img-top"
             alt="..."
           />
-
         </div>
 
         <!-- info -->
@@ -143,8 +139,7 @@ export default {
     }
 
     .active {
-
-      border: 1px solid $custom-primary;
+      border: 5px solid $custom-primary;
     }
 
     .card-info {

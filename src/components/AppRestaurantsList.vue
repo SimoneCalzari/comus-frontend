@@ -1,8 +1,8 @@
 <script>
-import { RouterLink } from 'vue-router';
-import store from '../store';
+import { RouterLink } from "vue-router";
+import store from "../store";
 export default {
-  name: 'AppListRestaurants',
+  name: "AppListRestaurants",
   data() {
     return {
       store,
@@ -21,7 +21,8 @@ export default {
           Scegli il nostro ristorante per il tuo gusto preferito.
         </p>
         <p v-else class="text-center">
-          La tua ricerca per categoria ti offre la scelta tra {{ store.restaurants.length }} dei nostri migliori ristoranti
+          La tua ricerca per categoria ti offre la scelta tra
+          {{ store.restaurants.length }} dei nostri migliori ristoranti
         </p>
 
         <!-- Restaurant Cards -->
@@ -47,7 +48,14 @@ export default {
                 <!-- types -->
                 <ul class="p-0">
                   <li v-for="category in restaurant.types" class="text-center">
-                    <span class="font-secondary">
+                    <span
+                      class="font-secondary"
+                      :class="
+                        store.typesSearched.includes(category.id)
+                          ? 'active'
+                          : ''
+                      "
+                    >
                       {{ category.name_type }}
                     </span>
                   </li>
@@ -57,13 +65,15 @@ export default {
           </router-link>
         </div>
       </div>
-      <p class="text-center" v-else>La tua ricerca nelle nostre categorie non ha prodotto risultati</p>
+      <p class="text-center" v-else>
+        La tua ricerca nelle nostre categorie non ha prodotto risultati
+      </p>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 #list-restaurant {
   padding: $size_48 0;
@@ -72,7 +82,7 @@ export default {
 
   h1 {
     color: $custom-secondary;
-    font-family: 'Bevan', serif;
+    font-family: "Bevan", serif;
     padding: $size_48 0 0;
   }
 
@@ -86,10 +96,6 @@ export default {
     height: 100%;
     border-radius: $size_32;
     border: 1px solid $custom-primary;
-
-    // &:hover {
-    //   border: 1px solid $custom-secondary;
-    // }
     &:hover img {
       transform: scale(1.1);
       transition: transform 0.6s ease-in-out;
@@ -117,11 +123,15 @@ export default {
 
       h6 {
         color: $custom-white;
-        font-family: 'Bevan', serif;
+        font-family: "Bevan", serif;
         background-color: $custom-primary;
         border-radius: $size_32;
         padding: $size_8 0;
         margin-top: $size_8;
+      }
+      .active {
+        color: $custom-primary;
+        font-weight: bold;
       }
     }
   }
@@ -129,7 +139,7 @@ export default {
   a {
     text-decoration: none;
     color: $custom-white;
-    font-family: 'Bevan', serif;
+    font-family: "Bevan", serif;
   }
 }
 
