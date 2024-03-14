@@ -18,7 +18,7 @@ export default {
       <div v-if="store.restaurants.length">
         <!-- restaurant number -->
         <p v-if="store.restaurants.length == 1" class="mb-4 text-center">
-          Scegli nostro ristorante per il tuo gusto preferito.
+          Scegli il nostro ristorante per il tuo gusto preferito.
         </p>
         <p v-else class="text-center">
           La tua ricerca per categoria ti offre la scelta tra {{ store.restaurants.length }} dei nostri migliori ristoranti
