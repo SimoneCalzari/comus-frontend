@@ -1,7 +1,7 @@
 <script>
-import AppPageLoader from "./AppPageLoader.vue";
-import store from "../store";
-import axios from "axios";
+import AppPageLoader from './AppPageLoader.vue';
+import store from '../store';
+import axios from 'axios';
 
 export default {
   data() {
@@ -46,7 +46,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/search/" +
+            '/search/' +
             types_search
         )
         .then((response) => {
@@ -81,6 +81,13 @@ export default {
   <section id="jumbotron">
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
+      <div class="container text-center">
+        <div v-show="store.typesSearched.length" class="text-white">
+          <a href="#list-restaurant" class="text-decoration-none"
+            >vai ai ristoranti</a
+          >
+        </div>
+      </div>
       <div
         class="card-type"
         v-for="element in store.types"
@@ -104,12 +111,19 @@ export default {
           <h6 class="text-center">{{ element.name_type }}</h6>
         </div>
       </div>
+      <div class="container text-center">
+        <div v-show="store.typesSearched.length" class="text-white">
+          <a href="#list-restaurant" class="text-decoration-none"
+            >vai ai ristoranti</a
+          >
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 #jumbotron {
   background-color: $custom-secondary;

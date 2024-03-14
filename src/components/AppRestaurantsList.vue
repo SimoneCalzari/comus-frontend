@@ -1,8 +1,8 @@
 <script>
-import { RouterLink } from "vue-router";
-import store from "../store";
+import { RouterLink } from 'vue-router';
+import store from '../store';
 export default {
-  name: "AppListRestaurants",
+  name: 'AppListRestaurants',
   data() {
     return {
       store,
@@ -73,7 +73,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 #list-restaurant {
   padding: $size_48 0;
@@ -82,7 +82,7 @@ export default {
 
   h1 {
     color: $custom-secondary;
-    font-family: "Bevan", serif;
+    font-family: 'Bevan', serif;
     padding: $size_48 0 0;
   }
 
@@ -123,7 +123,7 @@ export default {
 
       h6 {
         color: $custom-white;
-        font-family: "Bevan", serif;
+        font-family: 'Bevan', serif;
         background-color: $custom-primary;
         border-radius: $size_32;
         padding: $size_8 0;
@@ -139,7 +139,7 @@ export default {
   a {
     text-decoration: none;
     color: $custom-white;
-    font-family: "Bevan", serif;
+    font-family: 'Bevan', serif;
   }
 }
 
