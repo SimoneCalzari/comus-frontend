@@ -47,7 +47,7 @@ export default {
                 <!-- types -->
                 <ul class="p-0">
                   <li v-for="category in restaurant.types" class="text-center">
-                    <span>
+                    <span class="font-secondary">
                       {{ category.name_type }}
                     </span>
                   </li>
@@ -122,10 +122,6 @@ export default {
         border-radius: $size_32;
         padding: $size_8 0;
         margin-top: $size_8;
-      }
-
-      span {
-        color: $custom-secondary;
       }
     }
   }
