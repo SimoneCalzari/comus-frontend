@@ -9,7 +9,7 @@ export default {
   <section id="slogan">
     <div class="container">
       <div class="row">
-        <div class="col-6 col-md-6 col-lg-6">
+        <div class="col">
           <div class="card-slogan">
             <h2>Gusto in viaggio, qualità in ogni boccone.</h2>
           <p>
@@ -20,7 +20,7 @@ export default {
           </p>
           <div class="cont-img">
             <img
-              src="/img/logo/big-orange-white.svg"
+              src="/img/logo/logo-orange-light.svg"
               class="custom-img img-fluid"
               alt="logo-orange-purple.svg"
             />
@@ -43,7 +43,7 @@ export default {
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;
-  background-color: $custom-light;
+  background-color: $custom-secondary;
   // background-image: url('/img/delivery_food.jpg');
   // background-size: cover;
   // background-repeat: no-repeat; 
@@ -65,12 +65,12 @@ export default {
     h2 {
       font-family: 'Bevan', serif;
       padding: $size-16 0 0;
-      color: $custom-secondary;
+      color: $custom-primary;
       font-weight: 900;
     }
 
     p {
-      color: $custom-secondary;
+      color: $custom-primary;
     }
   }
 }

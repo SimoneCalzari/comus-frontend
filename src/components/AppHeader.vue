@@ -29,7 +29,7 @@ export default {
     <nav class="navbar d-flex align-item-center justify-content-between">
       <div class="custom-logo">
         <router-link :to="{ name: 'home' }">
-          <img src="/img/logo/big-white-orange.svg" alt="logo" />
+          <img src="/img/logo/logo-orange-light.svg" alt="logo" />
         </router-link>
       </div>
 
