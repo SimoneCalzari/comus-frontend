@@ -43,11 +43,11 @@ export default {
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;
-  // background-color: $custom-light;
-  background-image: url('/img/delivery_food.jpg');
-  background-size: cover;
-  background-repeat: no-repeat; 
-  background-position: bottom;
+  background-color: $custom-light;
+  // background-image: url('/img/delivery_food.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat; 
+  // background-position: bottom;
   padding: $size_48 0;
 
   .card-slogan {
