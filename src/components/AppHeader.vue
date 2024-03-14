@@ -1,7 +1,7 @@
 <script>
-import store from "../store";
+import store from '../store';
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
       store,
@@ -17,8 +17,8 @@ export default {
     },
   },
   mounted() {
-    this.store.cart = JSON.parse(localStorage.getItem("dishes")) || [];
-    this.store.totalPrice = JSON.parse(localStorage.getItem("totalPrice")) || 0;
+    this.store.cart = JSON.parse(localStorage.getItem('dishes')) || [];
+    this.store.totalPrice = JSON.parse(localStorage.getItem('totalPrice')) || 0;
   },
 };
 </script>
@@ -26,7 +26,7 @@ export default {
 <template>
   <header>
     <!-- navbar -->
-    <nav class="navbar d-flex align-item-center">
+    <nav class="navbar d-flex align-item-center justify-content-between">
       <div class="custom-logo">
         <router-link :to="{ name: 'home' }">
           <img src="/img/logo/big-white-orange.svg" alt="logo" />
@@ -34,7 +34,7 @@ export default {
       </div>
 
       <div class="custom-links">
-        <ul class="d-flex m-0 gap-4">
+        <ul class="d-flex m-0 gap-3 p-0">
           <li class="d-flex align-items-center">
             <a class="nav-link" href="http://127.0.0.1:8000"
               >Area Ristoratori</a
@@ -55,7 +55,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 header {
   background-color: $custom-secondary;
@@ -87,10 +87,10 @@ header {
           border-radius: $size_8;
           position: relative;
 
-            &:hover {
-                background-color: $custom-light;
-                transition: 0.6s ease-in-out;
-              }
+          &:hover {
+            background-color: $custom-light;
+            transition: 0.6s ease-in-out;
+          }
 
           #items-cart {
             position: absolute;
@@ -106,7 +106,7 @@ header {
             line-height: 25px;
             font-size: 12px;
 
-              &:hover {
+            &:hover {
               color: $custom-light;
               transition: 0.6s ease-in-out;
             }
