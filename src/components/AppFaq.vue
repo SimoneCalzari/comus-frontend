@@ -13,7 +13,7 @@ export default {
     <div class="container">
       <h2 class="faq-title">FAQ</h2>
       <div
-        class="accordion accordion-flush text-faq"
+        class="accordion accordion-flush text-faq px-4"
         id="accordionFlushExample"
       >
         <div class="accordion-item">
@@ -146,22 +146,22 @@ export default {
 
 #custom-faq {
   padding: $size-48 0;
-  
+
   .accordion {
     --bs-accordion-bg: $custom-white;
   }
-  
+
   .faq-title {
     font-family: 'Bevan', serif;
-    padding-bottom: $size_16;;
+    padding-bottom: $size_16;
   }
-  
+
   .text-faq {
     border: 1px solid $custom-primary;
     padding: $size_8;
-    border-radius:  $size_32;
+    border-radius: $size_32;
   }
-  
+
   .custom-font-secondary {
     font-family: 'Syne', sans-serif;
     font-weight: 400;
