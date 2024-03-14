@@ -54,10 +54,9 @@ export default {
 
     .card-download {
       padding: $size_8;
-      overflow: hidden;
       height: 100%;
       border-radius: $size_32;
-      border: 1px solid $custom-light;
+      border: 1px solid $custom-primary;
       background-color: $custom-white;
     }
 

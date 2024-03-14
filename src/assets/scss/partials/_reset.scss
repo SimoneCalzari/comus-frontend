@@ -1,6 +1,7 @@
 /************* 
 RESET
 **************/
+@import './variables';
 
 ul {
   list-style: none;
@@ -8,4 +9,8 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+body {
+  background-color: $custom_white !important;
 }

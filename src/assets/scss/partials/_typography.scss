@@ -1,6 +1,8 @@
 /************* 
 TYPOGRAPHY
 **************/
+@import './variables';
+
 
 //font google Bevan static
 @import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap");
@@ -14,6 +16,7 @@ TYPOGRAPHY
 
 .font-secondary {
   font-family: "Rethink Sans", sans-serif;
+  color: $custom_secondary;
 }
 
 //@media query
@@ -49,7 +52,8 @@ a {
 }
 
 p,
-span {
+span, 
+button  {
   font-size: 1.25rem;
 }
 
@@ -78,12 +82,13 @@ h5 {
 
 @media screen and (max-width: 992px) {
   label,
-  h6 {
+  h6  {
     font-size: 0.75rem;
   }
 
   p,
-  span {
+  span,
+  button {
     font-size: 1rem;
   }
 

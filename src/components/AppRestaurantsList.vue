@@ -18,10 +18,10 @@ export default {
       <div v-if="store.restaurants.length">
         <!-- restaurant number -->
         <p v-if="store.restaurants.length == 1" class="mb-4 text-center">
-          è presente un ristorante
+          Scegli il nostro ristorante per il tuo gusto preferito.
         </p>
         <p v-else class="text-center">
-          Sono presenti {{ store.restaurants.length }} ristoranti
+          La tua ricerca per categoria ti offre la scelta tra {{ store.restaurants.length }} dei nostri migliori ristoranti
         </p>
 
         <!-- Restaurant Cards -->
@@ -57,7 +57,7 @@ export default {
           </router-link>
         </div>
       </div>
-      <h3 v-else>La ricerca non ha prodotto risultati</h3>
+      <p class="text-center" v-else>La tua ricerca nelle nostre categorie non ha prodotto risultati</p>
     </div>
   </section>
 </template>
@@ -85,8 +85,11 @@ export default {
     overflow: hidden;
     height: 100%;
     border-radius: $size_32;
-    border: 1px solid lightgrey;
+    border: 1px solid $custom-primary;
 
+    // &:hover {
+    //   border: 1px solid $custom-secondary;
+    // }
     &:hover img {
       transform: scale(1.1);
       transition: transform 0.6s ease-in-out;

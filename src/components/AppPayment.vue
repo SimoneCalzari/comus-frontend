@@ -52,6 +52,10 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/partials/variables.scss";
 
+a {
+  color: $custom-primary !important;
+}
+
 .button {
   cursor: pointer;
   font-weight: 500;
@@ -78,11 +82,12 @@ export default {
   background-color: #64d18a;
   border-color: #64d18a;
   color: white;
-  transition: all 200ms ease;
+  transition: all 0.6s ease-in-out;
+  
+    &:hover {
+    background-color: #8bdda8;
+    color: white;
+  }
 }
 
-.button--green:hover {
-  background-color: #8bdda8;
-  color: white;
-}
 </style>

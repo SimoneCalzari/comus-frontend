@@ -111,8 +111,9 @@ a {
   color: $custom_white;
 
   &:hover {
-    color: $custom-secondary;
-  }
+          color: $custom-light;
+          transition: 0.6s ease-in-out;
+        }
 }
 
 li {
@@ -141,8 +142,9 @@ footer {
       font-size: $size_24;
 
       &:hover {
-        color: $custom-secondary;
-      }
+          color: $custom-light;
+          transition: 0.6s ease-in-out;
+        }
 
       .custom-box-ct a {
         color: $custom-white;
