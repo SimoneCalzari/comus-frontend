@@ -130,6 +130,7 @@ export default {
                 >Telefono<span class="fs-5 px-1">*</span></label
               >
               <input
+                id="phone_number"
                 type="number"
                 class="form-control"
                 v-model="formData.phone_number"
@@ -157,7 +158,7 @@ export default {
         <div class="riepilogo">
           <h4>Riepilogo</h4>
           <p>Totali piatti: {{ this.totalItemsCart() }}</p>
-          <ul>
+          <ul class="m-0">
             <li v-for="dish in this.store.cart" class="d-flex">
               <span>{{ dish.quantity }}x</span>
               <p class="mx-3">{{ dish.name }}</p>
@@ -171,7 +172,7 @@ export default {
         <button
           :disabled="isSubmitting"
           form="getOrder"
-          class="btn btn-primary"
+          class="custom-btn"
           type="submit"
         >
           Paga
@@ -188,12 +189,20 @@ export default {
 </template>
 
 <style scoped lang="scss">
+@import '../assets/scss/partials/variables.scss';
+
 button {
   width: 100px;
-  margin: 0 auto;
+  margin: $size_16 auto $size_48;
+}
+
+.payment, .ship-data, .riepilogo {
+  padding: $size_32 0 0;
 }
 
 .error {
-  color: red;
+  //rosso come gli errori nella carta
+  color: rgb(197, 26, 26);
 }
+
 </style>

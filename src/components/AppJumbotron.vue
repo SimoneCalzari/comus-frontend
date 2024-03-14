@@ -144,7 +144,7 @@ export default {
 
     .active {
 
-      border: $size_8 solid $custom-primary;
+      border: 1px solid $custom-primary;
     }
 
     .card-info {

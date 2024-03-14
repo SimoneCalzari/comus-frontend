@@ -3,7 +3,7 @@
 import AppPageLoader from "../components/AppPageLoader.vue";
 import AppJumbotron from "../components/AppJumbotron.vue";
 import AppRestaurantList from "../components/AppRestaurantsList.vue";
-import AppSectionSlogan from "../components/AppSectionSlogan.vue";
+import AppSlogan from "../components/AppSlogan.vue";
 
 import AppRistoratore from "../components/AppRistoratore.vue";
 import AppFaq from "../components/AppFaq.vue";
@@ -15,7 +15,7 @@ export default {
     // AppPageLoader,
     AppJumbotron,
     AppRestaurantList,
-    AppSectionSlogan,
+    AppSlogan,
     AppRistoratore,
     AppFaq,
     AppDownload,
@@ -35,7 +35,7 @@ export default {
   <main>
     <AppJumbotron />
     <AppRestaurantList />
-    <AppSectionSlogan />
+    <AppSlogan />
     <AppRistoratore />
     <AppDownload />
     <AppFaq />
