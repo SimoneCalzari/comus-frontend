@@ -46,12 +46,14 @@ export default {
       <!-- info -->
       <div class="cont-info row">
         <div
-          class="col-12 col-xxl-6 d-flex align-items-center justify-content-center"
+          class="col-12 col-xxl-6 d-flex align-items-center justify-content-center py-2"
         >
           <strong>{{ dish_new.price }} €</strong>
         </div>
         <!-- bottoni + - -->
-        <div class="col-12 col-xxl-6 d-flex p-0 justify-content-around">
+        <div
+          class="col-12 col-xxl-6 d-flex py-2 justify-content-center gap-3 align-items-center"
+        >
           <div type="button" class="dish-btn" @click="$emit('removeItem')">
             -
           </div>
@@ -118,9 +120,16 @@ export default {
   }
 }
 .dish-btn {
+  line-height: $size-24;
+  text-align: center;
+  height: $size-24;
+  width: $size-24;
   background-color: $custom-secondary;
   color: $custom_white;
-  padding: $size-8 $size-16;
-  border-radius: $size-8;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: #38242c;
+  }
 }
 </style>

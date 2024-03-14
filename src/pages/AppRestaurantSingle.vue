@@ -121,25 +121,27 @@ export default {
 <template>
   <!-- jumbotron -->
   <div class="jumbotron">
-    <div class="info-restaurant d-flex">
-      <!-- img -->
-      <div class="cont-img m-2" v-if="restaurant">
-        <img
-          :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
-          alt="piatto"
-        />
-      </div>
+    <div class="container">
+      <div class="info-restaurant d-flex gap-5">
+        <!-- img -->
+        <div class="cont-img m-2" v-if="restaurant">
+          <img
+            :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
+            alt="piatto"
+          />
+        </div>
 
-      <!-- restaurant info -->
-      <div class="info-restaurant">
-        <h1 v-if="restaurant">
-          {{ restaurant.restaurant.name_restaurant }}
-        </h1>
+        <!-- restaurant info -->
+        <div class="info-restaurant">
+          <h1 v-if="restaurant">
+            {{ restaurant.restaurant.name_restaurant }}
+          </h1>
 
-        <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
-        <h5 v-if="restaurant">
-          {{ restaurant.restaurant.phone_number }}
-        </h5>
+          <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
+          <h5 v-if="restaurant">
+            {{ restaurant.restaurant.phone_number }}
+          </h5>
+        </div>
       </div>
     </div>
   </div>
@@ -148,74 +150,71 @@ export default {
   <main>
     <!-- LOADER -->
     <AppPageLoader v-if="isLoading" />
-    <div v-else class="row">
-      <div class="col-12 col-sm-8 border">
-        <div class="container border border-warning">
-          <div class="menu">
-            <h3 v-if="restaurant.dishes.length === 1">É presente 1 piatto</h3>
-            <h3 v-else>Sono presenti: {{ restaurant.dishes.length }} piatti</h3>
+    <div v-else class="row m-0">
+      <!-- lista piatti -->
+      <div class="col-12 col-sm-8 py-4">
+        <h5 v-if="restaurant.dishes.length === 1">É presente 1 piatto</h5>
+        <h5 v-else>Sono presenti: {{ restaurant.dishes.length }} piatti</h5>
 
-            <ul class="d-flex flex-wrap row p-0">
-              <li
-                class="col-6 col-md-4 col-lg-3 col-xl-3 my-2"
-                v-for="dish in restaurant.dishes"
-              >
-                <AppDish
-                  :dish_new="dish"
-                  @newItem="addToCart(dish)"
-                  @removeItem="removeToCart(dish)"
-                />
-                <!-- Modal -->
-                <div
-                  class="modal bg-dark"
-                  style="--bs-bg-opacity: 0.8"
-                  :class="modalOn && currentModal === dish.id ? 'd-block' : ''"
-                  @click.self="toogleModal(dish.id)"
-                >
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h3 class="modal-title fs-5">
-                          Conferma svuotamento carrello
-                        </h3>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          @click="toogleModal(dish.id)"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        Se aggiungi un piatto di un altro ristorante il carrello
-                        verrà svuotato, vuoi procedere comunque?
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          @click="toogleModal(dish.id)"
-                        >
-                          Annulla
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-success"
-                          @click="addToCart(dish)"
-                        >
-                          Conferma
-                        </button>
-                      </div>
-                    </div>
+        <ul class="d-flex flex-wrap row p-0">
+          <li
+            class="col-6 col-md-4 col-lg-3 col-xl-3 my-2"
+            v-for="dish in restaurant.dishes"
+          >
+            <AppDish
+              :dish_new="dish"
+              @newItem="addToCart(dish)"
+              @removeItem="removeToCart(dish)"
+            />
+            <!-- Modal -->
+            <div
+              class="modal bg-dark"
+              style="--bs-bg-opacity: 0.8"
+              :class="modalOn && currentModal === dish.id ? 'd-block' : ''"
+              @click.self="toogleModal(dish.id)"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title fs-5">
+                      Conferma svuotamento carrello
+                    </h3>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      @click="toogleModal(dish.id)"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    Se aggiungi un piatto di un altro ristorante il carrello
+                    verrà svuotato, vuoi procedere comunque?
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click="toogleModal(dish.id)"
+                    >
+                      Annulla
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      @click="addToCart(dish)"
+                    >
+                      Conferma
+                    </button>
                   </div>
                 </div>
-                <!-- Modal -->
-              </li>
-            </ul>
-          </div>
-        </div>
+              </div>
+            </div>
+            <!-- Modal -->
+          </li>
+        </ul>
       </div>
 
-      <div class="col-4 d-none d-sm-block">
-        <!-- CART -->
+      <!-- CART -->
+      <div class="col-4 d-none d-sm-block p-0">
         <AppCart />
       </div>
 
@@ -238,9 +237,7 @@ export default {
           aria-labelledby="offcanvasBottomLabel"
         >
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasBottomLabel">
-              Offcanvas bottom
-            </h5>
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel"></h5>
             <button
               type="button"
               class="btn-close"
@@ -248,7 +245,9 @@ export default {
               aria-label="Close"
             ></button>
           </div>
-          <div class="offcanvas-body small">...</div>
+          <div class="offcanvas-body small py-0">
+            <AppCart />
+          </div>
         </div>
       </div>
       <!-- -------------- -->
@@ -260,6 +259,8 @@ export default {
 @import '../assets/scss/partials/variables.scss';
 
 .jumbotron {
+  background-color: $custom-secondary;
+
   .cont-img {
     width: 40%;
     border-radius: 30px;
@@ -271,7 +272,6 @@ export default {
     }
   }
   .info-restaurant {
-    background-color: $custom-secondary;
     // border-radius: 10px 50px 10px 10px;
     // padding: $size_16;
     // color: $custom-secondary;
@@ -297,5 +297,10 @@ export default {
   position: fixed;
   bottom: 20px;
   padding: 0;
+}
+
+.offcanvas-bottom {
+  max-height: none;
+  height: auto;
 }
 </style>

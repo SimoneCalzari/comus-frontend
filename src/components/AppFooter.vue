@@ -10,7 +10,6 @@ export default {
         'Aiuto',
       ],
       menus_2: [
-
         'Informativa sulla Privacy',
         'Informativa relativa ai cookie',
         'Informazioni sul packaging',
@@ -25,7 +24,9 @@ export default {
   <footer>
     <!--lista menu footer: sinistra, centro, destra-->
     <div id="footer-top" class="justify-content-center">
-      <div class="row container d-flex justify-content-center align-items-center ">
+      <div
+        class="row container d-flex justify-content-center align-items-center"
+      >
         <!-- sinistra -->
         <div class="custom-box-sx col-lg-4 col-6 text-center">
           <ul class="text-center text-md-center p-0">
@@ -36,7 +37,7 @@ export default {
         </div>
         <!-- /sinistra-->
         <!-- centro -->
-        <div class="custom-box-ct  col-lg-4 col-6">
+        <div class="custom-box-ct col-lg-4 col-6">
           <ul class="text-center text-md-center p-0">
             <li v-for="menu_2 in menus_2">
               <a href="#">{{ menu_2 }}</a>
@@ -49,7 +50,11 @@ export default {
           <div class="row align-items-center flex-column">
             <!-- logo -->
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
-              <img src="/img/logo/small-light.svg" class="cont-image" alt="logo-footer" />
+              <img
+                src="/img/logo/small-light.svg"
+                class="cont-image"
+                alt="logo-footer"
+              />
             </div>
             <!-- /logo -->
             <!-- socials -->
@@ -71,14 +76,20 @@ export default {
                 <!-- /youtube -->
                 <!-- instagram -->
                 <li>
-                  <a href="https://www.instagram.com/accounts/login/" target="_blank">
+                  <a
+                    href="https://www.instagram.com/accounts/login/"
+                    target="_blank"
+                  >
                     <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
                 <!-- /instagram -->
                 <!-- facebook -->
                 <li>
-                  <a href="https://m.facebook.com/login/?locale=it_IT" target="_blank">
+                  <a
+                    href="https://m.facebook.com/login/?locale=it_IT"
+                    target="_blank"
+                  >
                     <i class="fa-brands fa-square-facebook"></i>
                   </a>
                 </li>
@@ -111,9 +122,9 @@ a {
   color: $custom_white;
 
   &:hover {
-          color: $custom-light;
-          transition: 0.6s ease-in-out;
-        }
+    color: $custom-light;
+    transition: 0.6s ease-in-out;
+  }
 }
 
 li {
@@ -142,9 +153,9 @@ footer {
       font-size: $size_24;
 
       &:hover {
-          color: $custom-light;
-          transition: 0.6s ease-in-out;
-        }
+        color: $custom-light;
+        transition: 0.6s ease-in-out;
+      }
 
       .custom-box-ct a {
         color: $custom-white;

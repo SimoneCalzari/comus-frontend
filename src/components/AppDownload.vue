@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "AppDownload",
+  name: 'AppDownload',
   data() {
     return {};
   },
@@ -11,14 +11,17 @@ export default {
   <!-- section download -->
   <section id="download">
     <div
-      class="box-download d-flex flex-column flex-md-row container-md justify-content-center align-items-center text-center">
+      class="box-download d-flex flex-column flex-md-row container-md justify-content-center align-items-center text-center"
+    >
       <!-- scarica testo e apps -->
       <!-- illustrazione scarica -->
       <div class="phone col-md-6 col-12 order-md-first order-last">
         <img src="/img/phone-download.png" class="phone-download" />
       </div>
       <!-- illustrazione scarica -->
-      <div class="card-download col-md-6 col-12 order-first order-md-last d-flex justify-content-center flex-column">
+      <div
+        class="card-download col-md-6 col-12 order-first order-md-last d-flex justify-content-center flex-column"
+      >
         <h2>Scarica l'app</h2>
         <p>
           Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia
@@ -30,7 +33,11 @@ export default {
             <img src="/img/app-store.png" alt="app-store" class="custom-app" />
           </a>
           <a href="#">
-            <img src="/img/play-store.svg" alt="play-store" class="custom-app" />
+            <img
+              src="/img/play-store.svg"
+              alt="play-store"
+              class="custom-app"
+            />
           </a>
         </div>
       </div>
@@ -41,11 +48,11 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 #download {
   background-color: $custom-light;
-  background-image: url("/img/table.jpg");
+  background-image: url('/img/table.jpg');
   background-size: cover;
 
   .box-download {
@@ -53,7 +60,7 @@ export default {
     gap: $size_32;
 
     .card-download {
-      padding: $size_8;
+      padding: $size_24;
       height: 100%;
       border-radius: $size_32;
       border: 1px solid $custom-primary;

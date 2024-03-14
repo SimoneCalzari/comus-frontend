@@ -1,7 +1,7 @@
 <script>
-import AppPageLoader from "./AppPageLoader.vue";
-import store from "../store";
-import axios from "axios";
+import AppPageLoader from './AppPageLoader.vue';
+import store from '../store';
+import axios from 'axios';
 
 export default {
   data() {
@@ -45,9 +45,11 @@ export default {
       axios
         .get(
           this.store.api.baseUrl +
-          this.store.api.apiUrls.restaurants +
-          "/search/" +
-          types_search
+
+            this.store.api.apiUrls.restaurants +
+            '/search/' +
+            types_search
+
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -82,7 +84,20 @@ export default {
     <h2 class="text-light text-center  ">Seleziona uno o più categorie</h2>
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
-      <div class="card-type" v-for="element in store.types" @click.stop="searchRestaurants(element.id)">
+
+      <div class="container text-center">
+        <div v-show="store.typesSearched.length" class="text-white">
+          <a href="#list-restaurant" class="text-decoration-none"
+            >vai ai ristoranti</a
+          >
+        </div>
+      </div>
+      <div
+        class="card-type"
+        v-for="element in store.types"
+        @click.stop="searchRestaurants(element.id)"
+      >
+
         <!-- image -->
 
         <div class="card-img" :class="store.typesSearched.includes(element.id) ? 'active' : ''">
@@ -94,12 +109,19 @@ export default {
           <h6 class="text-center">{{ element.name_type }}</h6>
         </div>
       </div>
+      <div class="container text-center">
+        <div v-show="store.typesSearched.length" class="text-white">
+          <a href="#list-restaurant" class="text-decoration-none"
+            >vai ai ristoranti</a
+          >
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 #jumbotron {
   background-color: $custom-secondary;
