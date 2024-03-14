@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'AppRistoratore',
+  name: "AppRistoratore",
   data() {
     return {};
   },
@@ -10,12 +10,18 @@ export default {
 <template>
   <!-- section ristoratore -->
   <section id="ristoratore1">
-    <div class="d-flex flex-column flex-md-row g-0 container-md justify-content-center align-items-center text-center">
+    <div
+      class="d-flex flex-column flex-md-row g-0 container-md justify-content-center align-items-center text-center"
+    >
       <!-- colonna testo e bottone -->
-      <div class="col-md-6 col-12 d-flex align-items-center justify-content-center flex-column">
+      <div
+        class="col-md-6 col-12 d-flex align-items-center justify-content-center flex-column"
+      >
         <h2>Vuoi unirti al team di Comus?</h2>
         <p>Registrati e inizia a vendere sul nostro portale</p>
-        <button class="custom-btn align-self-center" href="http://127.0.0.1:8000/">Registrati</button>
+        <a class="custom-btn align-self-center" href="http://127.0.0.1:8000/"
+          >Registrati</a
+        >
       </div>
       <!-- /colonna testo e bottone -->
       <!-- immagine lavora con noi -->
@@ -24,19 +30,14 @@ export default {
       </div>
       <!-- immagine lavora con noi -->
     </div>
-
   </section>
   <!-- section ristoratore -->
-
-
-
-
 </template>
 
 <style scoped lang="scss">
 //importazione file variables
 
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 a {
   text-decoration: none;
@@ -46,7 +47,7 @@ a {
   padding: $size_48 0;
 
   h2 {
-    font-family: 'Bevan', serif;
+    font-family: "Bevan", serif;
   }
 
   .custom-cont-img {
@@ -58,9 +59,8 @@ a {
   padding: $size_48 0;
 
   h2 {
-    font-family: 'Bevan', serif;
+    font-family: "Bevan", serif;
   }
-
 
   .custom-cont-img {
     margin-top: $size_8;
@@ -68,7 +68,8 @@ a {
   }
 
   // Media queries
-  @media screen and (max-width: 1200px) {}
+  @media screen and (max-width: 1200px) {
+  }
 
   @media screen and (max-width: 992px) {
     .custom-cont-img {
