@@ -27,18 +27,12 @@ export default {
 
         <!-- Restaurant Cards -->
         <div class="row">
-          <router-link
-            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
-            class="col-6 col-sm-4 col-lg-3 col-xl-3 g-3"
-            v-for="restaurant in store.restaurants"
-          >
+          <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+            class="col-6 col-sm-4 col-lg-3 col-xl-3 g-3" v-for="restaurant in store.restaurants">
             <div class="card-restaurant d-flex flex-column align-items-center">
               <!-- img -->
               <div class="cont-img">
-                <img
-                  :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
-                  alt="immagine ristorante"
-                />
+                <img :src="`${store.api.baseUrl}/storage/${restaurant.img}`" alt="immagine ristorante" />
               </div>
               <!-- name -->
               <div class="cont-text">
@@ -48,14 +42,10 @@ export default {
                 <!-- types -->
                 <ul class="p-0">
                   <li v-for="category in restaurant.types" class="text-center">
-                    <span
-                      class="font-secondary"
-                      :class="
-                        store.typesSearched.includes(category.id)
-                          ? 'active'
-                          : ''
-                      "
-                    >
+                    <span class="font-secondary" :class="store.typesSearched.includes(category.id)
+        ? 'active'
+        : ''
+        ">
                       {{ category.name_type }}
                     </span>
                   </li>
@@ -96,6 +86,7 @@ export default {
     height: 100%;
     border-radius: $size_32;
     border: 1px solid $custom-primary;
+
     &:hover img {
       transform: scale(1.1);
       transition: transform 0.6s ease-in-out;
@@ -104,7 +95,6 @@ export default {
     .cont-img {
       width: 100%;
       overflow: hidden;
-      border-radius: $size_32;
       aspect-ratio: 4/3;
 
       img {
@@ -117,7 +107,6 @@ export default {
 
     .cont-text {
       width: 100%;
-      border-radius: 0 0 $size_32 $size_32;
       transition: all 0.6s ease-in-out; //ovunque
       flex-grow: 1;
 
@@ -125,10 +114,9 @@ export default {
         color: $custom-white;
         font-family: "Bevan", serif;
         background-color: $custom-primary;
-        border-radius: $size_32;
         padding: $size_8 0;
-        margin-top: $size_8;
       }
+
       .active {
         color: $custom-primary;
         font-weight: bold;
@@ -175,6 +163,7 @@ export default {
 .grow-in-enter-active {
   transition: transform 0.5s ease-in-out;
 }
+
 .grow-in-enter {
   transform: scale(0);
 }
