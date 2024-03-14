@@ -1,9 +1,9 @@
 <script>
-import AppPayment from "../components/AppPayment.vue";
-import store from "../store";
-import axios from "axios";
+import AppPayment from '../components/AppPayment.vue';
+import store from '../store';
+import axios from 'axios';
 export default {
-  name: "AppCart",
+  name: 'AppCart',
   data() {
     return {
       store,
@@ -38,13 +38,13 @@ export default {
             console.log(response);
             if (response.data.status) {
               this.$router.push({
-                name: "confirmOrder",
+                name: 'confirmOrder',
               });
               this.store.cart = [];
-              localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+              localStorage.setItem('dishes', JSON.stringify(this.store.cart));
             } else {
               this.$router.push({
-                name: "NotFound",
+                name: 'NotFound',
               });
             }
             this.isOrderConfirmed = false;
@@ -55,7 +55,7 @@ export default {
             this.isSubmitting = false;
           });
       } else {
-        this.errorCard = "Metodo di pagamento obbligatorio";
+        this.errorCard = 'Metodo di pagamento obbligatorio';
         this.isSubmitting = false;
       }
     },
@@ -212,14 +212,14 @@ export default {
 <style scoped lang="scss">
 @import '../assets/scss/partials/variables.scss';
 
-
-
 button {
   width: 100px;
   margin: $size_16 auto $size_48;
 }
 
-.payment, .ship-data, .riepilogo {
+.payment,
+.ship-data,
+.riepilogo {
   padding: $size_32 0 0;
 }
 
@@ -228,11 +228,9 @@ button {
   color: rgb(197, 26, 26);
 }
 
-
 .spinner-border {
   color: $custom-primary;
   width: 4rem;
   height: 4rem;
 }
 </style>
-

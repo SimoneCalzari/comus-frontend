@@ -8,17 +8,35 @@ export default {
       store,
     };
   },
-  methods: {},
+  methods: {
+    getQuantity() {
+      const dish = this.store.cart.filter((element) => {
+        return element.id === this.dish_new.id;
+      });
+      console.log(dish);
+
+      if (dish.length) {
+        return dish[0].quantity;
+      } else {
+        return 0;
+      }
+    },
+  },
   emits: ['newItem', 'removeItem'],
   props: ['dish_new'],
 };
 </script>
 
 <template>
-  <div class="card-dish d-flex flex-column align-items-center">
+  <div
+    class="card-dish d-flex flex-column align-items-center border border-danger"
+  >
     <!-- img -->
     <div class="cont-img">
-      <img :src="`${store.api.baseUrl}/storage/${dish_new.img}`" alt="piatto" />
+      <img
+        :src="`${store.api.baseUrl}/storage/${dish_new.img}`"
+        :alt="dish_new.name"
+      />
     </div>
     <!-- name -->
     <div class="cont-text">
@@ -28,15 +46,16 @@ export default {
       <!-- info -->
       <div class="cont-info row">
         <div
-          class="col-12 col-lg-6 d-flex align-items-center justify-content-center"
+          class="col-12 col-xxl-6 d-flex align-items-center justify-content-center"
         >
           <strong>{{ dish_new.price }} €</strong>
         </div>
         <!-- bottoni + - -->
-        <div class="col-12 col-lg-6 d-flex p-0 justify-content-around">
+        <div class="col-12 col-xxl-6 d-flex p-0 justify-content-around">
           <div type="button" class="dish-btn" @click="$emit('removeItem')">
             -
           </div>
+          <div>{{ getQuantity() }}</div>
           <div type="button" class="dish-btn" @click="$emit('newItem')">+</div>
         </div>
       </div>

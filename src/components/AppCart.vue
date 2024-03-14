@@ -26,47 +26,49 @@ export default {
 </script>
 
 <template>
-  <div class="container p-3">
-    <h3>Carrello</h3>
-    <p v-show="!store.cart.length">
-      Non ci sono prodotti nel carrello attualmente ...
-    </p>
-    <ul>
-      <li
-        v-for="product in this.store.cart"
-        class="row cart-dish-element"
-        v-show="store.cart.length"
-      >
-        <div class="col-8">
-          {{ product.name }}
-        </div>
-        <div class="col-1">{{ product.quantity }}x</div>
-        <div class="col-3">{{ product.price }}€</div>
-      </li>
-      <li class="row" v-show="store.cart.length">
-        <div class="col-9">
-          <strong>Totale</strong>
-        </div>
-        <div class="col-3">
-          <strong>{{ getSum() }}€</strong>
-        </div>
-      </li>
-    </ul>
+  <div class="floating-cart container border border-danger position-sticky">
+    <div class="p-3">
+      <h3>Carrello</h3>
+      <p v-show="!store.cart.length">
+        Non ci sono prodotti nel carrello attualmente ...
+      </p>
+      <ul>
+        <li
+          v-for="product in this.store.cart"
+          class="row cart-dish-element"
+          v-show="store.cart.length"
+        >
+          <div class="col-8">
+            {{ product.name }}
+          </div>
+          <div class="col-1">{{ product.quantity }}x</div>
+          <div class="col-3">{{ product.price }}€</div>
+        </li>
+        <li class="row" v-show="store.cart.length">
+          <div class="col-9">
+            <strong>Totale</strong>
+          </div>
+          <div class="col-3">
+            <strong>{{ getSum() }}€</strong>
+          </div>
+        </li>
+      </ul>
 
-    <div class="cart-bottom d-flex justify-content-end gap-4">
-      <button
-        class="btn secondary"
-        @click="emptyCart"
-        v-show="store.cart.length"
-      >
-        Svuota
-      </button>
-      <router-link
-        class="btn primary me-3"
-        :to="{ name: 'cart' }"
-        v-show="store.cart.length"
-        >Vai all'ordine</router-link
-      >
+      <div class="cart-bottom d-flex justify-content-end gap-4">
+        <button
+          class="btn secondary"
+          @click="emptyCart"
+          v-show="store.cart.length"
+        >
+          Svuota
+        </button>
+        <router-link
+          class="btn primary me-3"
+          :to="{ name: 'cart' }"
+          v-show="store.cart.length"
+          >Vai all'ordine</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -74,26 +76,7 @@ export default {
 <style scoped lang="scss">
 @import '../assets/scss/partials/variables.scss';
 
-.container {
-  color: $custom_secondary;
-  border: 2px solid $custom-secondary;
-  border-radius: 20px;
-  background-color: rgba($custom_light, 0.5);
-
-  .cart-dish-element {
-    transition: all;
-  }
-
-  .btn {
-    color: $custom_white;
-  }
-
-  .primary {
-    background-color: $custom-primary;
-  }
-
-  .secondary {
-    background-color: $custom-secondary;
-  }
+.floating-cart {
+  top: 20px;
 }
 </style>
