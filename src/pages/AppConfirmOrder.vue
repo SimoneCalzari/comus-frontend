@@ -1,18 +1,19 @@
 <script>
-import store from '../store';
-import axios from 'axios';
+import store from "../store";
+import axios from "axios";
 
 export default {
-    name: 'AppConfirmOrder',
-    data() {
-        return {
-            store,
-        }
-    },
-}
+  name: "AppConfirmOrder",
+  data() {
+    return {
+      store,
+    };
+  },
+};
 </script>
 
 <template>
+
     <section class="thank-you">
         <div class="text-center">
             <h2>Conferma ordine</h2>
@@ -43,3 +44,4 @@ export default {
     }
 }
 </style>
+
