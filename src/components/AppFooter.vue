@@ -49,7 +49,7 @@ export default {
           <div class="row align-items-center flex-column">
             <!-- logo -->
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
-              <img src="/img/logo/logo-sm-snow.svg" class="cont-image" alt="logo-footer" />
+              <img src="/img/logo/small-light.svg" class="cont-image" alt="logo-footer" />
             </div>
             <!-- /logo -->
             <!-- socials -->
@@ -129,7 +129,7 @@ footer {
   }
 
   .row {
-    margin: $size-40 auto;
+    margin: 0 auto;
   }
 
   .cont-image {
