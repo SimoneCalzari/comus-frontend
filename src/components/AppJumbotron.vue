@@ -81,7 +81,7 @@ export default {
 </script>
 <template>
   <section id="jumbotron">
-    <h2 class="text-light text-center  ">Seleziona uno o più categorie</h2>
+    <h2 class="text-center ">Scegli la tua categoria ristorante e delizia il tuo palato </h2>
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
 
@@ -126,7 +126,10 @@ export default {
 #jumbotron {
   background-color: $custom-secondary;
   padding: $size_48 0;
-
+  h2{
+    margin: $size_40 0;
+    color: $custom-white;
+  }
   .card-type {
     width: calc((100% - 12vw) / 6);
     margin: 1vw;
