@@ -11,17 +11,18 @@ export default {
   },
   methods: {
     getPage(new_page) {
+      this.store.currentPage = new_page;
       axios
         .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
           params: {
-            page: new_page,
+            page: this.store.currentPage,
           },
         })
         .then((response) => {
           this.store.restaurants = response.data.results.data;
           this.store.firstPage = response.data.results.from;
           this.store.lastPage = response.data.results.last_page;
-          this.store.currentPage = new_page;
+
           this.store.totalRestaurants = response.data.results.total;
         });
     },

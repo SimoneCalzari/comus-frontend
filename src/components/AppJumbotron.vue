@@ -78,17 +78,16 @@ export default {
 </script>
 <template>
   <section id="jumbotron">
-
-
-    <h2 class="text-center ">Scegli la tua categoria ristorante e delizia il tuo palato </h2>
+    <h2 class="text-center mt-0 pt-2">
+      Scegli la tua categoria ristorante e delizia il tuo palato
+    </h2>
 
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
-
       <div class="container text-center">
-        <div v-show="store.typesSearched.length" class="text-white">
-          <a href="#list-restaurant" class="text-decoration-none"
-            >vai ai ristoranti</a
+        <div v-show="store.typesSearched.length" class="text-white mb-4">
+          <a href="#list-restaurant" class="text-decoration-none custom-btn"
+            >Vai ai ristoranti</a
           >
         </div>
       </div>
@@ -115,13 +114,13 @@ export default {
           <h6 class="text-center">{{ element.name_type }}</h6>
         </div>
       </div>
-      <div class="container text-center">
+      <!-- <div class="container text-center">
         <div v-show="store.typesSearched.length" class="text-white">
           <a href="#list-restaurant" class="text-decoration-none"
             >vai ai ristoranti</a
           >
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
@@ -131,8 +130,8 @@ export default {
 
 #jumbotron {
   background-color: $custom-secondary;
-  padding: $size_48 0;
-  h2{
+  // padding: $size_48 0;
+  h2 {
     margin: $size_40 0;
     color: $custom-white;
   }
