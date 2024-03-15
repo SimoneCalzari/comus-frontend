@@ -69,9 +69,9 @@ export default {
     }
 
     .custom-app {
-      width: 120px;
+      width: 100%;
       height: 40px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 10px;
     }
 
