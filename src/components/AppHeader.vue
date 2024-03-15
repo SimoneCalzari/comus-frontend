@@ -116,4 +116,37 @@ header {
     }
   }
 }
+@media screen and (max-width: 575px) {
+  .navbar{
+    display: flex;
+    flex-direction: column;
+  }
+  .custom-logo{
+    margin: 0 auto;
+    img{
+      width: !important 180px;
+    }
+  }
+  .custom-links{
+    width: 100%;
+  }
+  ul{
+    display: flex;
+    justify-content: space-between;
+    li{
+      margin: 5px 10px;
+    }
+    i{
+      display: flex;
+      justify-content:center ;
+      align-items: center;
+      width: 80px;
+      height: 40px;
+    }
+  }
+
+
+
+
+}
 </style>
