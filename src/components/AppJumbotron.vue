@@ -24,6 +24,7 @@ export default {
         .then((response) => {
           this.store.types = response.data.results;
           this.isLoading = false;
+          this.store.typesSearched = [];
         })
         .catch((error) => {
           console.log(error);
@@ -144,7 +145,6 @@ export default {
   background-color: $custom-secondary;
 
   h2 {
-
     color: $custom-white;
     width: 80%;
     margin: 0 auto;
