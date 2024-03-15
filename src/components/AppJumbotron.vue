@@ -47,10 +47,19 @@ export default {
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
             "/search/" +
-            types_search
+            types_search,
+          {
+            params: {
+              page: this.store.currentPage,
+            },
+          }
         )
         .then((response) => {
-          this.store.restaurants = response.data.results;
+          this.store.restaurants = response.data.results.data;
+          this.store.restaurants = response.data.results.data;
+          this.store.firstPage = response.data.results.from;
+          this.store.lastPage = response.data.results.last_page;
+          this.store.totalRestaurants = response.data.results.total;
           if (!response.data.success) {
             this.getRestaurants();
           }
@@ -85,7 +94,7 @@ export default {
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
       <div class="container text-center">
-        <div v-show="store.typesSearched.length" class="text-white mb-4">
+        <div class="text-white mb-4">
           <a href="#list-restaurant" class="text-decoration-none custom-btn"
             >Vai ai ristoranti</a
           >
