@@ -147,7 +147,7 @@ export default {
   background-color: $custom-secondary;
   padding: $size_48 0;
   h2 {
-    margin: $size_40 0;
+    margin: $size_40 $size_16;
     color: $custom-white;
   }
   .card-type {
