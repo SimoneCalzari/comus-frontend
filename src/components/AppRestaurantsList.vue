@@ -12,12 +12,22 @@ export default {
   methods: {
     getPage(new_page) {
       this.store.currentPage = new_page;
+      let types_search = " ";
+      if (store.typesSearched.length > 0) {
+        types_search = store.typesSearched.join();
+      }
       axios
-        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
-          params: {
-            page: this.store.currentPage,
-          },
-        })
+        .get(
+          this.store.api.baseUrl +
+            this.store.api.apiUrls.restaurants +
+            "/search/" +
+            types_search,
+          {
+            params: {
+              page: this.store.currentPage,
+            },
+          }
+        )
         .then((response) => {
           this.store.restaurants = response.data.results.data;
           this.store.firstPage = response.data.results.from;
@@ -28,12 +38,22 @@ export default {
     previousPage() {
       if (this.store.currentPage !== this.store.firstPage) {
         this.store.currentPage--;
+        let types_search = " ";
+        if (store.typesSearched.length > 0) {
+          types_search = store.typesSearched.join();
+        }
         axios
-          .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
-            params: {
-              page: this.store.currentPage,
-            },
-          })
+          .get(
+            this.store.api.baseUrl +
+              this.store.api.apiUrls.restaurants +
+              "/search/" +
+              types_search,
+            {
+              params: {
+                page: this.store.currentPage,
+              },
+            }
+          )
           .then((response) => {
             this.store.restaurants = response.data.results.data;
             this.store.firstPage = response.data.results.from;
@@ -45,12 +65,22 @@ export default {
     nextPage() {
       if (this.store.currentPage !== this.store.lastPage) {
         this.store.currentPage++;
+        let types_search = " ";
+        if (store.typesSearched.length > 0) {
+          types_search = store.typesSearched.join();
+        }
         axios
-          .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
-            params: {
-              page: this.store.currentPage,
-            },
-          })
+          .get(
+            this.store.api.baseUrl +
+              this.store.api.apiUrls.restaurants +
+              "/search/" +
+              types_search,
+            {
+              params: {
+                page: this.store.currentPage,
+              },
+            }
+          )
           .then((response) => {
             this.store.restaurants = response.data.results.data;
             this.store.firstPage = response.data.results.from;

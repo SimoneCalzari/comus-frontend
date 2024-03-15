@@ -1,7 +1,7 @@
 <script>
-import AppPageLoader from './AppPageLoader.vue';
-import store from '../store';
-import axios from 'axios';
+import AppPageLoader from "./AppPageLoader.vue";
+import store from "../store";
+import axios from "axios";
 
 export default {
   data() {
@@ -46,7 +46,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            '/search/' +
+            "/search/" +
             types_search,
           {
             params: {
@@ -55,7 +55,6 @@ export default {
           }
         )
         .then((response) => {
-          this.store.restaurants = response.data.results.data;
           this.store.restaurants = response.data.results.data;
           this.store.firstPage = response.data.results.from;
           this.store.lastPage = response.data.results.last_page;
@@ -141,7 +140,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 #jumbotron {
   background-color: $custom-secondary;
