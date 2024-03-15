@@ -170,35 +170,32 @@ export default {
         object-fit: cover;
         display: block;
 
-
         &:hover {
           transform: scale(1.1);
           transition: all 0.6s ease-in-out;
           z-index: -1;
         }
-
       }
     }
     .cont-btn {
-          margin: $size_48 0;
-        }
-    .active {
-      border: 5px solid $custom-secondary;
+      margin: $size_48 0;
     }
+    .active {
+      border: 5px solid $custom-primary;
+    }
+  }
+  .card-info {
+    h6 {
+      color: $custom-white;
+      background-color: $custom-primary;
+      border-radius: $size_32;
+      padding: $size_8 0;
+      margin-top: $size_8;
 
+      &:hover {
+        background-color: $custom-light;
+        transition: all 0.6s ease-in-out;
       }
-    .card-info {
-      h6 {
-        color: $custom-white;
-        background-color: $custom-primary;
-        border-radius: $size_32;
-        padding: $size_8 0;
-        margin-top: $size_8;
-
-        &:hover {
-          background-color: $custom-light;
-          transition: all 0.6s ease-in-out;
-        }
     }
   }
 
