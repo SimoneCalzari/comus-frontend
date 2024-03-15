@@ -45,11 +45,9 @@ export default {
       axios
         .get(
           this.store.api.baseUrl +
-
             this.store.api.apiUrls.restaurants +
             '/search/' +
             types_search
-
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -81,9 +79,9 @@ export default {
 </script>
 <template>
   <section id="jumbotron">
-    <h2 class="text-light text-center  ">Seleziona uno o più categorie</h2>
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
+      <h2 class="text-light text-center">Seleziona uno o più categorie</h2>
 
       <div class="container text-center">
         <div v-show="store.typesSearched.length" class="text-white">
@@ -97,11 +95,17 @@ export default {
         v-for="element in store.types"
         @click.stop="searchRestaurants(element.id)"
       >
-
         <!-- image -->
 
-        <div class="card-img" :class="store.typesSearched.includes(element.id) ? 'active' : ''">
-          <img :src="`${store.api.baseUrl}/storage/${element.image}`" class="card-img-top" alt="..." />
+        <div
+          class="card-img"
+          :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+        >
+          <img
+            :src="`${store.api.baseUrl}/storage/${element.image}`"
+            class="card-img-top"
+            alt="..."
+          />
         </div>
 
         <!-- info -->
@@ -132,6 +136,12 @@ export default {
     margin: 1vw;
     cursor: pointer;
 
+    &:hover .card-img img {
+      transform: scale(1.1);
+      transition: transform 0.6s ease-in-out;
+      z-index: -1;
+    }
+
     .card-img {
       aspect-ratio: 1/1;
       overflow: hidden;
@@ -142,12 +152,6 @@ export default {
         height: 100%;
         object-fit: cover;
         display: block;
-
-        &:hover {
-          transform: scale(1.1);
-          transition: transform 0.6s ease-in-out;
-          z-index: -1;
-        }
       }
     }
 
