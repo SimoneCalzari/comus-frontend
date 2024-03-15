@@ -83,15 +83,8 @@ export default {
   <section id="jumbotron">
     <h2 class="text-light text-center  ">Seleziona uno o più categorie</h2>
     <AppPageLoader v-if="isLoading" />
-    <div v-else class="container-md d-flex flex-wrap justify-content-center">
-
-      <div class="container text-center">
-        <div v-show="store.typesSearched.length" class="text-white">
-          <a href="#list-restaurant" class="text-decoration-none"
-            >vai ai ristoranti</a
-          >
-        </div>
-      </div>
+    <div v-else class="container-md d-flex align-items-center flex-wrap justify-content-center">
+       
       <div
         class="card-type"
         v-for="element in store.types"
@@ -110,8 +103,8 @@ export default {
         </div>
       </div>
       <div class="container text-center">
-        <div v-show="store.typesSearched.length" class="text-white">
-          <a href="#list-restaurant" class="text-decoration-none"
+        <div v-show="store.typesSearched.length" class="cont-btn">
+          <a href="#list-restaurant" class="text-decoration-none custom-btn"
             >vai ai ristoranti</a
           >
         </div>
@@ -145,16 +138,19 @@ export default {
 
         &:hover {
           transform: scale(1.1);
-          transition: transform 0.6s ease-in-out;
+          transition: all 0.6s ease-in-out;
           z-index: -1;
         }
       }
     }
-
+    .cont-btn {
+          margin: $size_48 0;
+        }
     .active {
-      border: 5px solid $custom-primary;
+      border: 5px solid $custom-secondary;
     }
 
+      }
     .card-info {
       h6 {
         color: $custom-white;
@@ -162,7 +158,11 @@ export default {
         border-radius: $size_32;
         padding: $size_8 0;
         margin-top: $size_8;
-      }
+
+        &:hover {
+          background-color: $custom-light;
+          transition: all 0.6s ease-in-out;
+        }
     }
   }
 

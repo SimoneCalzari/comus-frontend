@@ -26,7 +26,7 @@ export default {
         </p>
 
         <!-- Restaurant Cards -->
-        <div class="row">
+        <div class="row justify-content-center">
           <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
             class="col-6 col-sm-4 col-lg-3 col-xl-3 g-3" v-for="restaurant in store.restaurants">
             <div class="card-restaurant d-flex flex-column align-items-center">

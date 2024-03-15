@@ -20,7 +20,7 @@ export default {
           </p>
           <div class="cont-img">
             <img
-              src="/img/logo/logo-orange-light.svg"
+              src="/img/logo/small-light.svg"
               class="custom-img img-fluid"
               alt="logo-orange-purple.svg"
             />
@@ -43,7 +43,7 @@ export default {
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;
-  background-color: $custom-secondary;
+  background-color: $custom-primary;
   // background-image: url('/img/delivery_food.jpg');
   // background-size: cover;
   // background-repeat: no-repeat; 
@@ -65,12 +65,12 @@ export default {
     h2 {
       font-family: 'Bevan', serif;
       padding: $size-16 0 0;
-      color: $custom-primary;
+      color: $custom-secondary;
       font-weight: 900;
     }
 
     p {
-      color: $custom-primary;
+      color: $custom-secondary;
     }
   }
 }

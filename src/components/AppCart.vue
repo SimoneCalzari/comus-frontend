@@ -28,9 +28,9 @@ export default {
 <template>
   <div class="floating-cart position-sticky p-0 my-5">
     <div class="p-3">
-      <h3>Carrello</h3>
+      <h3>Il Tuo carrello:</h3>
       <p v-show="!store.cart.length">
-        Non ci sono prodotti nel carrello attualmente ...
+        Attualmente non ci sono prodotti nel carrello.
       </p>
       <ul class="p-0">
         <li
@@ -80,28 +80,31 @@ export default {
   top: 20px;
 
   .btn-empty {
-    padding: 0 $size-8;
-    border-radius: $size-8;
+    padding: $size_16;
+    border-radius: $size-16;
     background-color: none;
     border: 1px solid $custom-secondary;
     color: $custom-secondary;
+    transition: all 0.6s ease-in-out; //ovunque
 
     &:hover {
       background-color: $custom-secondary;
       color: $custom_white;
+      transition: all 0.6s ease-in-out; //ovunque
     }
   }
-
+  
   .btn-order {
-    padding: 0 $size-8;
-    border-radius: $size-8;
+    padding: $size_16;
+    border-radius: $size_16;
     background-color: $custom-secondary;
     border: 1px solid $custom-secondary;
     color: $custom_white;
 
     &:hover {
-      background-color: $custom-secondary;
-      color: $custom_white;
+      background-color: $custom-light;
+      border: 1px solid $custom-light;
+      transition: all 0.6s ease-in-out; //ovunque
     }
   }
 }
