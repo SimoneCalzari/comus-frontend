@@ -1,7 +1,7 @@
 <script>
-import AppPageLoader from './AppPageLoader.vue';
-import store from '../store';
-import axios from 'axios';
+import AppPageLoader from "./AppPageLoader.vue";
+import store from "../store";
+import axios from "axios";
 
 export default {
   data() {
@@ -46,7 +46,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            '/search/' +
+            "/search/" +
             types_search
         )
         .then((response) => {
@@ -61,27 +61,29 @@ export default {
     },
     getRestaurants() {
       axios
-        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
+          params: {
+            page: this.store.currentPage,
+          },
+        })
         .then((response) => {
-          this.store.restaurants = response.data.results;
+          this.store.restaurants = response.data.results.data;
+          this.store.firstPage = response.data.results.from;
+          this.store.lastPage = response.data.results.last_page;
+          this.store.totalRestaurants = response.data.results.total;
         });
     },
-    // clearRestaurants() {
-    //   axios
-    //     .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
-    //     .then((response) => {
-    //       this.store.restaurants = response.data.results;
-    //     });
-    //   this.store.typesSearched = [];
-    // },
   },
 };
 </script>
 <template>
   <section id="jumbotron">
+
+
+    <h2 class="text-center ">Scegli la tua categoria ristorante e delizia il tuo palato </h2>
+
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
-      <h2 class="text-light text-center">Seleziona uno o più categorie</h2>
 
       <div class="container text-center">
         <div v-show="store.typesSearched.length" class="text-white">
@@ -125,12 +127,15 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 #jumbotron {
   background-color: $custom-secondary;
   padding: $size_48 0;
-
+  h2{
+    margin: $size_40 0;
+    color: $custom-white;
+  }
   .card-type {
     width: calc((100% - 12vw) / 6);
     margin: 1vw;

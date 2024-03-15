@@ -28,15 +28,10 @@ export default {
 </script>
 
 <template>
-  <div
-    class="card-dish d-flex flex-column align-items-center border border-danger"
-  >
+  <div class="card-dish d-flex flex-column align-items-center border border-danger">
     <!-- img -->
     <div class="cont-img">
-      <img
-        :src="`${store.api.baseUrl}/storage/${dish_new.img}`"
-        :alt="dish_new.name"
-      />
+      <img :src="`${store.api.baseUrl}/storage/${dish_new.img}`" :alt="dish_new.name" />
     </div>
     <!-- name -->
     <div class="cont-text">
@@ -45,15 +40,11 @@ export default {
       </h6>
       <!-- info -->
       <div class="cont-info row">
-        <div
-          class="col-12 col-xxl-6 d-flex align-items-center justify-content-center py-2"
-        >
+        <div class="col-12 col-xxl-6 d-flex align-items-center justify-content-center py-2">
           <strong>{{ dish_new.price }} €</strong>
         </div>
         <!-- bottoni + - -->
-        <div
-          class="col-12 col-xxl-6 d-flex py-2 justify-content-center gap-3 align-items-center"
-        >
+        <div class="col-12 col-xxl-6 d-flex py-2 justify-content-center gap-3 align-items-center">
           <div type="button" class="dish-btn" @click="$emit('removeItem')">
             -
           </div>
@@ -83,7 +74,6 @@ export default {
   .cont-img {
     width: 100%;
     overflow: hidden;
-    border-radius: $size_32;
     aspect-ratio: 4/3;
 
     img {
@@ -96,7 +86,6 @@ export default {
 
   .cont-text {
     width: 100%;
-    border-radius: 0 0 $size_32 $size_32;
     transition: all 0.6s ease-in-out; //ovunque
     flex-grow: 1;
 
@@ -104,9 +93,7 @@ export default {
       color: $custom-white;
       font-family: 'Bevan', serif;
       background-color: $custom-primary;
-      border-radius: $size_32;
       padding: $size_8 0;
-      margin-top: $size_8;
     }
 
     .cont-info {
@@ -119,6 +106,7 @@ export default {
     }
   }
 }
+
 .dish-btn {
   line-height: $size-24;
   text-align: center;

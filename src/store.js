@@ -15,5 +15,9 @@ export const store = reactive({
   typesSearched: [],
   totalPrice: null,
   paymentIsValid: false,
+  currentPage: 1,
+  firstPage: 1,
+  lastPage: null,
+  totalRestaurants: null,
 });
 export default store;
