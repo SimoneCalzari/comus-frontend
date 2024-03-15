@@ -94,12 +94,10 @@ export default {
     <AppPageLoader v-if="isLoading" />
 
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
-      <div class="container text-center">
-        <div class="text-white mb-4">
-          <a href="#list-restaurant" class="text-decoration-none custom-btn"
-            >Vai ai ristoranti</a
-          >
-        </div>
+      <div class="container text-center py-4">
+        <a href="#list-restaurant" class="text-decoration-none custom-btn"
+          >Vai ai ristoranti</a
+        >
       </div>
 
       <div
@@ -145,10 +143,13 @@ export default {
 
 #jumbotron {
   background-color: $custom-secondary;
-  padding: $size_48 0;
+
   h2 {
-    margin: $size_40 $size_16;
+
     color: $custom-white;
+    width: 80%;
+    margin: 0 auto;
+    padding: $size-24 0;
   }
   .card-type {
     width: calc((100% - 12vw) / 6);
