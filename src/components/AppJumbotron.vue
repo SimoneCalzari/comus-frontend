@@ -78,7 +78,7 @@ export default {
 </script>
 <template>
   <section id="jumbotron">
-    <h2 class="text-center mt-0 pt-2">
+    <h2 class="text-center">
       Scegli la tua categoria ristorante e delizia il tuo palato
     </h2>
 
@@ -130,7 +130,7 @@ export default {
 
 #jumbotron {
   background-color: $custom-secondary;
-  // padding: $size_48 0;
+  padding: $size_48 0;
   h2 {
     margin: $size_40 0;
     color: $custom-white;

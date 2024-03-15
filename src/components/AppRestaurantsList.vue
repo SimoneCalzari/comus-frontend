@@ -22,7 +22,6 @@ export default {
           this.store.restaurants = response.data.results.data;
           this.store.firstPage = response.data.results.from;
           this.store.lastPage = response.data.results.last_page;
-
           this.store.totalRestaurants = response.data.results.total;
         });
     },
