@@ -151,6 +151,13 @@ export default {
     --bs-accordion-bg: $custom-white;
     --bs-accordion-active-bg: $custom-light;
     --bs-accordion-btn-focus-box-shadow: $custom-primary;
+    .accordion-item{
+      border-bottom: 1px solid  $custom-primary !important;
+    }
+    .accordion-item:last-child{
+      border-bottom: 0px solid  $custom-primary !important;
+    }
+    
     
   }
 
