@@ -117,25 +117,30 @@ header {
   }
 }
 @media screen and (max-width: 575px) {
-  .navbar{
+
+  .navbar {
     display: flex;
     flex-direction: column;
   }
-  .custom-logo{
+  .custom-logo {
     margin: 0 auto;
-    img{
-      width: !important 180px;
+
+    img {
+      width:  180px !important;
     }
   }
   .custom-links{
     width: 100%;
   }
+
   ul{
     display: flex;
     justify-content: space-between;
+
     li{
       margin: 5px 10px;
     }
+    
     i{
       display: flex;
       justify-content:center ;
@@ -144,9 +149,5 @@ header {
       height: 40px;
     }
   }
-
-
-
-
 }
 </style>
