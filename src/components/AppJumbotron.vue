@@ -1,7 +1,7 @@
 <script>
-import AppPageLoader from './AppPageLoader.vue';
-import store from '../store';
-import axios from 'axios';
+import AppPageLoader from "./AppPageLoader.vue";
+import store from "../store";
+import axios from "axios";
 
 export default {
   data() {
@@ -45,11 +45,9 @@ export default {
       axios
         .get(
           this.store.api.baseUrl +
-
             this.store.api.apiUrls.restaurants +
-            '/search/' +
+            "/search/" +
             types_search
-
         )
         .then((response) => {
           this.store.restaurants = response.data.results;
@@ -63,28 +61,26 @@ export default {
     },
     getRestaurants() {
       axios
-        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
+          params: {
+            page: this.store.currentPage,
+          },
+        })
         .then((response) => {
-          this.store.restaurants = response.data.results;
+          this.store.restaurants = response.data.results.data;
+          this.store.firstPage = response.data.results.from;
+          this.store.lastPage = response.data.results.last_page;
+          this.store.totalRestaurants = response.data.results.total;
         });
     },
-    // clearRestaurants() {
-    //   axios
-    //     .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
-    //     .then((response) => {
-    //       this.store.restaurants = response.data.results;
-    //     });
-    //   this.store.typesSearched = [];
-    // },
   },
 };
 </script>
 <template>
   <section id="jumbotron">
-    <h2 class="text-light text-center  ">Seleziona uno o più categorie</h2>
+    <h2 class="text-light text-center">Seleziona uno o più categorie</h2>
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
-
       <div class="container text-center">
         <div v-show="store.typesSearched.length" class="text-white">
           <a href="#list-restaurant" class="text-decoration-none"
@@ -97,11 +93,17 @@ export default {
         v-for="element in store.types"
         @click.stop="searchRestaurants(element.id)"
       >
-
         <!-- image -->
 
-        <div class="card-img" :class="store.typesSearched.includes(element.id) ? 'active' : ''">
-          <img :src="`${store.api.baseUrl}/storage/${element.image}`" class="card-img-top" alt="..." />
+        <div
+          class="card-img"
+          :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+        >
+          <img
+            :src="`${store.api.baseUrl}/storage/${element.image}`"
+            class="card-img-top"
+            alt="..."
+          />
         </div>
 
         <!-- info -->
@@ -121,7 +123,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 #jumbotron {
   background-color: $custom-secondary;
