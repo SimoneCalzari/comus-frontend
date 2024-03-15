@@ -55,6 +55,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
+
 @import '../assets/scss/partials/variables.scss';
 
 header {
@@ -140,7 +141,7 @@ header {
     li{
       margin: 5px 10px;
     }
-    
+
     i{
       display: flex;
       justify-content:center ;

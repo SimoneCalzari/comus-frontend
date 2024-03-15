@@ -80,11 +80,17 @@ export default {
         <nav class="d-flex justify-content-center my-4">
           <ul class="pagination">
             <li class="page-item" @click="previousPage">
-              <div class="page-link">
-                << </div>
+              <div class="page-link"><<</div>
             </li>
-            <li class="page-item" v-for="n in store.lastPage" @click="getPage(n)">
-              <div class="page-link" :class="store.currentPage === n ? 'active-page' : ''">
+            <li
+              class="page-item"
+              v-for="n in store.lastPage"
+              @click="getPage(n)"
+            >
+              <div
+                class="page-link"
+                :class="store.currentPage === n ? 'active-page' : ''"
+              >
                 {{ n }}
               </div>
             </li>
@@ -95,12 +101,18 @@ export default {
         </nav>
         <!-- Restaurant Cards -->
         <div class="row justify-content-center">
-          <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
-            class="col-6 col-sm-4 col-lg-3 col-xl-3 g-3" v-for="restaurant in store.restaurants">
+          <router-link
+            :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+            class="col-6 col-sm-4 col-lg-3 col-xl-3 g-3"
+            v-for="restaurant in store.restaurants"
+          >
             <div class="card-restaurant d-flex flex-column align-items-center">
               <!-- img -->
               <div class="cont-img">
-                <img :src="`${store.api.baseUrl}/storage/${restaurant.img}`" alt="immagine ristorante" />
+                <img
+                  :src="`${store.api.baseUrl}/storage/${restaurant.img}`"
+                  alt="immagine ristorante"
+                />
               </div>
               <!-- name -->
               <div class="cont-text">
@@ -110,10 +122,14 @@ export default {
                 <!-- types -->
                 <ul class="p-0">
                   <li v-for="category in restaurant.types" class="text-center">
-                    <span class="font-secondary" :class="store.typesSearched.includes(category.id)
-        ? 'active'
-        : ''
-        ">
+                    <span
+                      class="font-secondary"
+                      :class="
+                        store.typesSearched.includes(category.id)
+                          ? 'active'
+                          : ''
+                      "
+                    >
                       {{ category.name_type }}
                     </span>
                   </li>
@@ -126,7 +142,6 @@ export default {
       <p class="text-center" v-else>
         La tua ricerca nelle nostre categorie non ha prodotto risultati
       </p>
-
     </div>
   </section>
 </template>
@@ -207,6 +222,10 @@ export default {
 
 .pagination li {
   cursor: pointer;
+
+  .page-link {
+    color: $custom-secondary;
+  }
 }
 
 .grow-in-enter-active {

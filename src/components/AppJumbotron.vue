@@ -145,6 +145,7 @@ export default {
   background-color: $custom-secondary;
 
   h2 {
+
     color: $custom-white;
     width: 80%;
     margin: 0 auto;
