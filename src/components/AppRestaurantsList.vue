@@ -207,6 +207,8 @@ export default {
 
 .pagination li {
   cursor: pointer;
+  --bs-pagination-color: $custom-primary;
+  --bs-pagination-hover-color: $custom-secondary;
 }
 
 .grow-in-enter-active {
