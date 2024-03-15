@@ -221,7 +221,7 @@ export default {
       <!-- -------------- -->
       <div class="cart-btn d-block d-sm-none d-flex justify-content-center">
         <button
-          class="btn btn-primary"
+          class="custom-btn-2 px-5"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasBottom"

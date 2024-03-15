@@ -1,18 +1,70 @@
 <script>
-import { RouterLink } from 'vue-router';
-import store from '../store';
+import { RouterLink } from "vue-router";
+import store from "../store";
+import axios from "axios";
 export default {
-  name: 'AppListRestaurants',
+  name: "AppListRestaurants",
   data() {
     return {
       store,
     };
   },
+  methods: {
+    getPage(new_page) {
+      this.store.currentPage = new_page;
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
+          params: {
+            page: this.store.currentPage,
+          },
+        })
+        .then((response) => {
+          this.store.restaurants = response.data.results.data;
+          this.store.firstPage = response.data.results.from;
+          this.store.lastPage = response.data.results.last_page;
+          this.store.totalRestaurants = response.data.results.total;
+        });
+    },
+    previousPage() {
+      if (this.store.currentPage !== this.store.firstPage) {
+        this.store.currentPage--;
+        axios
+          .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
+            params: {
+              page: this.store.currentPage,
+            },
+          })
+          .then((response) => {
+            this.store.restaurants = response.data.results.data;
+            this.store.firstPage = response.data.results.from;
+            this.store.lastPage = response.data.results.last_page;
+            this.store.totalRestaurants = response.data.results.total;
+          });
+      }
+    },
+    nextPage() {
+      if (this.store.currentPage !== this.store.lastPage) {
+        this.store.currentPage++;
+        axios
+          .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
+            params: {
+              page: this.store.currentPage,
+            },
+          })
+          .then((response) => {
+            this.store.restaurants = response.data.results.data;
+            this.store.firstPage = response.data.results.from;
+            this.store.lastPage = response.data.results.last_page;
+            this.store.totalRestaurants = response.data.results.total;
+          });
+      }
+    },
+  },
 };
 </script>
 <template>
   <section id="list-restaurant">
-    <div class="container">
+    <div class="container mb-4">
       <h1 class="text-center">I nostri ristoranti</h1>
 
       <div v-if="store.restaurants.length">
@@ -22,9 +74,25 @@ export default {
         </p>
         <p v-else class="text-center">
           La tua ricerca per categoria ti offre la scelta tra
-          {{ store.restaurants.length }} dei nostri migliori ristoranti
+          {{ store.totalRestaurants }} dei nostri migliori ristoranti
         </p>
-
+        <!-- navbar -->
+        <nav class="d-flex justify-content-center my-4">
+          <ul class="pagination">
+            <li class="page-item" @click="previousPage">
+              <div class="page-link">
+                << </div>
+            </li>
+            <li class="page-item" v-for="n in store.lastPage" @click="getPage(n)">
+              <div class="page-link" :class="store.currentPage === n ? 'active-page' : ''">
+                {{ n }}
+              </div>
+            </li>
+            <li class="page-item" @click="nextPage">
+              <div class="page-link">>></div>
+            </li>
+          </ul>
+        </nav>
         <!-- Restaurant Cards -->
         <div class="row justify-content-center">
           <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
@@ -58,12 +126,13 @@ export default {
       <p class="text-center" v-else>
         La tua ricerca nelle nostre categorie non ha prodotto risultati
       </p>
+
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 #list-restaurant {
   padding: $size_48 0;
@@ -72,7 +141,7 @@ export default {
 
   h1 {
     color: $custom-secondary;
-    font-family: 'Bevan', serif;
+    font-family: "Bevan", serif;
     padding: $size_48 0 0;
   }
 
@@ -112,7 +181,7 @@ export default {
 
       h6 {
         color: $custom-white;
-        font-family: 'Bevan', serif;
+        font-family: "Bevan", serif;
         background-color: $custom-primary;
         padding: $size_8 0;
       }
@@ -127,38 +196,18 @@ export default {
   a {
     text-decoration: none;
     color: $custom-white;
-    font-family: 'Bevan', serif;
+    font-family: "Bevan", serif;
   }
 }
 
-// @media screen and (max-width: 1200px) {
-//   #list-restaurant {
-//     .card-restaurant {
-//       width: calc((100% - 80px) / 4);
-//     }
-//   }
-// }
-// @media screen and (max-width: 992px) {
-//   #list-restaurant {
-//     .card-restaurant {
-//       width: calc((100% - 60px) / 3);
-//     }
-//   }
-// }
-// @media screen and (max-width: 768px) {
-//   #list-restaurant {
-//     .card-restaurant {
-//       width: calc((100% - 40px) / 2);
-//     }
-//   }
-// }
-// @media screen and (max-width: 576px) {
-//   #list-restaurant {
-//     .card-restaurant {
-//       width: calc((100% - 20px) / 1);
-//     }
-//   }
-// }
+.active-page {
+  color: $custom-white;
+  background-color: $custom-primary;
+}
+
+.pagination li {
+  cursor: pointer;
+}
 
 .grow-in-enter-active {
   transition: transform 0.5s ease-in-out;

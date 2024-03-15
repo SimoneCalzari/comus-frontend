@@ -1,7 +1,7 @@
 <script>
-import AppPageLoader from './AppPageLoader.vue';
-import store from '../store';
-import axios from 'axios';
+import AppPageLoader from "./AppPageLoader.vue";
+import store from "../store";
+import axios from "axios";
 
 export default {
   data() {
@@ -45,14 +45,21 @@ export default {
       axios
         .get(
           this.store.api.baseUrl +
-
             this.store.api.apiUrls.restaurants +
-            '/search/' +
-            types_search
-
+            "/search/" +
+            types_search,
+          {
+            params: {
+              page: this.store.currentPage,
+            },
+          }
         )
         .then((response) => {
-          this.store.restaurants = response.data.results;
+          this.store.restaurants = response.data.results.data;
+          this.store.restaurants = response.data.results.data;
+          this.store.firstPage = response.data.results.from;
+          this.store.lastPage = response.data.results.last_page;
+          this.store.totalRestaurants = response.data.results.total;
           if (!response.data.success) {
             this.getRestaurants();
           }
@@ -63,38 +70,54 @@ export default {
     },
     getRestaurants() {
       axios
-        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants, {
+          params: {
+            page: this.store.currentPage,
+          },
+        })
         .then((response) => {
-          this.store.restaurants = response.data.results;
+          this.store.restaurants = response.data.results.data;
+          this.store.firstPage = response.data.results.from;
+          this.store.lastPage = response.data.results.last_page;
+          this.store.totalRestaurants = response.data.results.total;
         });
     },
-    // clearRestaurants() {
-    //   axios
-    //     .get(this.store.api.baseUrl + this.store.api.apiUrls.restaurants)
-    //     .then((response) => {
-    //       this.store.restaurants = response.data.results;
-    //     });
-    //   this.store.typesSearched = [];
-    // },
   },
 };
 </script>
 <template>
   <section id="jumbotron">
-    <h2 class="text-light text-center  ">Seleziona uno o più categorie</h2>
+    <h2 class="text-center">
+      Scegli la tua categoria ristorante e delizia il tuo palato
+    </h2>
+
     <AppPageLoader v-if="isLoading" />
-    <div v-else class="container-md d-flex align-items-center flex-wrap justify-content-center">
-       
+
+    <div v-else class="container-md d-flex flex-wrap justify-content-center">
+      <div class="container text-center">
+        <div class="text-white mb-4">
+          <a href="#list-restaurant" class="text-decoration-none custom-btn"
+            >Vai ai ristoranti</a
+          >
+        </div>
+      </div>
+
       <div
         class="card-type"
         v-for="element in store.types"
         @click.stop="searchRestaurants(element.id)"
       >
-
         <!-- image -->
 
-        <div class="card-img" :class="store.typesSearched.includes(element.id) ? 'active' : ''">
-          <img :src="`${store.api.baseUrl}/storage/${element.image}`" class="card-img-top" alt="..." />
+        <div
+          class="card-img"
+          :class="store.typesSearched.includes(element.id) ? 'active' : ''"
+        >
+          <img
+            :src="`${store.api.baseUrl}/storage/${element.image}`"
+            class="card-img-top"
+            alt="..."
+          />
         </div>
 
         <!-- info -->
@@ -102,28 +125,39 @@ export default {
           <h6 class="text-center">{{ element.name_type }}</h6>
         </div>
       </div>
-      <div class="container text-center">
-        <div v-show="store.typesSearched.length" class="cont-btn">
-          <a href="#list-restaurant" class="text-decoration-none custom-btn"
+
+      <!-- <div class="container text-center">
+        <div v-show="store.typesSearched.length" class="text-white">
+          <a href="#list-restaurant" class="text-decoration-none"
+
             >vai ai ristoranti</a
           >
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 #jumbotron {
   background-color: $custom-secondary;
   padding: $size_48 0;
-
+  h2 {
+    margin: $size_40 0;
+    color: $custom-white;
+  }
   .card-type {
     width: calc((100% - 12vw) / 6);
     margin: 1vw;
     cursor: pointer;
+
+    &:hover .card-img img {
+      transform: scale(1.1);
+      transition: transform 0.6s ease-in-out;
+      z-index: -1;
+    }
 
     .card-img {
       aspect-ratio: 1/1;
@@ -136,11 +170,13 @@ export default {
         object-fit: cover;
         display: block;
 
+
         &:hover {
           transform: scale(1.1);
           transition: all 0.6s ease-in-out;
           z-index: -1;
         }
+
       }
     }
     .cont-btn {
