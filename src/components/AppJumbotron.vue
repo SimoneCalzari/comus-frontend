@@ -79,10 +79,12 @@ export default {
 <template>
   <section id="jumbotron">
 
+
     <h2 class="text-center ">Scegli la tua categoria ristorante e delizia il tuo palato </h2>
 
     <AppPageLoader v-if="isLoading" />
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
+
       <div class="container text-center">
         <div v-show="store.typesSearched.length" class="text-white">
           <a href="#list-restaurant" class="text-decoration-none"
@@ -139,6 +141,12 @@ export default {
     margin: 1vw;
     cursor: pointer;
 
+    &:hover .card-img img {
+      transform: scale(1.1);
+      transition: transform 0.6s ease-in-out;
+      z-index: -1;
+    }
+
     .card-img {
       aspect-ratio: 1/1;
       overflow: hidden;
@@ -149,12 +157,6 @@ export default {
         height: 100%;
         object-fit: cover;
         display: block;
-
-        &:hover {
-          transform: scale(1.1);
-          transition: transform 0.6s ease-in-out;
-          z-index: -1;
-        }
       }
     }
 

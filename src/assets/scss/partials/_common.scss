@@ -13,3 +13,15 @@
   }
 }
 
+.custom-btn-2 {
+  padding: $size-16;
+  background-color: $custom_secondary;
+  border-radius: $size-16;
+  color: $custom_white;
+  border: 0px;
+  transition: all 0.6s ease-in-out; //ovunque
+
+  &:hover {
+    background-color: $custom-light;
+  }
+}
