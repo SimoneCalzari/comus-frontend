@@ -207,6 +207,9 @@ export default {
 
 .pagination li {
   cursor: pointer;
+  .page-link{
+    color: $custom-secondary;
+  }
 }
 
 .grow-in-enter-active {
