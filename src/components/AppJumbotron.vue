@@ -1,7 +1,7 @@
 <script>
-import AppPageLoader from "./AppPageLoader.vue";
-import store from "../store";
-import axios from "axios";
+import AppPageLoader from './AppPageLoader.vue';
+import store from '../store';
+import axios from 'axios';
 
 export default {
   data() {
@@ -46,7 +46,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/search/" +
+            '/search/' +
             types_search,
           {
             params: {
@@ -136,10 +136,12 @@ export default {
       </div> -->
     </div>
   </section>
+  <!-- Wave -->
+  <div class="wave"></div>
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 #jumbotron {
   background-color: $custom-secondary;
@@ -224,5 +226,12 @@ export default {
       width: calc((100% - 16vw) / 2);
     }
   }
+}
+
+.wave {
+  background-image: url(img/wave-dark.svg);
+  background-size: cover;
+  height: 100px;
+  transform: scale(1, -1);
 }
 </style>
