@@ -15,9 +15,9 @@ export default {
     >
       <!-- scarica testo e apps -->
       <!-- illustrazione scarica -->
-      <div class="phone col-md-6 col-12 order-md-first order-last">
+      <!-- <div class="phone col-md-6 col-12 order-md-first order-last">
         <img src="/img/phone-download.png" class="phone-download" />
-      </div>
+      </div> -->
       <!-- illustrazione scarica -->
       <div
         class="card-download col-md-6 col-12 order-first order-md-last d-flex justify-content-center flex-column"
@@ -25,7 +25,7 @@ export default {
         <h2>Scarica l'app</h2>
         <p>
           Fai il tuo ordine ovunque tu sia, in qualsiasi istante tu abbia
-          voglia!
+          voglia di qualcosa di buono.
         </p>
 
         <div class="d-flex gap-2 justify-content-center">
@@ -54,6 +54,7 @@ export default {
   background-color: $custom-light;
   background-image: url('/img/table.jpg');
   background-size: cover;
+  padding: $size_48;
 
   .box-download {
     padding: $size_40;

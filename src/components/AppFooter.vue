@@ -122,7 +122,7 @@ a {
   color: $custom_white;
 
   &:hover {
-    color: $custom-light;
+    color: $custom-secondary;
     transition: 0.6s ease-in-out;
   }
 }
@@ -153,7 +153,7 @@ footer {
       font-size: $size_24;
 
       &:hover {
-        color: $custom-light;
+        color: $custom-secondary;
         transition: 0.6s ease-in-out;
       }
 

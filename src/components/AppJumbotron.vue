@@ -92,6 +92,7 @@ export default {
     </h2>
 
     <AppPageLoader v-if="isLoading" />
+
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
       <div class="container text-center">
         <div class="text-white mb-4">
@@ -100,6 +101,7 @@ export default {
           >
         </div>
       </div>
+
       <div
         class="card-type"
         v-for="element in store.types"
@@ -123,9 +125,11 @@ export default {
           <h6 class="text-center">{{ element.name_type }}</h6>
         </div>
       </div>
+
       <!-- <div class="container text-center">
         <div v-show="store.typesSearched.length" class="text-white">
           <a href="#list-restaurant" class="text-decoration-none"
+
             >vai ai ristoranti</a
           >
         </div>
@@ -165,13 +169,24 @@ export default {
         height: 100%;
         object-fit: cover;
         display: block;
+
+
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.6s ease-in-out;
+          z-index: -1;
+        }
+
       }
     }
-
+    .cont-btn {
+          margin: $size_48 0;
+        }
     .active {
-      border: 5px solid $custom-primary;
+      border: 5px solid $custom-secondary;
     }
 
+      }
     .card-info {
       h6 {
         color: $custom-white;
@@ -179,7 +194,11 @@ export default {
         border-radius: $size_32;
         padding: $size_8 0;
         margin-top: $size_8;
-      }
+
+        &:hover {
+          background-color: $custom-light;
+          transition: all 0.6s ease-in-out;
+        }
     }
   }
 

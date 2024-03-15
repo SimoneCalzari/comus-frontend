@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <div class="card-dish d-flex flex-column align-items-center border border-danger">
+  <div class="card-dish d-flex flex-column align-items-center">
     <!-- img -->
     <div class="cont-img">
       <img :src="`${store.api.baseUrl}/storage/${dish_new.img}`" :alt="dish_new.name" />
@@ -64,7 +64,7 @@ export default {
   overflow: hidden;
   height: 100%;
   border-radius: $size_32;
-  border: 1px solid lightgrey;
+  border: 1px solid $custom-primary;
 
   &:hover img {
     transform: scale(1.1);
