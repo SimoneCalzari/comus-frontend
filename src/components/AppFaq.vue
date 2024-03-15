@@ -147,11 +147,14 @@ export default {
 #custom-faq {
   padding: $size-48 0;
 
+  .accordion-button[data-v-fee35ff3]:not(.collapsed) {
+    color: $custom-primary;
+  }
+
   .accordion {
     --bs-accordion-bg: $custom-white;
     --bs-accordion-active-bg: $custom-light;
     --bs-accordion-btn-focus-box-shadow: $custom-primary;
-    
   }
 
   .faq-title {
