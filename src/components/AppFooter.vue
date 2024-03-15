@@ -21,6 +21,8 @@ export default {
 </script>
 
 <template>
+  <!-- Wave -->
+  <div class="wave"></div>
   <footer>
     <!--lista menu footer: sinistra, centro, destra-->
     <div id="footer-top" class="justify-content-center">
@@ -129,6 +131,12 @@ a {
 
 li {
   padding: $size-8 0;
+}
+
+.wave {
+  background-image: url(img/wave-orange.svg);
+  background-size: cover;
+  height: 100px;
 }
 
 footer {
