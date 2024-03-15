@@ -122,25 +122,29 @@ export default {
   <!-- jumbotron -->
   <div class="jumbotron">
     <div class="container">
-      <div class="info-restaurant d-flex gap-5">
-        <!-- img -->
-        <div class="cont-img m-2" v-if="restaurant">
-          <img
-            :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
-            alt="piatto"
-          />
+      <div class="info-restaurant row">
+        <div class="col-5 border">
+          <!-- img -->
+          <div class="cont-img m-2" v-if="restaurant">
+            <img
+              :src="`${store.api.baseUrl}/storage/${restaurant.restaurant.img}`"
+              alt="piatto"
+            />
+          </div>
         </div>
 
-        <!-- restaurant info -->
-        <div class="info-restaurant">
-          <h1 v-if="restaurant">
-            {{ restaurant.restaurant.name_restaurant }}
-          </h1>
+        <div class="col-7 border border-warning">
+          <!-- restaurant info -->
+          <div class="info-restaurant">
+            <h1 v-if="restaurant">
+              {{ restaurant.restaurant.name_restaurant }}
+            </h1>
 
-          <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
-          <h5 v-if="restaurant">
-            {{ restaurant.restaurant.phone_number }}
-          </h5>
+            <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
+            <h5 v-if="restaurant">
+              {{ restaurant.restaurant.phone_number }}
+            </h5>
+          </div>
         </div>
       </div>
     </div>
@@ -262,7 +266,6 @@ export default {
   background-color: $custom-secondary;
 
   .cont-img {
-    width: 40%;
     border-radius: 30px;
     overflow: hidden;
 
