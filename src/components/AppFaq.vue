@@ -149,6 +149,9 @@ export default {
 
   .accordion {
     --bs-accordion-bg: $custom-white;
+    --bs-accordion-active-bg: $custom-light;
+    --bs-accordion-btn-focus-box-shadow: $custom-primary;
+    
   }
 
   .faq-title {
