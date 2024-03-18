@@ -33,7 +33,7 @@ export default {
 
 //rendere il
 .thank-you {
-  padding: 150px 0;
+  padding: 180px 0;
 
   h2 {
     padding-bottom: $size_32;

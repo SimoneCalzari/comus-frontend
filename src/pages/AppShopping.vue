@@ -196,7 +196,7 @@ export default {
           </div>
         </div>
       </div>
-      <div v-else class="text-center py-5 mb-5">
+      <div v-else class="text-center bordino">
         <h4 class="my-5">Il tuo carrello è vuoto</h4>
         <router-link
           :to="{ name: 'home' }"
@@ -232,5 +232,8 @@ button {
   color: $custom-primary;
   width: 4rem;
   height: 4rem;
+}
+.bordino{
+ padding: 120px 0;
 }
 </style>
