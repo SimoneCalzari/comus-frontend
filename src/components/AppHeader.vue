@@ -55,7 +55,6 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
 @import '../assets/scss/partials/variables.scss';
 
 header {
@@ -63,8 +62,6 @@ header {
   padding: $size_24 $size_16;
 
   .custom-logo {
-    width: 150px;
-
     img {
       width: 100%;
     }
@@ -118,7 +115,6 @@ header {
   }
 }
 @media screen and (max-width: 575px) {
-
   .navbar {
     display: flex;
     flex-direction: column;
@@ -127,24 +123,24 @@ header {
     margin: 0 auto;
 
     img {
-      width:  180px !important;
+      width: 180px !important;
     }
   }
-  .custom-links{
+  .custom-links {
     width: 100%;
   }
 
-  ul{
+  ul {
     display: flex;
     justify-content: space-between;
 
-    li{
+    li {
       margin: 5px 10px;
     }
 
-    i{
+    i {
       display: flex;
-      justify-content:center ;
+      justify-content: center;
       align-items: center;
       width: 80px;
       height: 40px;
