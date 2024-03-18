@@ -1,9 +1,9 @@
 <script>
-import AppPayment from '../components/AppPayment.vue';
-import store from '../store';
-import axios from 'axios';
+import AppPayment from "../components/AppPayment.vue";
+import store from "../store";
+import axios from "axios";
 export default {
-  name: 'AppCart',
+  name: "AppCart",
   data() {
     return {
       store,
@@ -38,13 +38,13 @@ export default {
             console.log(response);
             if (response.data.status) {
               this.$router.push({
-                name: 'confirmOrder',
+                name: "confirmOrder",
               });
               this.store.cart = [];
-              localStorage.setItem('dishes', JSON.stringify(this.store.cart));
+              localStorage.setItem("dishes", JSON.stringify(this.store.cart));
             } else {
               this.$router.push({
-                name: 'NotFound',
+                name: "NotFound",
               });
             }
             this.isOrderConfirmed = false;
@@ -55,7 +55,7 @@ export default {
             this.isSubmitting = false;
           });
       } else {
-        this.errorCard = 'Metodo di pagamento obbligatorio';
+        this.errorCard = "Metodo di pagamento obbligatorio";
         this.isSubmitting = false;
       }
     },
@@ -196,8 +196,8 @@ export default {
           </div>
         </div>
       </div>
-      <div v-else class="text-center py-5">
-        <h4 class="mb-5">Il tuo carrello è vuoto</h4>
+      <div v-else class="text-center py-5 mb-5">
+        <h4 class="my-5">Il tuo carrello è vuoto</h4>
         <router-link
           :to="{ name: 'home' }"
           class="custom-btn text-decoration-none"
@@ -210,7 +210,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 button {
   width: 100px;

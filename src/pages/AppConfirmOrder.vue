@@ -1,9 +1,9 @@
 <script>
-import store from '../store';
-import axios from 'axios';
+import store from "../store";
+import axios from "axios";
 
 export default {
-  name: 'AppConfirmOrder',
+  name: "AppConfirmOrder",
   data() {
     return {
       store,
@@ -29,11 +29,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/scss/partials/variables.scss';
+@import "../assets/scss/partials/variables.scss";
 
 //rendere il
 .thank-you {
-  padding: 100px 0;
+  padding: 150px 0;
 
   h2 {
     padding-bottom: $size_32;
