@@ -94,7 +94,7 @@ export default {
     <AppPageLoader v-if="isLoading" />
 
     <div v-else class="container-md d-flex flex-wrap justify-content-center">
-      <div class="container text-center py-4">
+      <div class="container text-center box-btn">
         <a href="#list-restaurant" class="text-decoration-none custom-btn"
           >Vai ai ristoranti</a
         >
@@ -144,6 +144,9 @@ export default {
 #jumbotron {
   background-color: $custom-secondary;
 
+.box-btn {
+  padding: $size_48 0;
+}
   h2 {
     color: $custom-white;
     width: 80%;
@@ -154,6 +157,7 @@ export default {
     width: calc((100% - 12vw) / 6);
     margin: 1vw;
     cursor: pointer;
+
 
     &:hover .card-img img {
       transform: scale(1.1);

@@ -28,7 +28,7 @@ export default {
 <template>
   <div class="floating-cart position-sticky p-0 my-5">
     <div class="p-3">
-      <h3>Il Tuo carrello:</h3>
+      <h3>Il tuo carrello:</h3>
       <p v-show="!store.cart.length">
         Attualmente non ci sono prodotti nel carrello.
       </p>
@@ -54,19 +54,19 @@ export default {
         </li>
       </ul>
 
-      <div class="cart-bottom d-flex justify-content-end gap-4">
+      <div class="cart-bottom d-flex flex-sm-column flex-md-row justify-content-end gap-2">
         <button
-          class="btn-empty secondary"
+          class="btn-empty secondary text-center"
           @click="emptyCart"
           v-show="store.cart.length"
         >
           Svuota
         </button>
         <router-link
-          class="btn-order primary me-3 text-decoration-none"
+          class="btn-order primary text-decoration-none text-center"
           :to="{ name: 'cart' }"
           v-show="store.cart.length"
-          >Vai all'ordine</router-link
+          >Conferma</router-link
         >
       </div>
     </div>

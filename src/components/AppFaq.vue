@@ -146,7 +146,6 @@ export default {
 
 #custom-faq {
   padding: $size-48 0;
-
   .accordion-button[data-v-fee35ff3]:not(.collapsed) {
     color: $custom-primary;
   }
@@ -162,9 +161,6 @@ export default {
     .accordion-item:last-child{
       border-bottom: 0px solid  $custom-primary !important;
     }
-    
-    
-
   }
 
   .faq-title {
@@ -182,6 +178,11 @@ export default {
     font-family: 'Syne', sans-serif;
     font-weight: 400;
     font-style: normal;
+    color: $custom-secondary; 
+
+    &:hover {
+      color: $custom-primary;
+    }
   }
 }
 </style>

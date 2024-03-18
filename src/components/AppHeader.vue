@@ -29,7 +29,7 @@ export default {
     <nav class="navbar d-flex align-item-center justify-content-between">
       <div class="custom-logo">
         <router-link :to="{ name: 'home' }">
-          <img src="/img/logo/logo-orange-light.svg" alt="logo" />
+          <img src="/img/logo/logo-orange-light.svg" alt="logo-comus" />
         </router-link>
       </div>
 
@@ -62,6 +62,8 @@ header {
   padding: $size_24 $size_16;
 
   .custom-logo {
+    max-width: 120px;
+
     img {
       width: 100%;
     }
@@ -121,10 +123,6 @@ header {
   }
   .custom-logo {
     margin: 0 auto;
-
-    img {
-      width: 180px !important;
-    }
   }
   .custom-links {
     width: 100%;

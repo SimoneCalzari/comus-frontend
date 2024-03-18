@@ -114,16 +114,13 @@ export default {
 }
 
 .dish-btn {
-  line-height: $size-24;
+  line-height: $size-32;
   text-align: center;
-  height: $size-24;
-  width: $size-24;
+  height: $size-32;
+  width: $size-32;
   background-color: $custom-secondary;
   color: $custom_white;
   border-radius: 50%;
 
-  &:hover {
-    background-color: #38242c;
-  }
 }
 </style>

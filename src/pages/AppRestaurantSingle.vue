@@ -140,9 +140,11 @@ export default {
               {{ restaurant.restaurant.name_restaurant }}
             </h1>
 
-            <h5 v-if="restaurant">{{ restaurant.restaurant.address }}</h5>
             <h5 v-if="restaurant">
-              {{ restaurant.restaurant.phone_number }}
+              <i class="fa-solid fa-location-dot"></i>  {{ restaurant.restaurant.address }}
+            </h5>
+            <h5 v-if="restaurant">
+              <i class="fa-solid fa-phone"></i> {{ restaurant.restaurant.phone_number }}
             </h5>
           </div>
         </div>
@@ -285,14 +287,14 @@ export default {
 
     h5 {
       color: $custom_white;
+      i {
+        font-size: $size_16;
+      }
     }
   }
 }
 
 .menu {
-  // border-radius: 10px 10px 10px 50px;
-  // padding: $size_16;
-  // margin-top: $size_8;
   background-color: $custom_light;
 }
 

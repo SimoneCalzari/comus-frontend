@@ -106,7 +106,7 @@ export default {
     <!--lista menu footer: sinistra, centro, destra-->
     <!-- copyright -->
     <div id="footer-bottom">
-      <p class="m-0 mt-3 text-center fs-6 text-body-secondary">
+      <p class="m-0 mt-3 text-center fs-6">
         Copyright © 2024 Comus Italia. All Rights Reserved.
       </p>
     </div>
