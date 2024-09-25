@@ -1,9 +1,9 @@
 <script>
-import AppPayment from "../components/AppPayment.vue";
-import store from "../store";
-import axios from "axios";
+import AppPayment from '../components/AppPayment.vue';
+import store from '../store';
+import axios from 'axios';
 export default {
-  name: "AppCart",
+  name: 'AppCart',
   data() {
     return {
       store,
@@ -38,13 +38,13 @@ export default {
             console.log(response);
             if (response.data.status) {
               this.$router.push({
-                name: "confirmOrder",
+                name: 'confirmOrder',
               });
               this.store.cart = [];
-              localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+              localStorage.setItem('dishes', JSON.stringify(this.store.cart));
             } else {
               this.$router.push({
-                name: "NotFound",
+                name: 'NotFound',
               });
             }
             this.isOrderConfirmed = false;
@@ -55,7 +55,7 @@ export default {
             this.isSubmitting = false;
           });
       } else {
-        this.errorCard = "Metodo di pagamento obbligatorio";
+        this.errorCard = 'Metodo di pagamento obbligatorio';
         this.isSubmitting = false;
       }
     },
@@ -67,14 +67,26 @@ export default {
       return total;
     },
     getRestaurant() {
-      // prendo dal carrello l'id del ristorante da cui sto comprando
-      const restaurantId = this.store.cart[0].restaurant_id;
-      // tra i ristoranti cerco quello corrente
-      const currentRestaurant = this.store.restaurants.find((restaurant) => {
-        return restaurant.id === restaurantId;
-      });
-      // restituisco lo slug del ristorante da cui stavo cercando e il nome
-      return [currentRestaurant.slug, currentRestaurant.name_restaurant];
+      // Check if the cart has at least one item
+      if (this.store.cart.length > 0) {
+        const restaurantId = this.store.cart[0].restaurant_id;
+
+        // Check if restaurantId is valid
+        if (restaurantId) {
+          // Find the restaurant by its ID
+          const currentRestaurant = this.store.restaurants.find(
+            (restaurant) => restaurant.id === restaurantId
+          );
+
+          // Check if the restaurant exists
+          if (currentRestaurant) {
+            return [currentRestaurant.slug, currentRestaurant.name_restaurant];
+          }
+        }
+      }
+
+      // Return default values or fallback
+      return ['default-slug', 'Ristorante Sconosciuto'];
     },
   },
   components: {
@@ -210,7 +222,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 button {
   width: 100px;
@@ -233,7 +245,7 @@ button {
   width: 4rem;
   height: 4rem;
 }
-.bordino{
- padding: 120px 0;
+.bordino {
+  padding: 120px 0;
 }
 </style>

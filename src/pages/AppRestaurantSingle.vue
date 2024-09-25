@@ -1,19 +1,19 @@
 <script>
-import axios from "axios";
-import store from "../store";
-import AppCart from "../components/AppCart.vue";
-import AppDish from "../components/AppDish.vue";
-import AppPageLoader from "../components/AppPageLoader.vue";
+import axios from 'axios';
+import store from '../store';
+import AppCart from '../components/AppCart.vue';
+import AppDish from '../components/AppDish.vue';
+import AppPageLoader from '../components/AppPageLoader.vue';
 
 export default {
-  name: "AppRestaurantSingle",
+  name: 'AppRestaurantSingle',
   components: { AppDish, AppCart, AppPageLoader },
   data() {
     return {
       store,
-      restaurant: "",
+      restaurant: '',
       modalOn: false,
-      currentModal: "",
+      currentModal: '',
       isLoading: true,
     };
   },
@@ -29,7 +29,7 @@ export default {
         .get(
           this.store.api.baseUrl +
             this.store.api.apiUrls.restaurants +
-            "/" +
+            '/' +
             this.$route.params.slug
         )
         .catch((error) => {
@@ -38,6 +38,7 @@ export default {
         .then((response) => {
           this.restaurant = response.data.results;
           this.isLoading = false;
+          console.log('restaurant', this.restaurant);
         });
     },
     removeToCart(dish) {
@@ -55,7 +56,7 @@ export default {
           );
         }
         // Aggiorna il carrello nel local storage
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+        localStorage.setItem('dishes', JSON.stringify(this.store.cart));
       }
     },
     addToCart(dish) {
@@ -81,7 +82,7 @@ export default {
         // pusho la copia piatto nel carrello store
         this.store.cart.push(dishWithQuantity);
         // metto il carrello store TUTTO nel local storage alla key 'dishes'
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+        localStorage.setItem('dishes', JSON.stringify(this.store.cart));
         return;
       }
       // se arrivo qua il carrello non è vuoto e devo verificare se ho già il piatto passato alla funzione nel carrello
@@ -99,14 +100,14 @@ export default {
         // pusho la copia piatto nel carrello store
         this.store.cart.push(dishWithQuantity);
         // metto il carrello store TUTTO nel local storage alla key 'dishes'
-        localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+        localStorage.setItem('dishes', JSON.stringify(this.store.cart));
         return;
       }
       // se il piatto è già nel carrello store devo trovarlo e aumentare la sua quantità di uno
       for (let i = 0; i < this.store.cart.length; i++) {
         if (dish.id === this.store.cart[i].id) {
           this.store.cart[i].quantity++;
-          localStorage.setItem("dishes", JSON.stringify(this.store.cart));
+          localStorage.setItem('dishes', JSON.stringify(this.store.cart));
           return;
         }
       }
@@ -141,10 +142,12 @@ export default {
             </h1>
 
             <h5 v-if="restaurant">
-              <i class="fa-solid fa-location-dot"></i>  {{ restaurant.restaurant.address }}
+              <i class="fa-solid fa-location-dot"></i>
+              {{ restaurant.restaurant.address }}
             </h5>
             <h5 v-if="restaurant">
-              <i class="fa-solid fa-phone"></i> {{ restaurant.restaurant.phone_number }}
+              <i class="fa-solid fa-phone"></i>
+              {{ restaurant.restaurant.phone_number }}
             </h5>
           </div>
         </div>
@@ -262,7 +265,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
 
 .jumbotron {
   background-color: $custom-secondary;
