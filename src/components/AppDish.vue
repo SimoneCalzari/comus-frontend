@@ -1,8 +1,8 @@
 <script>
-import store from "../store";
+import store from '../store';
 
 export default {
-  name: "AppDish",
+  name: 'AppDish',
   data() {
     return {
       store,
@@ -21,19 +21,26 @@ export default {
       }
     },
   },
-  emits: ["newItem", "removeItem"],
-  props: ["dish_new"],
+  emits: ['newItem', 'removeItem'],
+  props: ['dish_new'],
 };
 </script>
 
 <template>
-  <div class="card-dish d-flex flex-column align-items-center">
+  <div
+    :class="[
+      'card-dish d-flex flex-column align-items-center',
+      { 'not-available': dish_new.is_visible === 0 },
+    ]"
+  >
     <!-- img -->
     <div class="cont-img">
       <img
         :src="`${store.api.baseUrl}/storage/${dish_new.img}`"
         :alt="dish_new.name"
+        v-if="dish_new.img != None"
       />
+      <img src="https://placehold.co/600x400" alt="dish_new.name" v-else />
     </div>
     <!-- name -->
     <div class="cont-text">
@@ -63,7 +70,13 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "../assets/scss/partials/variables.scss";
+@import '../assets/scss/partials/variables.scss';
+
+.not-available {
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #f5f5f5;
+}
 
 .card-dish {
   padding: 0;
@@ -97,7 +110,7 @@ export default {
 
     h6 {
       color: $custom-white;
-      font-family: "Bevan", serif;
+      font-family: 'Bevan', serif;
       background-color: $custom-primary;
       padding: $size_8 0;
     }
@@ -121,6 +134,5 @@ export default {
   background-color: $custom-secondary;
   color: $custom_white;
   border-radius: 50%;
-
 }
 </style>
